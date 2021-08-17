@@ -1,0 +1,557 @@
+2021-08-16T09:53:12.5684521Z ##[debug]Evaluating condition for step: 'Checkout WB-FactoryManager@dev to s'
+2021-08-16T09:53:12.5740472Z ##[debug]Evaluating: SucceededNode()
+2021-08-16T09:53:12.5748653Z ##[debug]Evaluating SucceededNode:
+2021-08-16T09:53:12.5812241Z ##[debug]=> True
+2021-08-16T09:53:12.5825654Z ##[debug]Result: True
+2021-08-16T09:53:12.5879709Z ##[section]Starting: Checkout WB-FactoryManager@dev to s
+2021-08-16T09:53:12.6115424Z ==============================================================================
+2021-08-16T09:53:12.6116010Z Task         : Get sources
+2021-08-16T09:53:12.6116491Z Description  : Get sources from a repository. Supports Git, TfsVC, and SVN repositories.
+2021-08-16T09:53:12.6116833Z Version      : 1.0.0
+2021-08-16T09:53:12.6117194Z Author       : Microsoft
+2021-08-16T09:53:12.6117982Z Help         : [More Information](https://go.microsoft.com/fwlink/?LinkId=798199)
+2021-08-16T09:53:12.6118402Z ==============================================================================
+2021-08-16T09:53:13.0295981Z ##[debug]Processed: ##vso[plugininternal.updaterepositorypath alias=self;]/home/vsts/work/1/s
+2021-08-16T09:53:13.0299111Z ##[debug]Repository requires to be placed at '/home/vsts/work/1/s', current location is '/home/vsts/work/1/s'
+2021-08-16T09:53:13.0564808Z Syncing repository: WB-FactoryManager (Git)
+2021-08-16T09:53:13.0586585Z ##[debug]repository url=https://abbrobotics.visualstudio.com/DigitalFactory/_git/WB-FactoryManager
+2021-08-16T09:53:13.0587865Z ##[debug]targetPath=/home/vsts/work/1/s
+2021-08-16T09:53:13.0589113Z ##[debug]sourceBranch=refs/heads/dev
+2021-08-16T09:53:13.0590027Z ##[debug]sourceVersion=61d5272d260933f736a27fd1506e5f6688f2205c
+2021-08-16T09:53:13.0590867Z ##[debug]clean=True
+2021-08-16T09:53:13.0591718Z ##[debug]checkoutSubmodules=False
+2021-08-16T09:53:13.0592539Z ##[debug]checkoutNestedSubmodules=False
+2021-08-16T09:53:13.0593392Z ##[debug]exposeCred=False
+2021-08-16T09:53:13.0594226Z ##[debug]fetchDepth=0
+2021-08-16T09:53:13.0595020Z ##[debug]gitLfsSupport=False
+2021-08-16T09:53:13.0595850Z ##[debug]acceptUntrustedCerts=False
+2021-08-16T09:53:13.0596656Z ##[debug]schannelSslBackend=False
+2021-08-16T09:53:13.0649185Z ##[debug]Which: 'git'
+2021-08-16T09:53:13.1483059Z ##[debug]Location: '{matches.First()}'
+2021-08-16T09:53:13.1484548Z ##[debug]Which: 'git-lfs'
+2021-08-16T09:53:13.1507974Z ##[debug]Location: '{matches.First()}'
+2021-08-16T09:53:13.1522402Z ##[debug]Get git version.
+2021-08-16T09:53:13.1573016Z ##[command]git version
+2021-08-16T09:53:13.1694900Z ##[debug]Starting process:
+2021-08-16T09:53:13.1696157Z ##[debug]  File name: '/usr/bin/git'
+2021-08-16T09:53:13.1696902Z ##[debug]  Arguments: 'version'
+2021-08-16T09:53:13.1697730Z ##[debug]  Working directory: '/home/vsts/work'
+2021-08-16T09:53:13.1698416Z ##[debug]  Require exit code zero: 'False'
+2021-08-16T09:53:13.1699154Z ##[debug]  Encoding web name:  ; code page: ''
+2021-08-16T09:53:13.1701391Z ##[debug]  Force kill process on cancellation: 'False'
+2021-08-16T09:53:13.1702361Z ##[debug]  Redirected STDIN: 'False'
+2021-08-16T09:53:13.1704686Z ##[debug]  Persist current code page: 'False'
+2021-08-16T09:53:13.1705474Z ##[debug]  Keep redirected STDIN open: 'False'
+2021-08-16T09:53:13.1706235Z ##[debug]  High priority process: 'False'
+2021-08-16T09:53:13.1800474Z ##[debug]Updated oom_score_adj to 500 for PID: 2108.
+2021-08-16T09:53:13.1847664Z ##[debug]Process started with process id 2108, waiting for process exit.
+2021-08-16T09:53:13.1898661Z ##[debug]STDOUT/STDERR stream read finished.
+2021-08-16T09:53:13.1990454Z ##[debug]STDOUT/STDERR stream read finished.
+2021-08-16T09:53:13.1997792Z ##[debug]Exited process 2108 with exit code 0
+2021-08-16T09:53:13.2000746Z ##[debug]Finished process 2108 with exit code 0, and elapsed time 00:00:00.0282193.
+2021-08-16T09:53:13.2054629Z git version 2.32.0
+2021-08-16T09:53:13.2066240Z ##[debug]Detect git version: 2.32.0.
+2021-08-16T09:53:13.2067817Z ##[debug]Get git-lfs version.
+2021-08-16T09:53:13.2068560Z ##[command]git lfs version
+2021-08-16T09:53:13.2069266Z ##[debug]Starting process:
+2021-08-16T09:53:13.2070705Z ##[debug]  File name: '/usr/bin/git'
+2021-08-16T09:53:13.2071720Z ##[debug]  Arguments: 'lfs version'
+2021-08-16T09:53:13.2072933Z ##[debug]  Working directory: '/home/vsts/work'
+2021-08-16T09:53:13.2073975Z ##[debug]  Require exit code zero: 'False'
+2021-08-16T09:53:13.2075107Z ##[debug]  Encoding web name:  ; code page: ''
+2021-08-16T09:53:13.2076093Z ##[debug]  Force kill process on cancellation: 'False'
+2021-08-16T09:53:13.2077060Z ##[debug]  Redirected STDIN: 'False'
+2021-08-16T09:53:13.2078008Z ##[debug]  Persist current code page: 'False'
+2021-08-16T09:53:13.2078984Z ##[debug]  Keep redirected STDIN open: 'False'
+2021-08-16T09:53:13.2079932Z ##[debug]  High priority process: 'False'
+2021-08-16T09:53:13.2099014Z ##[debug]Updated oom_score_adj to 500 for PID: 2111.
+2021-08-16T09:53:13.2104099Z ##[debug]Process started with process id 2111, waiting for process exit.
+2021-08-16T09:53:13.2787711Z ##[debug]STDOUT/STDERR stream read finished.
+2021-08-16T09:53:13.2847072Z ##[debug]Exited process 2111 with exit code 0
+2021-08-16T09:53:13.2848332Z ##[debug]STDOUT/STDERR stream read finished.
+2021-08-16T09:53:13.2849255Z ##[debug]Finished process 2111 with exit code 0, and elapsed time 00:00:00.0771379.
+2021-08-16T09:53:13.2850768Z git-lfs/2.13.3 (GitHub; linux amd64; go 1.16.2)
+2021-08-16T09:53:13.2851578Z ##[debug]Detect git-lfs version: '2.13.3'.
+2021-08-16T09:53:13.2852674Z ##[debug]Set git useragent to: git/2.32.0 (vsts-agent-git/2.190.0).
+2021-08-16T09:53:13.2855595Z ##[debug]Checking if the repo on /home/vsts/work/1/s matches the expected repository origin URL. expected Url: https://abbrobotics.visualstudio.com/DigitalFactory/_git/WB-FactoryManager
+2021-08-16T09:53:13.2856910Z ##[debug]Repository is not found since '.git' directory does not exist under. /home/vsts/work/1/s
+2021-08-16T09:53:13.3017720Z ##[debug]Init git repository at: /home/vsts/work/1/s.
+2021-08-16T09:53:13.3026722Z ##[command]git init "/home/vsts/work/1/s"
+2021-08-16T09:53:13.3027287Z ##[debug]Starting process:
+2021-08-16T09:53:13.3028430Z ##[debug]  File name: '/usr/bin/git'
+2021-08-16T09:53:13.3029177Z ##[debug]  Arguments: 'init "/home/vsts/work/1/s"'
+2021-08-16T09:53:13.3029965Z ##[debug]  Working directory: '/home/vsts/work/1/s'
+2021-08-16T09:53:13.3030945Z ##[debug]  Require exit code zero: 'False'
+2021-08-16T09:53:13.3034347Z ##[debug]  Encoding web name:  ; code page: ''
+2021-08-16T09:53:13.3035235Z ##[debug]  Force kill process on cancellation: 'False'
+2021-08-16T09:53:13.3035985Z ##[debug]  Redirected STDIN: 'False'
+2021-08-16T09:53:13.3036709Z ##[debug]  Persist current code page: 'False'
+2021-08-16T09:53:13.3037469Z ##[debug]  Keep redirected STDIN open: 'False'
+2021-08-16T09:53:13.3038200Z ##[debug]  High priority process: 'False'
+2021-08-16T09:53:13.3038899Z ##[debug]Updated oom_score_adj to 500 for PID: 2120.
+2021-08-16T09:53:13.3039577Z ##[debug]Process started with process id 2120, waiting for process exit.
+2021-08-16T09:53:13.3114899Z hint: Using 'master' as the name for the initial branch. This default branch name
+2021-08-16T09:53:13.3115579Z hint: is subject to change. To configure the initial branch name to use in all
+2021-08-16T09:53:13.3116103Z hint: of your new repositories, which will suppress this warning, call:
+2021-08-16T09:53:13.3116530Z hint: 
+2021-08-16T09:53:13.3117058Z hint: 	git config --global init.defaultBranch <name>
+2021-08-16T09:53:13.3117467Z hint: 
+2021-08-16T09:53:13.3118048Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2021-08-16T09:53:13.3119211Z hint: 'development'. The just-created branch can be renamed via this command:
+2021-08-16T09:53:13.3119655Z hint: 
+2021-08-16T09:53:13.3120085Z hint: 	git branch -m <name>
+2021-08-16T09:53:13.3120487Z Initialized empty Git repository in /home/vsts/work/1/s/.git/
+2021-08-16T09:53:13.3125833Z ##[debug]STDOUT/STDERR stream read finished.
+2021-08-16T09:53:13.3126490Z ##[debug]Exited process 2120 with exit code 0
+2021-08-16T09:53:13.3127116Z ##[debug]STDOUT/STDERR stream read finished.
+2021-08-16T09:53:13.3132266Z ##[debug]Finished process 2120 with exit code 0, and elapsed time 00:00:00.0098661.
+2021-08-16T09:53:13.3142535Z ##[debug]Add git remote: origin to url: https://abbrobotics.visualstudio.com/DigitalFactory/_git/WB-FactoryManager for repository under: /home/vsts/work/1/s.
+2021-08-16T09:53:13.3144305Z ##[command]git remote add origin https://abbrobotics.visualstudio.com/DigitalFactory/_git/WB-FactoryManager
+2021-08-16T09:53:13.3145257Z ##[debug]Starting process:
+2021-08-16T09:53:13.3146253Z ##[debug]  File name: '/usr/bin/git'
+2021-08-16T09:53:13.3147425Z ##[debug]  Arguments: 'remote add origin https://abbrobotics.visualstudio.com/DigitalFactory/_git/WB-FactoryManager'
+2021-08-16T09:53:13.3148598Z ##[debug]  Working directory: '/home/vsts/work/1/s'
+2021-08-16T09:53:13.3149632Z ##[debug]  Require exit code zero: 'False'
+2021-08-16T09:53:13.3150676Z ##[debug]  Encoding web name:  ; code page: ''
+2021-08-16T09:53:13.3151763Z ##[debug]  Force kill process on cancellation: 'False'
+2021-08-16T09:53:13.3152797Z ##[debug]  Redirected STDIN: 'False'
+2021-08-16T09:53:13.3153827Z ##[debug]  Persist current code page: 'False'
+2021-08-16T09:53:13.3154859Z ##[debug]  Keep redirected STDIN open: 'False'
+2021-08-16T09:53:13.3155914Z ##[debug]  High priority process: 'False'
+2021-08-16T09:53:13.3156889Z ##[debug]Updated oom_score_adj to 500 for PID: 2121.
+2021-08-16T09:53:13.3157845Z ##[debug]Process started with process id 2121, waiting for process exit.
+2021-08-16T09:53:13.3180155Z ##[debug]STDOUT/STDERR stream read finished.
+2021-08-16T09:53:13.3181204Z ##[debug]STDOUT/STDERR stream read finished.
+2021-08-16T09:53:13.3182639Z ##[debug]Exited process 2121 with exit code 0
+2021-08-16T09:53:13.3183654Z ##[debug]Finished process 2121 with exit code 0, and elapsed time 00:00:00.0039227.
+2021-08-16T09:53:13.3193887Z ##[debug]Processed: ##vso[task.setprogress value=0]Starting fetch...
+2021-08-16T09:53:13.3195261Z ##[debug]Disable git auto garbage collection.
+2021-08-16T09:53:13.3195963Z ##[command]git config gc.auto 0
+2021-08-16T09:53:13.3196834Z ##[debug]Starting process:
+2021-08-16T09:53:13.3197968Z ##[debug]  File name: '/usr/bin/git'
+2021-08-16T09:53:13.3198990Z ##[debug]  Arguments: 'config gc.auto 0'
+2021-08-16T09:53:13.3200039Z ##[debug]  Working directory: '/home/vsts/work/1/s'
+2021-08-16T09:53:13.3201079Z ##[debug]  Require exit code zero: 'False'
+2021-08-16T09:53:13.3202214Z ##[debug]  Encoding web name:  ; code page: ''
+2021-08-16T09:53:13.3203278Z ##[debug]  Force kill process on cancellation: 'False'
+2021-08-16T09:53:13.3204316Z ##[debug]  Redirected STDIN: 'False'
+2021-08-16T09:53:13.3205487Z ##[debug]  Persist current code page: 'False'
+2021-08-16T09:53:13.3206580Z ##[debug]  Keep redirected STDIN open: 'False'
+2021-08-16T09:53:13.3207646Z ##[debug]  High priority process: 'False'
+2021-08-16T09:53:13.3209726Z ##[debug]Updated oom_score_adj to 500 for PID: 2122.
+2021-08-16T09:53:13.3210650Z ##[debug]Process started with process id 2122, waiting for process exit.
+2021-08-16T09:53:13.3227600Z ##[debug]STDOUT/STDERR stream read finished.
+2021-08-16T09:53:13.3228549Z ##[debug]STDOUT/STDERR stream read finished.
+2021-08-16T09:53:13.3229973Z ##[debug]Exited process 2122 with exit code 0
+2021-08-16T09:53:13.3230915Z ##[debug]Finished process 2122 with exit code 0, and elapsed time 00:00:00.0034605.
+2021-08-16T09:53:13.3241915Z ##[debug]Checking git config http.https://abbrobotics.visualstudio.com/DigitalFactory/_git/WB-FactoryManager.extraheader exist or not
+2021-08-16T09:53:13.3243539Z ##[command]git config --get-all http.https://abbrobotics.visualstudio.com/DigitalFactory/_git/WB-FactoryManager.extraheader
+2021-08-16T09:53:13.3244414Z ##[debug]Starting process:
+2021-08-16T09:53:13.3245477Z ##[debug]  File name: '/usr/bin/git'
+2021-08-16T09:53:13.3246603Z ##[debug]  Arguments: 'config --get-all http.https://abbrobotics.visualstudio.com/DigitalFactory/_git/WB-FactoryManager.extraheader'
+2021-08-16T09:53:13.3247716Z ##[debug]  Working directory: '/home/vsts/work/1/s'
+2021-08-16T09:53:13.3248670Z ##[debug]  Require exit code zero: 'False'
+2021-08-16T09:53:13.3249814Z ##[debug]  Encoding web name:  ; code page: ''
+2021-08-16T09:53:13.3250776Z ##[debug]  Force kill process on cancellation: 'False'
+2021-08-16T09:53:13.3251833Z ##[debug]  Redirected STDIN: 'False'
+2021-08-16T09:53:13.3252763Z ##[debug]  Persist current code page: 'False'
+2021-08-16T09:53:13.3253699Z ##[debug]  Keep redirected STDIN open: 'False'
+2021-08-16T09:53:13.3254620Z ##[debug]  High priority process: 'False'
+2021-08-16T09:53:13.3255491Z ##[debug]Updated oom_score_adj to 500 for PID: 2123.
+2021-08-16T09:53:13.3256341Z ##[debug]Process started with process id 2123, waiting for process exit.
+2021-08-16T09:53:13.3270075Z ##[debug]STDOUT/STDERR stream read finished.
+2021-08-16T09:53:13.3271172Z ##[debug]STDOUT/STDERR stream read finished.
+2021-08-16T09:53:13.3272412Z ##[debug]Exited process 2123 with exit code 1
+2021-08-16T09:53:13.3273413Z ##[debug]Finished process 2123 with exit code 1, and elapsed time 00:00:00.0029852.
+2021-08-16T09:53:13.3276814Z ##[debug]Checking git config http.proxy exist or not
+2021-08-16T09:53:13.3278036Z ##[command]git config --get-all http.proxy
+2021-08-16T09:53:13.3278831Z ##[debug]Starting process:
+2021-08-16T09:53:13.3279821Z ##[debug]  File name: '/usr/bin/git'
+2021-08-16T09:53:13.3280850Z ##[debug]  Arguments: 'config --get-all http.proxy'
+2021-08-16T09:53:13.3281907Z ##[debug]  Working directory: '/home/vsts/work/1/s'
+2021-08-16T09:53:13.3282936Z ##[debug]  Require exit code zero: 'False'
+2021-08-16T09:53:13.3283974Z ##[debug]  Encoding web name:  ; code page: ''
+2021-08-16T09:53:13.3285030Z ##[debug]  Force kill process on cancellation: 'False'
+2021-08-16T09:53:13.3286497Z ##[debug]  Redirected STDIN: 'False'
+2021-08-16T09:53:13.3287537Z ##[debug]  Persist current code page: 'False'
+2021-08-16T09:53:13.3288574Z ##[debug]  Keep redirected STDIN open: 'False'
+2021-08-16T09:53:13.3289593Z ##[debug]  High priority process: 'False'
+2021-08-16T09:53:13.3290572Z ##[debug]Updated oom_score_adj to 500 for PID: 2124.
+2021-08-16T09:53:13.3291533Z ##[debug]Process started with process id 2124, waiting for process exit.
+2021-08-16T09:53:13.3297251Z ##[debug]STDOUT/STDERR stream read finished.
+2021-08-16T09:53:13.3298252Z ##[debug]STDOUT/STDERR stream read finished.
+2021-08-16T09:53:13.3299500Z ##[debug]Exited process 2124 with exit code 1
+2021-08-16T09:53:13.3300431Z ##[debug]Finished process 2124 with exit code 1, and elapsed time 00:00:00.0021476.
+2021-08-16T09:53:13.3307735Z ##[debug]Set git config http.version HTTP/1.1
+2021-08-16T09:53:13.3308663Z ##[command]git config http.version HTTP/1.1
+2021-08-16T09:53:13.3309419Z ##[debug]Starting process:
+2021-08-16T09:53:13.3310520Z ##[debug]  File name: '/usr/bin/git'
+2021-08-16T09:53:13.3311564Z ##[debug]  Arguments: 'config http.version HTTP/1.1'
+2021-08-16T09:53:13.3312621Z ##[debug]  Working directory: '/home/vsts/work/1/s'
+2021-08-16T09:53:13.3313724Z ##[debug]  Require exit code zero: 'False'
+2021-08-16T09:53:13.3315475Z ##[debug]  Encoding web name:  ; code page: ''
+2021-08-16T09:53:13.3316506Z ##[debug]  Force kill process on cancellation: 'False'
+2021-08-16T09:53:13.3317465Z ##[debug]  Redirected STDIN: 'False'
+2021-08-16T09:53:13.3318372Z ##[debug]  Persist current code page: 'False'
+2021-08-16T09:53:13.3319332Z ##[debug]  Keep redirected STDIN open: 'False'
+2021-08-16T09:53:13.3320255Z ##[debug]  High priority process: 'False'
+2021-08-16T09:53:13.3321122Z ##[debug]Updated oom_score_adj to 500 for PID: 2125.
+2021-08-16T09:53:13.3321969Z ##[debug]Process started with process id 2125, waiting for process exit.
+2021-08-16T09:53:13.3334014Z ##[debug]STDOUT/STDERR stream read finished.
+2021-08-16T09:53:13.3334980Z ##[debug]STDOUT/STDERR stream read finished.
+2021-08-16T09:53:13.3336534Z ##[debug]Exited process 2125 with exit code 0
+2021-08-16T09:53:13.3337468Z ##[debug]Finished process 2125 with exit code 0, and elapsed time 00:00:00.0027804.
+2021-08-16T09:53:13.3342471Z ##[debug]fetchDepth : 0
+2021-08-16T09:53:13.3343322Z ##[debug]fetchByCommit : True
+2021-08-16T09:53:13.3344160Z ##[debug]sourceVersion : 61d5272d260933f736a27fd1506e5f6688f2205c
+2021-08-16T09:53:13.3391546Z ##[debug]Fetch git repository at: /home/vsts/work/1/s remote: origin.
+2021-08-16T09:53:13.3416593Z ##[command]git -c http.extraheader="AUTHORIZATION: bearer ***" fetch --force --tags --prune --progress --no-recurse-submodules origin
+2021-08-16T09:53:13.3417524Z ##[debug]Starting process:
+2021-08-16T09:53:13.3418297Z ##[debug]  File name: '/usr/bin/git'
+2021-08-16T09:53:13.3421277Z ##[debug]  Arguments: '-c http.extraheader="AUTHORIZATION: bearer ***" fetch --force --tags --prune --progress --no-recurse-submodules origin'
+2021-08-16T09:53:13.3422195Z ##[debug]  Working directory: '/home/vsts/work/1/s'
+2021-08-16T09:53:13.3422889Z ##[debug]  Require exit code zero: 'False'
+2021-08-16T09:53:13.3423582Z ##[debug]  Encoding web name:  ; code page: ''
+2021-08-16T09:53:13.3424291Z ##[debug]  Force kill process on cancellation: 'False'
+2021-08-16T09:53:13.3424976Z ##[debug]  Redirected STDIN: 'False'
+2021-08-16T09:53:13.3425639Z ##[debug]  Persist current code page: 'False'
+2021-08-16T09:53:13.3426357Z ##[debug]  Keep redirected STDIN open: 'False'
+2021-08-16T09:53:13.3427251Z ##[debug]  High priority process: 'False'
+2021-08-16T09:53:13.3428339Z ##[debug]Updated oom_score_adj to 500 for PID: 2126.
+2021-08-16T09:53:13.3429205Z ##[debug]Process started with process id 2126, waiting for process exit.
+2021-08-16T09:53:14.3024151Z remote: Azure Repos        
+2021-08-16T09:53:14.3054323Z remote: 
+2021-08-16T09:53:14.3055471Z remote: Found 13228 objects to send. (355 ms)        
+2021-08-16T09:53:14.3075232Z Receiving objects:   0% (1/13228)
+2021-08-16T09:53:14.3076165Z Receiving objects:   1% (133/13228)
+2021-08-16T09:53:14.3076921Z Receiving objects:   2% (265/13228)
+2021-08-16T09:53:14.3077720Z Receiving objects:   3% (397/13228)
+2021-08-16T09:53:14.3078417Z Receiving objects:   4% (530/13228)
+2021-08-16T09:53:14.3079088Z Receiving objects:   5% (662/13228)
+2021-08-16T09:53:14.3128545Z Receiving objects:   6% (794/13228)
+2021-08-16T09:53:14.3139186Z Receiving objects:   7% (926/13228)
+2021-08-16T09:53:14.3157528Z Receiving objects:   8% (1059/13228)
+2021-08-16T09:53:14.3162161Z Receiving objects:   9% (1191/13228)
+2021-08-16T09:53:14.3165396Z Receiving objects:  10% (1323/13228)
+2021-08-16T09:53:14.3167205Z Receiving objects:  11% (1456/13228)
+2021-08-16T09:53:14.3168576Z Receiving objects:  12% (1588/13228)
+2021-08-16T09:53:14.3170323Z Receiving objects:  13% (1720/13228)
+2021-08-16T09:53:14.3171616Z Receiving objects:  14% (1852/13228)
+2021-08-16T09:53:14.3172693Z Receiving objects:  15% (1985/13228)
+2021-08-16T09:53:14.3173773Z Receiving objects:  16% (2117/13228)
+2021-08-16T09:53:14.3174868Z Receiving objects:  17% (2249/13228)
+2021-08-16T09:53:14.3175939Z Receiving objects:  18% (2382/13228)
+2021-08-16T09:53:14.3176960Z Receiving objects:  19% (2514/13228)
+2021-08-16T09:53:14.3178071Z Receiving objects:  20% (2646/13228)
+2021-08-16T09:53:14.3179099Z Receiving objects:  21% (2778/13228)
+2021-08-16T09:53:14.3180382Z Receiving objects:  22% (2911/13228)
+2021-08-16T09:53:14.3181268Z Receiving objects:  23% (3043/13228)
+2021-08-16T09:53:14.3182045Z Receiving objects:  24% (3175/13228)
+2021-08-16T09:53:14.3183243Z Receiving objects:  25% (3307/13228)
+2021-08-16T09:53:14.3183875Z Receiving objects:  26% (3440/13228)
+2021-08-16T09:53:14.3184523Z Receiving objects:  27% (3572/13228)
+2021-08-16T09:53:14.3185159Z Receiving objects:  28% (3704/13228)
+2021-08-16T09:53:14.3185802Z Receiving objects:  29% (3837/13228)
+2021-08-16T09:53:14.3186370Z Receiving objects:  30% (3969/13228)
+2021-08-16T09:53:14.3187005Z Receiving objects:  31% (4101/13228)
+2021-08-16T09:53:14.3187570Z Receiving objects:  32% (4233/13228)
+2021-08-16T09:53:14.3188107Z Receiving objects:  33% (4366/13228)
+2021-08-16T09:53:14.3188639Z Receiving objects:  34% (4498/13228)
+2021-08-16T09:53:14.3189167Z Receiving objects:  35% (4630/13228)
+2021-08-16T09:53:14.3189721Z Receiving objects:  36% (4763/13228)
+2021-08-16T09:53:14.3190244Z Receiving objects:  37% (4895/13228)
+2021-08-16T09:53:14.3190765Z Receiving objects:  38% (5027/13228)
+2021-08-16T09:53:14.3191511Z Receiving objects:  39% (5159/13228)
+2021-08-16T09:53:14.3192037Z Receiving objects:  40% (5292/13228)
+2021-08-16T09:53:14.3192660Z Receiving objects:  41% (5424/13228)
+2021-08-16T09:53:14.3193175Z Receiving objects:  42% (5556/13228)
+2021-08-16T09:53:14.3193719Z Receiving objects:  43% (5689/13228)
+2021-08-16T09:53:14.3194220Z Receiving objects:  44% (5821/13228)
+2021-08-16T09:53:14.3194721Z Receiving objects:  45% (5953/13228)
+2021-08-16T09:53:14.3195283Z Receiving objects:  46% (6085/13228)
+2021-08-16T09:53:14.3195790Z Receiving objects:  47% (6218/13228)
+2021-08-16T09:53:14.3196310Z Receiving objects:  48% (6350/13228)
+2021-08-16T09:53:14.3196853Z Receiving objects:  49% (6482/13228)
+2021-08-16T09:53:14.3197358Z Receiving objects:  50% (6614/13228)
+2021-08-16T09:53:14.3197873Z Receiving objects:  51% (6747/13228)
+2021-08-16T09:53:14.3198410Z Receiving objects:  52% (6879/13228)
+2021-08-16T09:53:14.3198911Z Receiving objects:  53% (7011/13228)
+2021-08-16T09:53:14.3199433Z Receiving objects:  54% (7144/13228)
+2021-08-16T09:53:14.3199982Z Receiving objects:  55% (7276/13228)
+2021-08-16T09:53:14.3200490Z Receiving objects:  56% (7408/13228)
+2021-08-16T09:53:14.3201028Z Receiving objects:  57% (7540/13228)
+2021-08-16T09:53:14.3201551Z Receiving objects:  58% (7673/13228)
+2021-08-16T09:53:14.3202049Z Receiving objects:  59% (7805/13228)
+2021-08-16T09:53:14.3202598Z Receiving objects:  60% (7937/13228)
+2021-08-16T09:53:14.3203120Z Receiving objects:  61% (8070/13228)
+2021-08-16T09:53:14.3203622Z Receiving objects:  62% (8202/13228)
+2021-08-16T09:53:14.3204378Z Receiving objects:  63% (8334/13228)
+2021-08-16T09:53:14.3204912Z Receiving objects:  64% (8466/13228)
+2021-08-16T09:53:14.3205599Z Receiving objects:  65% (8599/13228)
+2021-08-16T09:53:14.3206159Z Receiving objects:  66% (8731/13228)
+2021-08-16T09:53:14.3206686Z Receiving objects:  67% (8863/13228)
+2021-08-16T09:53:14.3207185Z Receiving objects:  68% (8996/13228)
+2021-08-16T09:53:14.3207722Z Receiving objects:  69% (9128/13228)
+2021-08-16T09:53:14.3208260Z Receiving objects:  70% (9260/13228)
+2021-08-16T09:53:14.3208768Z Receiving objects:  71% (9392/13228)
+2021-08-16T09:53:14.3209311Z Receiving objects:  72% (9525/13228)
+2021-08-16T09:53:14.3209850Z Receiving objects:  73% (9657/13228)
+2021-08-16T09:53:14.3210360Z Receiving objects:  74% (9789/13228)
+2021-08-16T09:53:14.3210909Z Receiving objects:  75% (9921/13228)
+2021-08-16T09:53:14.3211449Z Receiving objects:  76% (10054/13228)
+2021-08-16T09:53:14.3211969Z Receiving objects:  77% (10186/13228)
+2021-08-16T09:53:14.3212520Z Receiving objects:  78% (10318/13228)
+2021-08-16T09:53:14.3213047Z Receiving objects:  79% (10451/13228)
+2021-08-16T09:53:14.3213578Z Receiving objects:  80% (10583/13228)
+2021-08-16T09:53:14.3214120Z Receiving objects:  81% (10715/13228)
+2021-08-16T09:53:14.3214701Z Receiving objects:  82% (10847/13228)
+2021-08-16T09:53:14.3215217Z Receiving objects:  83% (10980/13228)
+2021-08-16T09:53:14.3215752Z Receiving objects:  84% (11112/13228)
+2021-08-16T09:53:14.3216279Z Receiving objects:  85% (11244/13228)
+2021-08-16T09:53:14.3216792Z Receiving objects:  86% (11377/13228)
+2021-08-16T09:53:14.3217318Z Receiving objects:  87% (11509/13228)
+2021-08-16T09:53:14.3217873Z Receiving objects:  88% (11641/13228)
+2021-08-16T09:53:14.3218408Z Receiving objects:  89% (11773/13228)
+2021-08-16T09:53:14.3218933Z Receiving objects:  90% (11906/13228)
+2021-08-16T09:53:14.3219449Z Receiving objects:  91% (12038/13228)
+2021-08-16T09:53:14.3219972Z Receiving objects:  92% (12170/13228)
+2021-08-16T09:53:14.3220497Z Receiving objects:  93% (12303/13228)
+2021-08-16T09:53:14.3221004Z Receiving objects:  94% (12435/13228)
+2021-08-16T09:53:14.3221542Z Receiving objects:  95% (12567/13228)
+2021-08-16T09:53:14.3222045Z Receiving objects:  96% (12699/13228)
+2021-08-16T09:53:14.3222541Z Receiving objects:  97% (12832/13228)
+2021-08-16T09:53:14.3236830Z Receiving objects:  98% (12964/13228)
+2021-08-16T09:53:14.3251323Z Receiving objects:  99% (13096/13228)
+2021-08-16T09:53:14.3251807Z Receiving objects: 100% (13228/13228)
+2021-08-16T09:53:14.3252434Z Receiving objects: 100% (13228/13228), 4.21 MiB | 9.75 MiB/s, done.
+2021-08-16T09:53:14.3276170Z Resolving deltas:   0% (0/7396)
+2021-08-16T09:53:14.3371317Z Resolving deltas:   1% (74/7396)
+2021-08-16T09:53:14.3380502Z Resolving deltas:   2% (148/7396)
+2021-08-16T09:53:14.3387320Z Resolving deltas:   3% (222/7396)
+2021-08-16T09:53:14.3400999Z Resolving deltas:   4% (296/7396)
+2021-08-16T09:53:14.3411249Z Resolving deltas:   5% (370/7396)
+2021-08-16T09:53:14.3465970Z Resolving deltas:   6% (444/7396)
+2021-08-16T09:53:14.3494134Z Resolving deltas:   7% (518/7396)
+2021-08-16T09:53:14.3504043Z Resolving deltas:   8% (592/7396)
+2021-08-16T09:53:14.3519641Z Resolving deltas:   9% (666/7396)
+2021-08-16T09:53:14.3599671Z Resolving deltas:  10% (740/7396)
+2021-08-16T09:53:14.3606370Z Resolving deltas:  11% (814/7396)
+2021-08-16T09:53:14.3613492Z Resolving deltas:  12% (888/7396)
+2021-08-16T09:53:14.3630387Z Resolving deltas:  13% (962/7396)
+2021-08-16T09:53:14.3637312Z Resolving deltas:  14% (1036/7396)
+2021-08-16T09:53:14.3656749Z Resolving deltas:  15% (1110/7396)
+2021-08-16T09:53:14.3662642Z Resolving deltas:  16% (1184/7396)
+2021-08-16T09:53:14.3709358Z Resolving deltas:  17% (1258/7396)
+2021-08-16T09:53:14.3734834Z Resolving deltas:  18% (1332/7396)
+2021-08-16T09:53:14.3735699Z Resolving deltas:  19% (1406/7396)
+2021-08-16T09:53:14.3736158Z Resolving deltas:  20% (1480/7396)
+2021-08-16T09:53:14.3736540Z Resolving deltas:  21% (1554/7396)
+2021-08-16T09:53:14.3746694Z Resolving deltas:  22% (1628/7396)
+2021-08-16T09:53:14.3758926Z Resolving deltas:  23% (1702/7396)
+2021-08-16T09:53:14.3761454Z Resolving deltas:  24% (1776/7396)
+2021-08-16T09:53:14.3773724Z Resolving deltas:  25% (1849/7396)
+2021-08-16T09:53:14.3781201Z Resolving deltas:  26% (1923/7396)
+2021-08-16T09:53:14.3875735Z Resolving deltas:  27% (1997/7396)
+2021-08-16T09:53:14.3921071Z Resolving deltas:  28% (2071/7396)
+2021-08-16T09:53:14.3921842Z Resolving deltas:  29% (2145/7396)
+2021-08-16T09:53:14.3922437Z Resolving deltas:  30% (2219/7396)
+2021-08-16T09:53:14.3926434Z Resolving deltas:  31% (2293/7396)
+2021-08-16T09:53:14.3937533Z Resolving deltas:  32% (2367/7396)
+2021-08-16T09:53:14.3940851Z Resolving deltas:  33% (2441/7396)
+2021-08-16T09:53:14.3961139Z Resolving deltas:  34% (2515/7396)
+2021-08-16T09:53:14.3962875Z Resolving deltas:  35% (2589/7396)
+2021-08-16T09:53:14.3964384Z Resolving deltas:  36% (2663/7396)
+2021-08-16T09:53:14.3970060Z Resolving deltas:  37% (2737/7396)
+2021-08-16T09:53:14.3978225Z Resolving deltas:  38% (2811/7396)
+2021-08-16T09:53:14.3988772Z Resolving deltas:  39% (2885/7396)
+2021-08-16T09:53:14.4010111Z Resolving deltas:  40% (2959/7396)
+2021-08-16T09:53:14.4040210Z Resolving deltas:  41% (3033/7396)
+2021-08-16T09:53:14.4056401Z Resolving deltas:  42% (3107/7396)
+2021-08-16T09:53:14.4069951Z Resolving deltas:  43% (3181/7396)
+2021-08-16T09:53:14.4074271Z Resolving deltas:  44% (3255/7396)
+2021-08-16T09:53:14.4104766Z Resolving deltas:  45% (3329/7396)
+2021-08-16T09:53:14.4109424Z Resolving deltas:  46% (3403/7396)
+2021-08-16T09:53:14.4139765Z Resolving deltas:  47% (3477/7396)
+2021-08-16T09:53:14.4156687Z Resolving deltas:  48% (3551/7396)
+2021-08-16T09:53:14.4176501Z Resolving deltas:  49% (3625/7396)
+2021-08-16T09:53:14.4185179Z Resolving deltas:  50% (3698/7396)
+2021-08-16T09:53:14.4205414Z Resolving deltas:  51% (3772/7396)
+2021-08-16T09:53:14.4255709Z Resolving deltas:  52% (3846/7396)
+2021-08-16T09:53:14.4263065Z Resolving deltas:  53% (3920/7396)
+2021-08-16T09:53:14.4271419Z Resolving deltas:  54% (3994/7396)
+2021-08-16T09:53:14.4286078Z Resolving deltas:  55% (4068/7396)
+2021-08-16T09:53:14.4302471Z Resolving deltas:  56% (4142/7396)
+2021-08-16T09:53:14.4324058Z Resolving deltas:  57% (4216/7396)
+2021-08-16T09:53:14.4333573Z Resolving deltas:  58% (4290/7396)
+2021-08-16T09:53:14.4363677Z Resolving deltas:  59% (4364/7396)
+2021-08-16T09:53:14.4371915Z Resolving deltas:  60% (4438/7396)
+2021-08-16T09:53:14.4379730Z Resolving deltas:  61% (4512/7396)
+2021-08-16T09:53:14.4387265Z Resolving deltas:  62% (4586/7396)
+2021-08-16T09:53:14.4398383Z Resolving deltas:  63% (4660/7396)
+2021-08-16T09:53:14.4408550Z Resolving deltas:  64% (4734/7396)
+2021-08-16T09:53:14.4413211Z Resolving deltas:  65% (4808/7396)
+2021-08-16T09:53:14.4422505Z Resolving deltas:  66% (4882/7396)
+2021-08-16T09:53:14.4430045Z Resolving deltas:  67% (4956/7396)
+2021-08-16T09:53:14.4455775Z Resolving deltas:  68% (5030/7396)
+2021-08-16T09:53:14.4462746Z Resolving deltas:  69% (5104/7396)
+2021-08-16T09:53:14.4467973Z Resolving deltas:  70% (5178/7396)
+2021-08-16T09:53:14.4472262Z Resolving deltas:  71% (5252/7396)
+2021-08-16T09:53:14.4476612Z Resolving deltas:  72% (5326/7396)
+2021-08-16T09:53:14.4500196Z Resolving deltas:  73% (5400/7396)
+2021-08-16T09:53:14.4509251Z Resolving deltas:  74% (5474/7396)
+2021-08-16T09:53:14.4593619Z Resolving deltas:  75% (5547/7396)
+2021-08-16T09:53:14.4597916Z Resolving deltas:  76% (5621/7396)
+2021-08-16T09:53:14.4602891Z Resolving deltas:  77% (5695/7396)
+2021-08-16T09:53:14.4615568Z Resolving deltas:  78% (5769/7396)
+2021-08-16T09:53:14.4620278Z Resolving deltas:  79% (5843/7396)
+2021-08-16T09:53:14.4635405Z Resolving deltas:  80% (5917/7396)
+2021-08-16T09:53:14.4648759Z Resolving deltas:  81% (5991/7396)
+2021-08-16T09:53:14.4820255Z Resolving deltas:  82% (6065/7396)
+2021-08-16T09:53:14.4829018Z Resolving deltas:  83% (6139/7396)
+2021-08-16T09:53:14.4843070Z Resolving deltas:  84% (6213/7396)
+2021-08-16T09:53:14.4847753Z Resolving deltas:  85% (6287/7396)
+2021-08-16T09:53:14.4853635Z Resolving deltas:  86% (6361/7396)
+2021-08-16T09:53:14.4862228Z Resolving deltas:  87% (6435/7396)
+2021-08-16T09:53:14.4872508Z Resolving deltas:  88% (6509/7396)
+2021-08-16T09:53:14.4892655Z Resolving deltas:  89% (6583/7396)
+2021-08-16T09:53:14.4967283Z Resolving deltas:  90% (6657/7396)
+2021-08-16T09:53:14.4978367Z Resolving deltas:  91% (6731/7396)
+2021-08-16T09:53:14.4993035Z Resolving deltas:  92% (6805/7396)
+2021-08-16T09:53:14.5008613Z Resolving deltas:  93% (6879/7396)
+2021-08-16T09:53:14.5095853Z Resolving deltas:  94% (6953/7396)
+2021-08-16T09:53:14.5096341Z Resolving deltas:  95% (7027/7396)
+2021-08-16T09:53:14.5096705Z Resolving deltas:  96% (7101/7396)
+2021-08-16T09:53:14.5097200Z Resolving deltas:  97% (7175/7396)
+2021-08-16T09:53:14.5097546Z Resolving deltas:  98% (7249/7396)
+2021-08-16T09:53:14.5189381Z Resolving deltas:  99% (7323/7396)
+2021-08-16T09:53:14.5190972Z Resolving deltas: 100% (7396/7396)
+2021-08-16T09:53:14.5192297Z Resolving deltas: 100% (7396/7396), done.
+2021-08-16T09:53:14.5750979Z From https://abbrobotics.visualstudio.com/DigitalFactory/_git/WB-FactoryManager
+2021-08-16T09:53:14.5773392Z  * [new branch]      10462-bugfix-structuretree -> origin/10462-bugfix-structuretree
+2021-08-16T09:53:14.5774269Z  * [new branch]      12412-opcua-securitymodes -> origin/12412-opcua-securitymodes
+2021-08-16T09:53:14.5855563Z  * [new branch]      12600-opcua-certificates -> origin/12600-opcua-certificates
+2021-08-16T09:53:14.5856580Z  * [new branch]      14298/storage-api-sink-should-not-be-editable -> origin/14298/storage-api-sink-should-not-be-editable
+2021-08-16T09:53:14.5857489Z  * [new branch]      15095/add-version-changelog-files -> origin/15095/add-version-changelog-files
+2021-08-16T09:53:14.5858258Z  * [new branch]      8052-devices-screen     -> origin/8052-devices-screen
+2021-08-16T09:53:14.5858928Z  * [new branch]      9097-top-bar            -> origin/9097-top-bar
+2021-08-16T09:53:14.5859630Z  * [new branch]      9297-treeview-component -> origin/9297-treeview-component
+2021-08-16T09:53:14.5860340Z  * [new branch]      9683-status-indicator   -> origin/9683-status-indicator
+2021-08-16T09:53:14.5861012Z  * [new branch]      UX-improvements         -> origin/UX-improvements
+2021-08-16T09:53:14.5861667Z  * [new branch]      Users                   -> origin/Users
+2021-08-16T09:53:14.5862340Z  * [new branch]      adapt_asset_query       -> origin/adapt_asset_query
+2021-08-16T09:53:14.5863007Z  * [new branch]      adapt_domains           -> origin/adapt_domains
+2021-08-16T09:53:14.5863945Z  * [new branch]      add-categories-script   -> origin/add-categories-script
+2021-08-16T09:53:14.5864632Z  * [new branch]      add_asset_mode          -> origin/add_asset_mode
+2021-08-16T09:53:14.5865426Z  * [new branch]      assign-is-permissions   -> origin/assign-is-permissions
+2021-08-16T09:53:14.5866117Z  * [new branch]      azure-pipeline          -> origin/azure-pipeline
+2021-08-16T09:53:14.5866812Z  * [new branch]      azure-pipeline-iotedge  -> origin/azure-pipeline-iotedge
+2021-08-16T09:53:14.5867593Z  * [new branch]      bugfix/add-to-group-not-add-all-groups -> origin/bugfix/add-to-group-not-add-all-groups
+2021-08-16T09:53:14.5868356Z  * [new branch]      bugfix_asset_domains    -> origin/bugfix_asset_domains
+2021-08-16T09:53:14.5869042Z  * [new branch]      bugfix_details          -> origin/bugfix_details
+2021-08-16T09:53:14.5869708Z  * [new branch]      bugfix_details_mode     -> origin/bugfix_details_mode
+2021-08-16T09:53:14.5870407Z  * [new branch]      bugfix_filters_domain   -> origin/bugfix_filters_domain
+2021-08-16T09:53:14.5871107Z  * [new branch]      dashboard-layout        -> origin/dashboard-layout
+2021-08-16T09:53:14.5871746Z  * [new branch]      dev                     -> origin/dev
+2021-08-16T09:53:14.5872398Z  * [new branch]      dev-register            -> origin/dev-register
+2021-08-16T09:53:14.5873046Z  * [new branch]      export_import           -> origin/export_import
+2021-08-16T09:53:14.5889728Z  * [new branch]      feature/10290-insert-asset-mutation -> origin/feature/10290-insert-asset-mutation
+2021-08-16T09:53:14.5893461Z  * [new branch]      feature/11540-applauncher-top-bar -> origin/feature/11540-applauncher-top-bar
+2021-08-16T09:53:14.5897587Z  * [new branch]      feature/14424-breadcrumb-children-fix -> origin/feature/14424-breadcrumb-children-fix
+2021-08-16T09:53:14.5901617Z  * [new branch]      feature/17451-device-wizard-mqtt-parameters-step -> origin/feature/17451-device-wizard-mqtt-parameters-step
+2021-08-16T09:53:14.5906025Z  * [new branch]      feature/17614-change-password-hint-revert-from-master -> origin/feature/17614-change-password-hint-revert-from-master
+2021-08-16T09:53:14.5910201Z  * [new branch]      feature/18036-tenant-switcher -> origin/feature/18036-tenant-switcher
+2021-08-16T09:53:14.5914387Z  * [new branch]      feature/8122-group-summary -> origin/feature/8122-group-summary
+2021-08-16T09:53:14.5918328Z  * [new branch]      feature/8124-users-detail -> origin/feature/8124-users-detail
+2021-08-16T09:53:14.5922537Z  * [new branch]      feature/company-hierarchy -> origin/feature/company-hierarchy
+2021-08-16T09:53:14.6010523Z  * [new branch]      feature/user-filters    -> origin/feature/user-filters
+2021-08-16T09:53:14.6014204Z  * [new branch]      fix-treeview-filter     -> origin/fix-treeview-filter
+2021-08-16T09:53:14.6018161Z  * [new branch]      fix_asset_status_subscription -> origin/fix_asset_status_subscription
+2021-08-16T09:53:14.6021865Z  * [new branch]      fix_storageapi          -> origin/fix_storageapi
+2021-08-16T09:53:14.6025572Z  * [new branch]      fixes-asset-wizard      -> origin/fixes-asset-wizard
+2021-08-16T09:53:14.6029224Z  * [new branch]      fixes_confirm_screen    -> origin/fixes_confirm_screen
+2021-08-16T09:53:14.6032754Z  * [new branch]      fixes_datatables        -> origin/fixes_datatables
+2021-08-16T09:53:14.6036296Z  * [new branch]      import-from-csv         -> origin/import-from-csv
+2021-08-16T09:53:14.6039950Z  * [new branch]      master                  -> origin/master
+2021-08-16T09:53:14.6043875Z  * [new branch]      regiterinit             -> origin/regiterinit
+2021-08-16T09:53:14.6048455Z  * [new branch]      release                 -> origin/release
+2021-08-16T09:53:14.6052539Z  * [new branch]      revert-initializer      -> origin/revert-initializer
+2021-08-16T09:53:14.6056034Z  * [new branch]      revert-sector-is-not-added -> origin/revert-sector-is-not-added
+2021-08-16T09:53:14.6059847Z  * [new branch]      screen-header           -> origin/screen-header
+2021-08-16T09:53:14.6063419Z  * [new branch]      sidebar-refactor        -> origin/sidebar-refactor
+2021-08-16T09:53:14.6066810Z  * [new branch]      sso                     -> origin/sso
+2021-08-16T09:53:14.6070661Z  * [new branch]      staging                 -> origin/staging
+2021-08-16T09:53:14.6074265Z  * [new branch]      test-pipelines-tags-dev -> origin/test-pipelines-tags-dev
+2021-08-16T09:53:14.6077765Z  * [new branch]      traefik-ssl             -> origin/traefik-ssl
+2021-08-16T09:53:14.6081180Z  * [new branch]      treeStructureImprovements -> origin/treeStructureImprovements
+2021-08-16T09:53:14.6084555Z  * [new branch]      users_layout            -> origin/users_layout
+2021-08-16T09:53:14.6088206Z  * [new branch]      workspace-fixes         -> origin/workspace-fixes
+2021-08-16T09:53:14.6224912Z ##[debug]STDOUT/STDERR stream read finished.
+2021-08-16T09:53:14.6226084Z ##[debug]STDOUT/STDERR stream read finished.
+2021-08-16T09:53:14.6231417Z ##[debug]Exited process 2126 with exit code 0
+2021-08-16T09:53:14.6234919Z ##[debug]Finished process 2126 with exit code 0, and elapsed time 00:00:01.2822794.
+2021-08-16T09:53:14.6987521Z ##[debug]Processed: ##vso[telemetry.publish area=AzurePipelinesAgent;feature=GitFetch]{"ElapsedTimeMilliseconds":"1284","RefSpec":"","RemoteName":"origin","FetchDepth":"0","ExitCode":"0","Options":"--force --tags --prune --progress --no-recurse-submodules origin "}
+2021-08-16T09:53:14.6989774Z ##[debug]Fetch git repository at: /home/vsts/work/1/s remote: origin.
+2021-08-16T09:53:14.7003133Z ##[command]git -c http.extraheader="AUTHORIZATION: bearer ***" fetch --force --tags --prune --progress --no-recurse-submodules origin +61d5272d260933f736a27fd1506e5f6688f2205c
+2021-08-16T09:53:14.7004153Z ##[debug]Starting process:
+2021-08-16T09:53:14.7005072Z ##[debug]  File name: '/usr/bin/git'
+2021-08-16T09:53:14.7008320Z ##[debug]  Arguments: '-c http.extraheader="AUTHORIZATION: bearer ***" fetch --force --tags --prune --progress --no-recurse-submodules origin +61d5272d260933f736a27fd1506e5f6688f2205c'
+2021-08-16T09:53:14.7009363Z ##[debug]  Working directory: '/home/vsts/work/1/s'
+2021-08-16T09:53:14.7010088Z ##[debug]  Require exit code zero: 'False'
+2021-08-16T09:53:14.7010865Z ##[debug]  Encoding web name:  ; code page: ''
+2021-08-16T09:53:14.7011614Z ##[debug]  Force kill process on cancellation: 'False'
+2021-08-16T09:53:14.7012333Z ##[debug]  Redirected STDIN: 'False'
+2021-08-16T09:53:14.7013045Z ##[debug]  Persist current code page: 'False'
+2021-08-16T09:53:14.7013767Z ##[debug]  Keep redirected STDIN open: 'False'
+2021-08-16T09:53:14.7014475Z ##[debug]  High priority process: 'False'
+2021-08-16T09:53:14.7015110Z ##[debug]Updated oom_score_adj to 500 for PID: 2139.
+2021-08-16T09:53:14.7015780Z ##[debug]Process started with process id 2139, waiting for process exit.
+2021-08-16T09:53:14.7421810Z From https://abbrobotics.visualstudio.com/DigitalFactory/_git/WB-FactoryManager
+2021-08-16T09:53:14.7422956Z  * branch            61d5272d260933f736a27fd1506e5f6688f2205c -> FETCH_HEAD
+2021-08-16T09:53:14.7506047Z ##[debug]STDOUT/STDERR stream read finished.
+2021-08-16T09:53:14.7507947Z ##[debug]STDOUT/STDERR stream read finished.
+2021-08-16T09:53:14.7509385Z ##[debug]Exited process 2139 with exit code 0
+2021-08-16T09:53:14.7510874Z ##[debug]Finished process 2139 with exit code 0, and elapsed time 00:00:00.1108939.
+2021-08-16T09:53:14.8031868Z ##[debug]Processed: ##vso[telemetry.publish area=AzurePipelinesAgent;feature=GitFetch]{"ElapsedTimeMilliseconds":"112","RefSpec":"+61d5272d260933f736a27fd1506e5f6688f2205c","RemoteName":"origin","FetchDepth":"0","ExitCode":"0","Options":"--force --tags --prune --progress --no-recurse-submodules origin +61d5272d260933f736a27fd1506e5f6688f2205c"}
+2021-08-16T09:53:14.8035003Z ##[debug]Processed: ##vso[task.setprogress value=80]Starting checkout...
+2021-08-16T09:53:14.8035624Z ##[debug]refFetchedByCommit : 
+2021-08-16T09:53:14.8036180Z ##[debug]Checkout 61d5272d260933f736a27fd1506e5f6688f2205c.
+2021-08-16T09:53:14.8037321Z ##[command]git checkout --progress --force 61d5272d260933f736a27fd1506e5f6688f2205c
+2021-08-16T09:53:14.8038314Z ##[debug]Starting process:
+2021-08-16T09:53:14.8039008Z ##[debug]  File name: '/usr/bin/git'
+2021-08-16T09:53:14.8039912Z ##[debug]  Arguments: 'checkout --progress --force 61d5272d260933f736a27fd1506e5f6688f2205c'
+2021-08-16T09:53:14.8040850Z ##[debug]  Working directory: '/home/vsts/work/1/s'
+2021-08-16T09:53:14.8041581Z ##[debug]  Require exit code zero: 'False'
+2021-08-16T09:53:14.8042302Z ##[debug]  Encoding web name:  ; code page: ''
+2021-08-16T09:53:14.8043045Z ##[debug]  Force kill process on cancellation: 'False'
+2021-08-16T09:53:14.8043758Z ##[debug]  Redirected STDIN: 'False'
+2021-08-16T09:53:14.8044449Z ##[debug]  Persist current code page: 'False'
+2021-08-16T09:53:14.8045162Z ##[debug]  Keep redirected STDIN open: 'False'
+2021-08-16T09:53:14.8046161Z ##[debug]  High priority process: 'False'
+2021-08-16T09:53:14.8046800Z ##[debug]Updated oom_score_adj to 500 for PID: 2147.
+2021-08-16T09:53:14.8047462Z ##[debug]Process started with process id 2147, waiting for process exit.
+2021-08-16T09:53:14.8048243Z Note: switching to '61d5272d260933f736a27fd1506e5f6688f2205c'.
+2021-08-16T09:53:14.8048472Z 
+2021-08-16T09:53:14.8049039Z You are in 'detached HEAD' state. You can look around, make experimental
+2021-08-16T09:53:14.8049527Z changes and commit them, and you can discard any commits you make in this
+2021-08-16T09:53:14.8050010Z state without impacting any branches by switching back to a branch.
+2021-08-16T09:53:14.8050237Z 
+2021-08-16T09:53:14.8050593Z If you want to create a new branch to retain commits you create, you may
+2021-08-16T09:53:14.8051280Z do so (now or later) by using -c with the switch command. Example:
+2021-08-16T09:53:14.8051561Z 
+2021-08-16T09:53:14.8051992Z   git switch -c <new-branch-name>
+2021-08-16T09:53:14.8052172Z 
+2021-08-16T09:53:14.8052454Z Or undo this operation with:
+2021-08-16T09:53:14.8052629Z 
+2021-08-16T09:53:14.8053015Z   git switch -
+2021-08-16T09:53:14.8053150Z 
+2021-08-16T09:53:14.8053517Z Turn off this advice by setting config variable advice.detachedHead to false
+2021-08-16T09:53:14.8053763Z 
+2021-08-16T09:53:14.8054182Z HEAD is now at 61d5272 Testing single condition for At. VM deploy
+2021-08-16T09:53:14.8054732Z ##[debug]STDOUT/STDERR stream read finished.
+2021-08-16T09:53:14.8055304Z ##[debug]STDOUT/STDERR stream read finished.
+2021-08-16T09:53:14.8055877Z ##[debug]Exited process 2147 with exit code 0
+2021-08-16T09:53:14.8056561Z ##[debug]Finished process 2147 with exit code 0, and elapsed time 00:00:00.0390092.
+2021-08-16T09:53:14.8064522Z ##[debug]Processed: ##vso[task.settaskvariable variable=repository;issecret=False;]self
+2021-08-16T09:53:14.8065633Z ##[debug]Processed: ##vso[task.settaskvariable variable=preferPath;issecret=False;]true
+2021-08-16T09:53:14.8072435Z ##[debug]Processed: ##vso[task.settaskvariable variable=repoUrlWithCred;issecret=True;]***
+2021-08-16T09:53:14.8110439Z ##[section]Finishing: Checkout WB-FactoryManager@dev to s

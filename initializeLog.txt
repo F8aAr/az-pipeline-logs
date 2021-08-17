@@ -1,0 +1,706 @@
+Template Parameters:
+Begin evaluating template '/config/pipelines/azure-pipelines.yml'
+Finished evaluating template '/config/pipelines/azure-pipelines.yml'
+Begin evaluating template '/config/pipelines/azure-pipelines.yml'
+Evaluating: endsWith(variables['Build.SourceBranchName'], 'dev')
+Expanded: endsWith('dev', 'dev')
+Result: True
+Evaluating: endsWith(variables['Build.SourceBranchName'], 'staging')
+Expanded: endsWith('dev', 'staging')
+Result: False
+Evaluating: endsWith(variables['Build.SourceBranchName'], 'master')
+Expanded: endsWith('dev', 'master')
+Result: False
+Evaluating: endsWith(variables['Build.SourceBranchName'], 'release')
+Expanded: endsWith('dev', 'release')
+Result: False
+Begin transform: variables
+Evaluating: value
+Result: Object
+Evaluating: pair['key']
+Result: 'DOCKER_BUILDKIT'
+Evaluating: pair['value']
+Result: '1'
+Evaluating: pair['key']
+Result: 'dockerRegistryServiceConnection'
+Evaluating: pair['value']
+Result: 'abbdigitalaccelerator'
+Evaluating: pair['key']
+Result: 'PACKAGE_NAME'
+Evaluating: pair['value']
+Result: 'frontend'
+Evaluating: pair['key']
+Result: 'POOL_NAME'
+Evaluating: pair['value']
+Result: 'rda-dev-agent-deploy'
+Evaluating: pair['key']
+Result: 'REACT_APP_ACTIVATE_RBAC'
+Evaluating: pair['value']
+Result: 'true'
+Evaluating: pair['key']
+Result: 'REACT_APP_ACTIVATE_SHIFTS'
+Evaluating: pair['value']
+Result: 'true'
+End transform: variables
+Begin load: stepsTemplateReference
+Begin evaluating template '/templates/steps-get-git-info.yml@Templates'
+Evaluating: format('SHA="${{GIT_COMMIT:0:{0}}}"
+BRANCH="$(echo "{1}" | sed -e ''s#refs/[^/]*/##'' -e ''s#[/ ]#-#g'')"
+IMAGE_NAME="${{REPO_NAME,,}}"
+TAG="$(git describe --tags)"
+TAG_LAST="$(git describe --abbrev=0)"
+TAG_REAL="$( [ "${{TAG}}" == "${{TAG_LAST}}" ] && echo "${{TAG}}" || echo "" )"
+
+if [[ "${{BRANCH}}" = "master" || "${{BRANCH}}" = "main" || "${{BRANCH}}" = "release" ]]
+then
+    COMPONENT_ENV="pro"
+    IMAGE_ENV=""
+else
+    if [[ "${{BRANCH}}" = "staging" || "${{BRANCH}}" = "playground" ]]
+    then
+        COMPONENT_ENV="staging"
+    else
+        COMPONENT_ENV="dev"
+    fi
+
+    IMAGE_ENV="-${{COMPONENT_ENV}}"
+fi
+
+echo "Inputs:"
+echo "- GIT_COMMIT: ${{GIT_COMMIT}}"
+echo "- GIT_BRANCH: ${{GIT_BRANCH}}"
+echo "- GIT_BRANCH_PULL: ${{GIT_BRANCH_PULL}}"
+echo "- REPO_NAME: ${{REPO_NAME}}"
+echo "- SHA_LENGTH: ${{SHA_LENGTH}}"
+echo "Outputs:"
+echo "- SHA: ${{SHA}}"
+echo "- BRANCH: ${{BRANCH}}"
+echo "- IMAGE_NAME: ${{IMAGE_NAME}}"
+echo "- IMAGE_ENV: ${{IMAGE_ENV}}"
+echo "- COMPONENT_ENV: ${{COMPONENT_ENV}}"
+echo "- TAG: ${{TAG}}"
+echo "- TAG_LAST: ${{TAG_LAST}}"
+echo "- TAG_REAL: ${{TAG_REAL}}"
+
+echo "##vso[task.setvariable variable=SHA;isOutput=true]${{SHA}}"
+echo "##vso[task.setvariable variable=BRANCH;isOutput=true]${{BRANCH}}"
+echo "##vso[task.setvariable variable=IMAGE_NAME;isOutput=true]${{IMAGE_NAME}}"
+echo "##vso[task.setvariable variable=IMAGE_ENV;isOutput=true]${{IMAGE_ENV}}"
+echo "##vso[task.setvariable variable=COMPONENT_ENV;isOutput=true]${{COMPONENT_ENV}}"
+echo "##vso[task.setvariable variable=TAG;isOutput=true]${{TAG}}"
+echo "##vso[task.setvariable variable=TAG_LAST;isOutput=true]${{TAG_LAST}}"
+echo "##vso[task.setvariable variable=TAG_REAL;isOutput=true]${{TAG_REAL}}"
+', parameters['SHA_LENGTH'], parameters['GIT_BRANCH'])
+Result: 'SHA="${GIT_COMMIT:0:8}"
+BRANCH="$(echo "$(Build.SourceBranch)" | sed -e ''s#refs/[^/]*/##'' -e ''s#[/ ]#-#g'')"
+IMAGE_NAME="${REPO_NAME,,}"
+TAG="$(git describe --tags)"
+TAG_LAST="$(git describe --abbrev=0)"
+TAG_REAL="$( [ "${TAG}" == "${TAG_LAST}" ] && echo "${TAG}" || echo "" )"
+
+if [[ "${BRANCH}" = "master" || "${BRANCH}" = "main" || "${BRANCH}" = "release" ]]
+then
+    COMPONENT_ENV="pro"
+    IMAGE_ENV=""
+else
+    if [[ "${BRANCH}" = "staging" || "${BRANCH}" = "playground" ]]
+    then
+        COMPONENT_ENV="staging"
+    else
+        COMPONENT_ENV="dev"
+    fi
+
+    IMAGE_ENV="-${COMPONENT_ENV}"
+fi
+
+echo "Inputs:"
+echo "- GIT_COMMIT: ${GIT_COMMIT}"
+echo "- GIT_BRANCH: ${GIT_BRANCH}"
+echo "- GIT_BRANCH_PULL: ${GIT_BRANCH_PULL}"
+echo "- REPO_NAME: ${REPO_NAME}"
+echo "- SHA_LENGTH: ${SHA_LENGTH}"
+echo "Outputs:"
+echo "- SHA: ${SHA}"
+echo "- BRANCH: ${BRANCH}"
+echo "- IMAGE_NAME: ${IMAGE_NAME}"
+echo "- IMAGE_ENV: ${IMAGE_ENV}"
+echo "- COMPONENT_ENV: ${COMPONENT_ENV}"
+echo "- TAG: ${TAG}"
+echo "- TAG_LAST: ${TAG_LAST}"
+echo "- TAG_REAL: ${TAG_REAL}"
+
+echo "##vso[task.setvariable variable=SHA;isOutput=true]${SHA}"
+echo "##vso[task.setvariable variable=BRANCH;isOutput=true]${BRANCH}"
+echo "##vso[task.setvariable variable=IMAGE_NAME;isOutput=true]${IMAGE_NAME}"
+echo "##vso[task.setvariable variable=IMAGE_ENV;isOutput=true]${IMAGE_ENV}"
+echo "##vso[task.setvariable variable=COMPONENT_ENV;isOutput=true]${COMPONENT_ENV}"
+echo "##vso[task.setvariable variable=TAG;isOutput=true]${TAG}"
+echo "##vso[task.setvariable variable=TAG_LAST;isOutput=true]${TAG_LAST}"
+echo "##vso[task.setvariable variable=TAG_REAL;isOutput=true]${TAG_REAL}"
+'
+Evaluating: parameters['GIT_COMMIT']
+Result: '$(Build.SourceVersion)'
+Evaluating: parameters['GIT_BRANCH']
+Result: '$(Build.SourceBranch)'
+Evaluating: parameters['GIT_BRANCH_PULL']
+Result: '$(System.PullRequest.SourceBranch)'
+Evaluating: parameters['REPO_NAME']
+Result: '$(Build.Repository.Name)'
+Evaluating: parameters['SHA_LENGTH']
+Result: '8'
+Begin transform: step
+Evaluating: transform('stepToTaskBaseProperties', value)
+Evaluating: arg0
+Result: Object
+Evaluating: in(pair['key'], 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Expanded: in('bash', 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Result: False
+Evaluating: in(pair['key'], 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Expanded: in('displayName', 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Result: True
+Evaluating: pair['key']
+Result: 'displayName'
+Evaluating: pair['value']
+Result: 'Get and process parameters from pipeline environment'
+Evaluating: in(pair['key'], 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Expanded: in('name', 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Result: True
+Evaluating: pair['key']
+Result: 'name'
+Evaluating: pair['value']
+Result: 'Git'
+Evaluating: in(pair['key'], 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Expanded: in('env', 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Result: True
+Evaluating: pair['key']
+Result: 'env'
+Evaluating: pair['value']
+Result: Object
+Result: Object
+Evaluating: value['bash']
+Result: 'SHA="${GIT_COMMIT:0:8}"
+BRANCH="$(echo "$(Build.SourceBranch)" | sed -e ''s#refs/[^/]*/##'' -e ''s#[/ ]#-#g'')"
+IMAGE_NAME="${REPO_NAME,,}"
+TAG="$(git describe --tags)"
+TAG_LAST="$(git describe --abbrev=0)"
+TAG_REAL="$( [ "${TAG}" == "${TAG_LAST}" ] && echo "${TAG}" || echo "" )"
+
+if [[ "${BRANCH}" = "master" || "${BRANCH}" = "main" || "${BRANCH}" = "release" ]]
+then
+    COMPONENT_ENV="pro"
+    IMAGE_ENV=""
+else
+    if [[ "${BRANCH}" = "staging" || "${BRANCH}" = "playground" ]]
+    then
+        COMPONENT_ENV="staging"
+    else
+        COMPONENT_ENV="dev"
+    fi
+
+    IMAGE_ENV="-${COMPONENT_ENV}"
+fi
+
+echo "Inputs:"
+echo "- GIT_COMMIT: ${GIT_COMMIT}"
+echo "- GIT_BRANCH: ${GIT_BRANCH}"
+echo "- GIT_BRANCH_PULL: ${GIT_BRANCH_PULL}"
+echo "- REPO_NAME: ${REPO_NAME}"
+echo "- SHA_LENGTH: ${SHA_LENGTH}"
+echo "Outputs:"
+echo "- SHA: ${SHA}"
+echo "- BRANCH: ${BRANCH}"
+echo "- IMAGE_NAME: ${IMAGE_NAME}"
+echo "- IMAGE_ENV: ${IMAGE_ENV}"
+echo "- COMPONENT_ENV: ${COMPONENT_ENV}"
+echo "- TAG: ${TAG}"
+echo "- TAG_LAST: ${TAG_LAST}"
+echo "- TAG_REAL: ${TAG_REAL}"
+
+echo "##vso[task.setvariable variable=SHA;isOutput=true]${SHA}"
+echo "##vso[task.setvariable variable=BRANCH;isOutput=true]${BRANCH}"
+echo "##vso[task.setvariable variable=IMAGE_NAME;isOutput=true]${IMAGE_NAME}"
+echo "##vso[task.setvariable variable=IMAGE_ENV;isOutput=true]${IMAGE_ENV}"
+echo "##vso[task.setvariable variable=COMPONENT_ENV;isOutput=true]${COMPONENT_ENV}"
+echo "##vso[task.setvariable variable=TAG;isOutput=true]${TAG}"
+echo "##vso[task.setvariable variable=TAG_LAST;isOutput=true]${TAG_LAST}"
+echo "##vso[task.setvariable variable=TAG_REAL;isOutput=true]${TAG_REAL}"
+'
+Evaluating: value['failOnStderr']
+Expanded: Null
+Result: False
+Evaluating: value['workingDirectory']
+Expanded: Null
+Result: False
+End transform: step
+Begin transform: stepsTemplate
+Evaluating: value['steps']
+Expanded: Object
+Result: True
+Evaluating: value['steps']
+Result: Object
+End transform: stepsTemplate
+Finished evaluating template '/templates/steps-get-git-info.yml@Templates'
+End load: stepsTemplateReference
+Begin load: stepsTemplateReference
+Begin evaluating template '/templates/steps-npm-version.yml@Templates'
+Evaluating: format('npmNameString=$(sed ''s/.*"name": "\(.*\)".*/\1/;t;d'' ./packages/{0}/package.json | sed -r ''s/(^|-)([a-z])/\U\2/g'')
+npmVersionString=$(sed ''s/.*"version": "\(.*\)".*/\1/;t;d'' ./packages/{1}/package.json)  
+
+echo "Component: {2}"
+echo "NPM Name: ${{npmNameString}}"
+echo "NPM Version: ${{npmVersionString}}"
+
+echo "##vso[task.setvariable variable=NPM_NAME;isOutput=true]${{npmNameString}}"
+echo "##vso[task.setvariable variable=NPM_VERSION;isOutput=true]${{npmVersionString}}"
+', parameters['COMPONENT_NAME'], parameters['COMPONENT_NAME'], parameters['COMPONENT_NAME'])
+Result: 'npmNameString=$(sed ''s/.*"name": "\(.*\)".*/\1/;t;d'' ./packages/$(PACKAGE_NAME)/package.json | sed -r ''s/(^|-)([a-z])/\U\2/g'')
+npmVersionString=$(sed ''s/.*"version": "\(.*\)".*/\1/;t;d'' ./packages/$(PACKAGE_NAME)/package.json)  
+
+echo "Component: $(PACKAGE_NAME)"
+echo "NPM Name: ${npmNameString}"
+echo "NPM Version: ${npmVersionString}"
+
+echo "##vso[task.setvariable variable=NPM_NAME;isOutput=true]${npmNameString}"
+echo "##vso[task.setvariable variable=NPM_VERSION;isOutput=true]${npmVersionString}"
+'
+Begin transform: step
+Evaluating: transform('stepToTaskBaseProperties', value)
+Evaluating: arg0
+Result: Object
+Evaluating: in(pair['key'], 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Expanded: in('bash', 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Result: False
+Evaluating: in(pair['key'], 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Expanded: in('displayName', 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Result: True
+Evaluating: pair['key']
+Result: 'displayName'
+Evaluating: pair['value']
+Result: 'Get component name and version from package.json'
+Evaluating: in(pair['key'], 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Expanded: in('name', 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Result: True
+Evaluating: pair['key']
+Result: 'name'
+Evaluating: pair['value']
+Result: 'Npm'
+Result: Object
+Evaluating: value['bash']
+Result: 'npmNameString=$(sed ''s/.*"name": "\(.*\)".*/\1/;t;d'' ./packages/$(PACKAGE_NAME)/package.json | sed -r ''s/(^|-)([a-z])/\U\2/g'')
+npmVersionString=$(sed ''s/.*"version": "\(.*\)".*/\1/;t;d'' ./packages/$(PACKAGE_NAME)/package.json)  
+
+echo "Component: $(PACKAGE_NAME)"
+echo "NPM Name: ${npmNameString}"
+echo "NPM Version: ${npmVersionString}"
+
+echo "##vso[task.setvariable variable=NPM_NAME;isOutput=true]${npmNameString}"
+echo "##vso[task.setvariable variable=NPM_VERSION;isOutput=true]${npmVersionString}"
+'
+Evaluating: value['failOnStderr']
+Expanded: Null
+Result: False
+Evaluating: value['workingDirectory']
+Expanded: Null
+Result: False
+End transform: step
+Begin transform: stepsTemplate
+Evaluating: value['steps']
+Expanded: Object
+Result: True
+Evaluating: value['steps']
+Result: Object
+End transform: stepsTemplate
+Finished evaluating template '/templates/steps-npm-version.yml@Templates'
+End load: stepsTemplateReference
+Begin transform: variables
+Evaluating: value
+Result: Object
+Evaluating: pair['key']
+Result: 'NPM_NAME'
+Evaluating: pair['value']
+Result: '$[stageDependencies.PREBUILD.Vars.outputs[''Npm.NPM_NAME'']]'
+Evaluating: pair['key']
+Result: 'NPM_VERSION'
+Evaluating: pair['value']
+Result: '$[stageDependencies.PREBUILD.Vars.outputs[''Npm.NPM_VERSION'']]'
+Evaluating: pair['key']
+Result: 'IMAGE_ENV'
+Evaluating: pair['value']
+Result: '$[stageDependencies.PREBUILD.Vars.outputs[''Git.IMAGE_ENV'']]'
+Evaluating: pair['key']
+Result: 'COMPONENT_ENV'
+Evaluating: pair['value']
+Result: '$[stageDependencies.PREBUILD.Vars.outputs[''Git.COMPONENT_ENV'']]'
+End transform: variables
+Begin transform: step
+Evaluating: transform('stepToTaskBaseProperties', value)
+Evaluating: arg0
+Result: Object
+Evaluating: in(pair['key'], 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Expanded: in('script', 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Result: False
+Evaluating: in(pair['key'], 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Expanded: in('name', 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Result: True
+Evaluating: pair['key']
+Result: 'name'
+Evaluating: pair['value']
+Result: 'PreProcessStep'
+Evaluating: in(pair['key'], 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Expanded: in('displayName', 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Result: True
+Evaluating: pair['key']
+Result: 'displayName'
+Evaluating: pair['value']
+Result: 'Preprocessing'
+Result: Object
+Evaluating: value['script']
+Result: 'set -e
+if [ "$(COMPONENT_ENV)" == ''dev'' ]; then
+  TAG_SUFFIX=$(Build.BuildId)
+else
+  TAG_SUFFIX=""
+fi
+echo "##vso[task.setvariable variable=TAG_SUFFIX;isOutput=true]${TAG_SUFFIX}"
+'
+Evaluating: value['failOnStderr']
+Expanded: Null
+Result: False
+Evaluating: value['workingDirectory']
+Expanded: Null
+Result: False
+End transform: step
+Begin load: stepsTemplateReference
+Begin evaluating template '/templates/steps-build-push-args.yml@Templates'
+Evaluating: parameters['BUILD_ARGUMENTS']
+Result: 'REACT_APP_HASURA_ACCESS_KEY=mylongsecretkey
+REACT_APP_ACTIVATE_RBAC=$(REACT_APP_ACTIVATE_RBAC)
+REACT_APP_ACTIVATE_SHIFTS=$(REACT_APP_ACTIVATE_SHIFTS)
+'
+Begin transform: step
+Evaluating: transform('stepToTaskBaseProperties', value)
+Evaluating: arg0
+Result: Object
+Evaluating: in(pair['key'], 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Expanded: in('script', 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Result: False
+Evaluating: in(pair['key'], 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Expanded: in('env', 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Result: True
+Evaluating: pair['key']
+Result: 'env'
+Evaluating: pair['value']
+Result: Object
+Evaluating: in(pair['key'], 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Expanded: in('name', 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Result: True
+Evaluating: pair['key']
+Result: 'name'
+Evaluating: pair['value']
+Result: 'Args'
+Evaluating: in(pair['key'], 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Expanded: in('displayName', 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Result: True
+Evaluating: pair['key']
+Result: 'displayName'
+Evaluating: pair['value']
+Result: 'Parse build arguments'
+Result: Object
+Evaluating: value['script']
+Result: 'set -e
+nl=$''\n''
+BUILD_ARGS="$(
+  echo "${BUILD_ARGUMENTS}" \
+    | egrep -v ''^$'' \
+    | sed -e ''s/"/\\"/g'' \
+    | sed -e ''s/\$/\\$/g'' \
+    | sed -e ''s/^\([^=]*\)=\(.*\)$/--build-arg \1="\2"/g'' \
+    | tr -d ''\r'' \
+    | tr ''\n'' '' ''
+)"
+
+echo "BUILD_ARGUMENTS: ${BUILD_ARGUMENTS}"
+echo "BUILD_ARGS: ${BUILD_ARGS}"
+echo "##vso[task.setvariable variable=BUILD_ARGS;isOutput=true]${BUILD_ARGS}"
+
+if [ $(PRE_PULL) == "true" ]; then
+  PRE_PULL_ARG="--pull"
+fi
+
+echo "PRE_PULL_ARG: ${PRE_PULL_ARG}"
+echo "##vso[task.setvariable variable=PRE_PULL_ARG;isOutput=true]${PRE_PULL_ARG}"
+'
+Evaluating: value['failOnStderr']
+Expanded: Null
+Result: False
+Evaluating: value['workingDirectory']
+Expanded: Null
+Result: False
+End transform: step
+Evaluating: format('echo " - IMAGE_NAME     : {0}"
+echo " - IMAGE_ENV      : {1}"
+echo " - IMAGE_VERSION  : {2}"
+echo " - TAG_SUFFIX     : {3}"
+echo " - REGISTRY       : {4}"
+echo " - DOCKERFILE     : {5}"
+echo " - PRE_PULL       : {6}"
+echo " - BUILDCONTEXT   : {7}"
+echo " - BUILD_ARGUMENTS: {8}"
+echo " - BUILD_ARGS     : ${{BUILD_ARGS}}"
+', parameters['IMAGE_NAME'], parameters['IMAGE_ENV'], parameters['IMAGE_VERSION'], parameters['TAG_SUFFIX'], parameters['REGISTRY'], parameters['DOCKERFILE'], parameters['PRE_PULL'], parameters['BUILDCONTEXT'], parameters['BUILD_ARGUMENTS'])
+Result: 'echo " - IMAGE_NAME     : $(NPM_NAME)"
+echo " - IMAGE_ENV      : $(IMAGE_ENV)"
+echo " - IMAGE_VERSION  : $(NPM_VERSION)"
+echo " - TAG_SUFFIX     : $(PreProcessStep.TAG_SUFFIX)"
+echo " - REGISTRY       : $(dockerRegistryServiceConnection)"
+echo " - DOCKERFILE     : ./$(PACKAGE_NAME).dockerfile"
+echo " - PRE_PULL       : true"
+echo " - BUILDCONTEXT   : "
+echo " - BUILD_ARGUMENTS: REACT_APP_HASURA_ACCESS_KEY=mylongsecretkey
+REACT_APP_ACTIVATE_RBAC=$(REACT_APP_ACTIVATE_RBAC)
+REACT_APP_ACTIVATE_SHIFTS=$(REACT_APP_ACTIVATE_SHIFTS)
+"
+echo " - BUILD_ARGS     : ${BUILD_ARGS}"
+'
+Begin transform: step
+Evaluating: transform('stepToTaskBaseProperties', value)
+Evaluating: arg0
+Result: Object
+Evaluating: in(pair['key'], 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Expanded: in('script', 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Result: False
+Evaluating: in(pair['key'], 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Expanded: in('displayName', 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Result: True
+Evaluating: pair['key']
+Result: 'displayName'
+Evaluating: pair['value']
+Result: 'Show parameters'
+Evaluating: in(pair['key'], 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Expanded: in('env', 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Result: True
+Evaluating: pair['key']
+Result: 'env'
+Evaluating: pair['value']
+Result: Object
+Result: Object
+Evaluating: value['script']
+Result: 'echo " - IMAGE_NAME     : $(NPM_NAME)"
+echo " - IMAGE_ENV      : $(IMAGE_ENV)"
+echo " - IMAGE_VERSION  : $(NPM_VERSION)"
+echo " - TAG_SUFFIX     : $(PreProcessStep.TAG_SUFFIX)"
+echo " - REGISTRY       : $(dockerRegistryServiceConnection)"
+echo " - DOCKERFILE     : ./$(PACKAGE_NAME).dockerfile"
+echo " - PRE_PULL       : true"
+echo " - BUILDCONTEXT   : "
+echo " - BUILD_ARGUMENTS: REACT_APP_HASURA_ACCESS_KEY=mylongsecretkey
+REACT_APP_ACTIVATE_RBAC=$(REACT_APP_ACTIVATE_RBAC)
+REACT_APP_ACTIVATE_SHIFTS=$(REACT_APP_ACTIVATE_SHIFTS)
+"
+echo " - BUILD_ARGS     : ${BUILD_ARGS}"
+'
+Evaluating: value['failOnStderr']
+Expanded: Null
+Result: False
+Evaluating: value['workingDirectory']
+Expanded: Null
+Result: False
+End transform: step
+Evaluating: parameters['TAG_SUFFIX']
+Result: '$(PreProcessStep.TAG_SUFFIX)'
+Evaluating: parameters['IMAGE_VERSION']
+Result: '$(NPM_VERSION)'
+Begin transform: step
+Evaluating: transform('stepToTaskBaseProperties', value)
+Evaluating: arg0
+Result: Object
+Evaluating: in(pair['key'], 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Expanded: in('script', 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Result: False
+Evaluating: in(pair['key'], 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Expanded: in('name', 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Result: True
+Evaluating: pair['key']
+Result: 'name'
+Evaluating: pair['value']
+Result: 'Suffix'
+Evaluating: in(pair['key'], 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Expanded: in('displayName', 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Result: True
+Evaluating: pair['key']
+Result: 'displayName'
+Evaluating: pair['value']
+Result: 'Preprocessing Tag-Suffix for first tag'
+Evaluating: in(pair['key'], 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Expanded: in('env', 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Result: True
+Evaluating: pair['key']
+Result: 'env'
+Evaluating: pair['value']
+Result: Object
+Result: Object
+Evaluating: value['script']
+Result: 'set -e
+if [ -n ${SUFFIX} ]; then
+  FIRST_TAG_SUFFIXED="$(echo "${IMAGE_VERSION}" | egrep -v ''\n|latest'' | head -1)-${SUFFIX}"
+  : ${FIRST_TAG_SUFFIXED:=${SUFFIX}}
+fi
+echo "##vso[task.setvariable variable=FIRST_TAG_SUFFIXED;isOutput=true]${FIRST_TAG_SUFFIXED}"
+'
+Evaluating: value['failOnStderr']
+Expanded: Null
+Result: False
+Evaluating: value['workingDirectory']
+Expanded: Null
+Result: False
+End transform: step
+Evaluating: parameters['REGISTRY']
+Result: '$(dockerRegistryServiceConnection)'
+Evaluating: format('{0}{1}', parameters['IMAGE_NAME'], parameters['IMAGE_ENV'])
+Result: '$(NPM_NAME)$(IMAGE_ENV)'
+Evaluating: parameters['DOCKERFILE']
+Result: './$(PACKAGE_NAME).dockerfile'
+Evaluating: parameters['BUILDCONTEXT']
+Result: ''
+Evaluating: format('$(Suffix.FIRST_TAG_SUFFIXED)
+{0}
+latest
+', parameters['IMAGE_VERSION'])
+Result: '$(Suffix.FIRST_TAG_SUFFIXED)
+$(NPM_VERSION)
+latest
+'
+Evaluating: parameters['REGISTRY']
+Result: '$(dockerRegistryServiceConnection)'
+Evaluating: format('{0}{1}', parameters['IMAGE_NAME'], parameters['IMAGE_ENV'])
+Result: '$(NPM_NAME)$(IMAGE_ENV)'
+Evaluating: parameters['DOCKERFILE']
+Result: './$(PACKAGE_NAME).dockerfile'
+Evaluating: format('$(Suffix.FIRST_TAG_SUFFIXED)
+{0}
+latest
+', parameters['IMAGE_VERSION'])
+Result: '$(Suffix.FIRST_TAG_SUFFIXED)
+$(NPM_VERSION)
+latest
+'
+Begin transform: stepsTemplate
+Evaluating: value['steps']
+Expanded: Object
+Result: True
+Evaluating: value['steps']
+Result: Object
+End transform: stepsTemplate
+Finished evaluating template '/templates/steps-build-push-args.yml@Templates'
+End load: stepsTemplateReference
+Begin transform: pool
+Evaluating: value
+Result: 'server'
+End transform: pool
+Begin transform: variables
+Evaluating: value
+Result: Object
+Evaluating: pair['key']
+Result: 'NPM_NAME'
+Evaluating: pair['value']
+Result: '$[stageDependencies.PREBUILD.Vars.outputs[''Npm.NPM_NAME'']]'
+Evaluating: pair['key']
+Result: 'COMPONENT_ENV'
+Evaluating: pair['value']
+Result: '$[stageDependencies.PREBUILD.Vars.outputs[''Git.COMPONENT_ENV'']]'
+End transform: variables
+Begin load: stepsTemplateReference
+Begin evaluating template '/templates/steps-vm-deployment.yml@Templates'
+Evaluating: format('echo "---- START ----"
+echo "----------COPY ENV VAR TO DEV ENVIROMENT (ansible.env)----------"
+cp envs/ansible.env  /srv/factorymanager/frontend.dev.env
+_COMPONENT_NAME=$( echo {0} | awk ''{{print tolower($0)}}'')
+echo $_COMPONENT_NAME
+DOCKEREPO="abbdigitalaccelerator.azurecr.io/$_COMPONENT_NAME-{1}"
+echo "----------PATH-----------"
+echo $DOCKEREPO
+/usr/bin/docker image pull $DOCKEREPO
+echo "----------SERVICE LIST-----------"
+IMG=$(/usr/bin/docker service list |/bin/grep $DOCKEREPO |/usr/bin/awk ''{{print $2}}'')
+echo "---------IMAGE------------"
+echo $IMG
+echo "---------------------"
+/usr/bin/docker service update --with-registry-auth --force --image $DOCKEREPO $IMG
+/usr/bin/docker service ps $IMG
+echo "---- END ----"
+', parameters['COMPONENT_NAME'], parameters['COMPONENT_ENV'])
+Result: 'echo "---- START ----"
+echo "----------COPY ENV VAR TO DEV ENVIROMENT (ansible.env)----------"
+cp envs/ansible.env  /srv/factorymanager/frontend.dev.env
+_COMPONENT_NAME=$( echo $(NPM_NAME) | awk ''{print tolower($0)}'')
+echo $_COMPONENT_NAME
+DOCKEREPO="abbdigitalaccelerator.azurecr.io/$_COMPONENT_NAME-$(COMPONENT_ENV)"
+echo "----------PATH-----------"
+echo $DOCKEREPO
+/usr/bin/docker image pull $DOCKEREPO
+echo "----------SERVICE LIST-----------"
+IMG=$(/usr/bin/docker service list |/bin/grep $DOCKEREPO |/usr/bin/awk ''{print $2}'')
+echo "---------IMAGE------------"
+echo $IMG
+echo "---------------------"
+/usr/bin/docker service update --with-registry-auth --force --image $DOCKEREPO $IMG
+/usr/bin/docker service ps $IMG
+echo "---- END ----"
+'
+Begin transform: step
+Evaluating: transform('stepToTaskBaseProperties', value)
+Evaluating: arg0
+Result: Object
+Evaluating: in(pair['key'], 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Expanded: in('script', 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Result: False
+Evaluating: in(pair['key'], 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Expanded: in('displayName', 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Result: True
+Evaluating: pair['key']
+Result: 'displayName'
+Evaluating: pair['value']
+Result: 'Automatic deployment to VM'
+Result: Object
+Evaluating: value['script']
+Result: 'echo "---- START ----"
+echo "----------COPY ENV VAR TO DEV ENVIROMENT (ansible.env)----------"
+cp envs/ansible.env  /srv/factorymanager/frontend.dev.env
+_COMPONENT_NAME=$( echo $(NPM_NAME) | awk ''{print tolower($0)}'')
+echo $_COMPONENT_NAME
+DOCKEREPO="abbdigitalaccelerator.azurecr.io/$_COMPONENT_NAME-$(COMPONENT_ENV)"
+echo "----------PATH-----------"
+echo $DOCKEREPO
+/usr/bin/docker image pull $DOCKEREPO
+echo "----------SERVICE LIST-----------"
+IMG=$(/usr/bin/docker service list |/bin/grep $DOCKEREPO |/usr/bin/awk ''{print $2}'')
+echo "---------IMAGE------------"
+echo $IMG
+echo "---------------------"
+/usr/bin/docker service update --with-registry-auth --force --image $DOCKEREPO $IMG
+/usr/bin/docker service ps $IMG
+echo "---- END ----"
+'
+Evaluating: value['failOnStderr']
+Expanded: Null
+Result: False
+Evaluating: value['workingDirectory']
+Expanded: Null
+Result: False
+End transform: step
+Begin transform: stepsTemplate
+Evaluating: value['steps']
+Expanded: Object
+Result: True
+Evaluating: value['steps']
+Result: Object
+End transform: stepsTemplate
+Finished evaluating template '/templates/steps-vm-deployment.yml@Templates'
+End load: stepsTemplateReference
+Finished evaluating template '/config/pipelines/azure-pipelines.yml'
+Load Time: 00:00:00.1447730
+Estimated Memory: 60,932 bytes (Max: 20,971,520)
+Parser Event Count: 2,734 (Max: 10,000,000)
+Greatest Parser Depth: 19 (Max: 100)
+File Count: 5 (Max: 100)
+Greatest File Size: 4,959 (Max: 1,048,576)

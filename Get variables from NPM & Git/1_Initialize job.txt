@@ -1,0 +1,43 @@
+2021-08-16T09:52:35.4412422Z ##[section]Starting: Initialize job
+2021-08-16T09:52:35.4413484Z Agent name: 'Hosted Agent'
+2021-08-16T09:52:35.4413779Z Agent machine name: 'fv-az149-256'
+2021-08-16T09:52:35.4413994Z Current agent version: '2.190.0'
+2021-08-16T09:52:35.4455899Z ##[group]Operating System
+2021-08-16T09:52:35.4456143Z Ubuntu
+2021-08-16T09:52:35.4456257Z 18.04.5
+2021-08-16T09:52:35.4456364Z LTS
+2021-08-16T09:52:35.4456480Z ##[endgroup]
+2021-08-16T09:52:35.4456622Z ##[group]Virtual Environment
+2021-08-16T09:52:35.4456806Z Environment: ubuntu-18.04
+2021-08-16T09:52:35.4456958Z Version: 20210810.1
+2021-08-16T09:52:35.4457226Z Included Software: https://github.com/actions/virtual-environments/blob/ubuntu18/20210810.1/images/linux/Ubuntu1804-README.md
+2021-08-16T09:52:35.4457602Z Image Release: https://github.com/actions/virtual-environments/releases/tag/ubuntu18%2F20210810.1
+2021-08-16T09:52:35.4457937Z ##[endgroup]
+2021-08-16T09:52:35.4458109Z ##[group]Virtual Environment Provisioner
+2021-08-16T09:52:35.4458280Z 1.0.0.0-master-20210802-2
+2021-08-16T09:52:35.4458439Z ##[endgroup]
+2021-08-16T09:52:35.4459259Z Current image version: '20210810.1'
+2021-08-16T09:52:35.4463462Z Agent running as: 'vsts'
+2021-08-16T09:52:35.4496837Z ##[debug]Triggering repository: WB-FactoryManager. repository type: Git
+2021-08-16T09:52:35.4500228Z Prepare build directory.
+2021-08-16T09:52:35.4676794Z ##[debug]Creating build directory: '/home/vsts/work/1'
+2021-08-16T09:52:35.4678322Z ##[debug]Delete existing artifacts directory: '/home/vsts/work/1/a'
+2021-08-16T09:52:35.4680519Z ##[debug]Creating artifacts directory: '/home/vsts/work/1/a'
+2021-08-16T09:52:35.4681914Z ##[debug]Delete existing test results directory: '/home/vsts/work/1/TestResults'
+2021-08-16T09:52:35.4682478Z ##[debug]Creating test results directory: '/home/vsts/work/1/TestResults'
+2021-08-16T09:52:35.4683747Z ##[debug]Creating binaries directory: '/home/vsts/work/1/b'
+2021-08-16T09:52:35.4685073Z ##[debug]Creating source directory: '/home/vsts/work/1/s'
+2021-08-16T09:52:35.4727919Z Set build variables.
+2021-08-16T09:52:35.4770749Z Download all required tasks.
+2021-08-16T09:52:35.4873170Z Downloading task: Bash (3.189.0)
+2021-08-16T09:52:35.8410936Z ##[debug]Task 'Bash' has been downloaded into '/home/vsts/work/_tasks/Bash_6c731c3c-3c68-459a-a5c9-bde6e6595b5b/3.189.0'.
+2021-08-16T09:52:36.5926153Z Checking job knob settings.
+2021-08-16T09:52:36.5935515Z    Knob: AgentToolsDirectory = /opt/hostedtoolcache Source: ${AGENT_TOOLSDIRECTORY} 
+2021-08-16T09:52:36.5936642Z    Knob: AgentPerflog = /home/vsts/perflog Source: ${VSTS_AGENT_PERFLOG} 
+2021-08-16T09:52:36.5937988Z    Knob: TaskRestrictionsEnforcementMode = Enabled Source: $(agent.taskRestrictionsEnforcementMode) 
+2021-08-16T09:52:36.5938603Z    Knob: EnableTaskRestrictionsTelemetry = true Source: $(agent.enableTaskRestrictionsTelemetry) 
+2021-08-16T09:52:36.5939426Z Finished checking job knob settings.
+2021-08-16T09:52:36.6199413Z ##[debug]Log plugin 'TestResultLogPlugin' is disabled.
+2021-08-16T09:52:36.6199801Z ##[debug]Log plugin 'TestFilePublisherPlugin' is disabled.
+2021-08-16T09:52:36.6200248Z Start tracking orphan processes.
+2021-08-16T09:52:36.6437607Z ##[section]Finishing: Initialize job

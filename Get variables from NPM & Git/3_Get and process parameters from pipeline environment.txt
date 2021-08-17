@@ -1,0 +1,135 @@
+2021-08-16T09:52:38.7958440Z ##[debug]Evaluating condition for step: 'Get and process parameters from pipeline environment'
+2021-08-16T09:52:38.7959612Z ##[debug]Evaluating: SucceededNode()
+2021-08-16T09:52:38.7959971Z ##[debug]Evaluating SucceededNode:
+2021-08-16T09:52:38.7960584Z ##[debug]=> True
+2021-08-16T09:52:38.7960943Z ##[debug]Result: True
+2021-08-16T09:52:38.7961382Z ##[section]Starting: Get and process parameters from pipeline environment
+2021-08-16T09:52:38.7966479Z ==============================================================================
+2021-08-16T09:52:38.7966717Z Task         : Bash
+2021-08-16T09:52:38.7966920Z Description  : Run a Bash script on macOS, Linux, or Windows
+2021-08-16T09:52:38.7967147Z Version      : 3.189.0
+2021-08-16T09:52:38.7967324Z Author       : Microsoft Corporation
+2021-08-16T09:52:38.7967571Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+2021-08-16T09:52:38.7967869Z ==============================================================================
+2021-08-16T09:52:38.8627184Z ##[debug]Using node path: /home/vsts/agents/2.190.0/externals/node10/bin/node
+2021-08-16T09:52:39.0705444Z ##[debug]agent.TempDirectory=/home/vsts/work/_temp
+2021-08-16T09:52:39.0722025Z ##[debug]loading inputs and endpoints
+2021-08-16T09:52:39.0733029Z ##[debug]loading INPUT_TARGETTYPE
+2021-08-16T09:52:39.0744168Z ##[debug]loading INPUT_FILEPATH
+2021-08-16T09:52:39.0746069Z ##[debug]loading INPUT_SCRIPT
+2021-08-16T09:52:39.0747445Z ##[debug]loading INPUT_WORKINGDIRECTORY
+2021-08-16T09:52:39.0749895Z ##[debug]loading INPUT_FAILONSTDERR
+2021-08-16T09:52:39.0750369Z ##[debug]loading INPUT_NOPROFILE
+2021-08-16T09:52:39.0753768Z ##[debug]loading INPUT_NORC
+2021-08-16T09:52:39.0754511Z ##[debug]loading ENDPOINT_AUTH_SYSTEMVSSCONNECTION
+2021-08-16T09:52:39.0755031Z ##[debug]loading ENDPOINT_AUTH_SCHEME_SYSTEMVSSCONNECTION
+2021-08-16T09:52:39.0755567Z ##[debug]loading ENDPOINT_AUTH_PARAMETER_SYSTEMVSSCONNECTION_ACCESSTOKEN
+2021-08-16T09:52:39.0757296Z ##[debug]loading SECRET_SYSTEM_ACCESSTOKEN
+2021-08-16T09:52:39.0758703Z ##[debug]loaded 11
+2021-08-16T09:52:39.0764002Z ##[debug]Agent.ProxyUrl=undefined
+2021-08-16T09:52:39.0764486Z ##[debug]Agent.CAInfo=undefined
+2021-08-16T09:52:39.0764945Z ##[debug]Agent.ClientCert=undefined
+2021-08-16T09:52:39.0765413Z ##[debug]Agent.SkipCertValidation=undefined
+2021-08-16T09:52:39.0770214Z ##[debug]noProfile=true
+2021-08-16T09:52:39.0770730Z ##[debug]noRc=true
+2021-08-16T09:52:39.0778445Z ##[debug]check path : /home/vsts/work/_tasks/Bash_6c731c3c-3c68-459a-a5c9-bde6e6595b5b/3.189.0/task.json
+2021-08-16T09:52:39.0781395Z ##[debug]adding resource file: /home/vsts/work/_tasks/Bash_6c731c3c-3c68-459a-a5c9-bde6e6595b5b/3.189.0/task.json
+2021-08-16T09:52:39.0782259Z ##[debug]system.culture=en-US
+2021-08-16T09:52:39.0791641Z ##[debug]failOnStderr=false
+2021-08-16T09:52:39.0792938Z ##[debug]workingDirectory=/home/vsts/work/1/s
+2021-08-16T09:52:39.0793464Z ##[debug]check path : /home/vsts/work/1/s
+2021-08-16T09:52:39.0793964Z ##[debug]targetType=inline
+2021-08-16T09:52:39.0796962Z ##[debug]script=SHA="${GIT_COMMIT:0:8}"
+BRANCH="$(echo "refs/heads/dev" | sed -e 's#refs/[^/]*/##' -e 's#[/ ]#-#g')"
+IMAGE_NAME="${REPO_NAME,,}"
+TAG="$(git describe --tags)"
+TAG_LAST="$(git describe --abbrev=0)"
+TAG_REAL="$( [ "${TAG}" == "${TAG_LAST}" ] && echo "${TAG}" || echo "" )"
+
+if [[ "${BRANCH}" = "master" || "${BRANCH}" = "main" || "${BRANCH}" = "release" ]]
+then
+    COMPONENT_ENV="pro"
+    IMAGE_ENV=""
+else
+    if [[ "${BRANCH}" = "staging" || "${BRANCH}" = "playground" ]]
+    then
+        COMPONENT_ENV="staging"
+    else
+        COMPONENT_ENV="dev"
+    fi
+
+    IMAGE_ENV="-${COMPONENT_ENV}"
+fi
+
+echo "Inputs:"
+echo "- GIT_COMMIT: ${GIT_COMMIT}"
+echo "- GIT_BRANCH: ${GIT_BRANCH}"
+echo "- GIT_BRANCH_PULL: ${GIT_BRANCH_PULL}"
+echo "- REPO_NAME: ${REPO_NAME}"
+echo "- SHA_LENGTH: ${SHA_LENGTH}"
+echo "Outputs:"
+echo "- SHA: ${SHA}"
+echo "- BRANCH: ${BRANCH}"
+echo "- IMAGE_NAME: ${IMAGE_NAME}"
+echo "- IMAGE_ENV: ${IMAGE_ENV}"
+echo "- COMPONENT_ENV: ${COMPONENT_ENV}"
+echo "- TAG: ${TAG}"
+echo "- TAG_LAST: ${TAG_LAST}"
+echo "- TAG_REAL: ${TAG_REAL}"
+
+echo "##vso[task.setvariable variable=SHA;isOutput=true]${SHA}"
+echo "##vso[task.setvariable variable=BRANCH;isOutput=true]${BRANCH}"
+echo "##vso[task.setvariable variable=IMAGE_NAME;isOutput=true]${IMAGE_NAME}"
+echo "##vso[task.setvariable variable=IMAGE_ENV;isOutput=true]${IMAGE_ENV}"
+echo "##vso[task.setvariable variable=COMPONENT_ENV;isOutput=true]${COMPONENT_ENV}"
+echo "##vso[task.setvariable variable=TAG;isOutput=true]${TAG}"
+echo "##vso[task.setvariable variable=TAG_LAST;isOutput=true]${TAG_LAST}"
+echo "##vso[task.setvariable variable=TAG_REAL;isOutput=true]${TAG_REAL}"
+2021-08-16T09:52:39.0803080Z Generating script.
+2021-08-16T09:52:39.0806006Z ##[debug]which 'bash'
+2021-08-16T09:52:39.0814901Z ##[debug]found: '/bin/bash'
+2021-08-16T09:52:39.0815401Z ##[debug]Agent.Version=2.190.0
+2021-08-16T09:52:39.0815890Z ##[debug]agent.tempDirectory=/home/vsts/work/_temp
+2021-08-16T09:52:39.0816413Z ##[debug]check path : /home/vsts/work/_temp
+2021-08-16T09:52:39.0823476Z ========================== Starting Command Output ===========================
+2021-08-16T09:52:39.0828068Z ##[debug]which '/bin/bash'
+2021-08-16T09:52:39.0828674Z ##[debug]found: '/bin/bash'
+2021-08-16T09:52:39.0829259Z ##[debug]/bin/bash arg: --noprofile
+2021-08-16T09:52:39.0829766Z ##[debug]/bin/bash arg: --norc
+2021-08-16T09:52:39.0832470Z ##[debug]/bin/bash arg: /home/vsts/work/_temp/2e5bc093-f6b6-4523-91cf-744f7b1b967a.sh
+2021-08-16T09:52:39.0833047Z ##[debug]exec tool: /bin/bash
+2021-08-16T09:52:39.0833501Z ##[debug]arguments:
+2021-08-16T09:52:39.0834041Z ##[debug]   --noprofile
+2021-08-16T09:52:39.0835381Z ##[debug]   --norc
+2021-08-16T09:52:39.0836167Z ##[debug]   /home/vsts/work/_temp/2e5bc093-f6b6-4523-91cf-744f7b1b967a.sh
+2021-08-16T09:52:39.0836944Z [command]/bin/bash --noprofile --norc /home/vsts/work/_temp/2e5bc093-f6b6-4523-91cf-744f7b1b967a.sh
+2021-08-16T09:52:39.0926585Z fatal: No names found, cannot describe anything.
+2021-08-16T09:52:39.0947737Z fatal: No names found, cannot describe anything.
+2021-08-16T09:52:39.0957005Z Inputs:
+2021-08-16T09:52:39.0958106Z - GIT_COMMIT: 61d5272d260933f736a27fd1506e5f6688f2205c
+2021-08-16T09:52:39.0958817Z - GIT_BRANCH: refs/heads/dev
+2021-08-16T09:52:39.0960142Z - GIT_BRANCH_PULL: $(System.PullRequest.SourceBranch)
+2021-08-16T09:52:39.0960733Z - REPO_NAME: WB-FactoryManager
+2021-08-16T09:52:39.0961110Z - SHA_LENGTH: 8
+2021-08-16T09:52:39.0961433Z Outputs:
+2021-08-16T09:52:39.0961774Z - SHA: 61d5272d
+2021-08-16T09:52:39.0962107Z - BRANCH: dev
+2021-08-16T09:52:39.0962522Z - IMAGE_NAME: wb-factorymanager
+2021-08-16T09:52:39.0962885Z - IMAGE_ENV: -dev
+2021-08-16T09:52:39.0963236Z - COMPONENT_ENV: dev
+2021-08-16T09:52:39.0963636Z - TAG: 
+2021-08-16T09:52:39.0963959Z - TAG_LAST: 
+2021-08-16T09:52:39.0964385Z - TAG_REAL: 
+2021-08-16T09:52:39.0978745Z ##[debug]Processed: ##vso[task.setvariable variable=SHA;isOutput=true]61d5272d
+2021-08-16T09:52:39.0980165Z ##[debug]Processed: ##vso[task.setvariable variable=BRANCH;isOutput=true]dev
+2021-08-16T09:52:39.0981446Z ##[debug]Processed: ##vso[task.setvariable variable=IMAGE_NAME;isOutput=true]wb-factorymanager
+2021-08-16T09:52:39.0982494Z ##[debug]Processed: ##vso[task.setvariable variable=IMAGE_ENV;isOutput=true]-dev
+2021-08-16T09:52:39.0983433Z ##[debug]Processed: ##vso[task.setvariable variable=COMPONENT_ENV;isOutput=true]dev
+2021-08-16T09:52:39.0984331Z ##[debug]Processed: ##vso[task.setvariable variable=TAG;isOutput=true]
+2021-08-16T09:52:39.0985252Z ##[debug]Processed: ##vso[task.setvariable variable=TAG_LAST;isOutput=true]
+2021-08-16T09:52:39.0986120Z ##[debug]Processed: ##vso[task.setvariable variable=TAG_REAL;isOutput=true]
+2021-08-16T09:52:39.0986830Z ##[debug]Exit code 0 received from tool '/bin/bash'
+2021-08-16T09:52:39.0996295Z ##[debug]STDIO streams have closed for tool '/bin/bash'
+2021-08-16T09:52:39.0997151Z ##[debug]task result: Succeeded
+2021-08-16T09:52:39.1018208Z ##[debug]Processed: ##vso[task.complete result=Succeeded;done=true;]
+2021-08-16T09:52:39.1072675Z ##[section]Finishing: Get and process parameters from pipeline environment

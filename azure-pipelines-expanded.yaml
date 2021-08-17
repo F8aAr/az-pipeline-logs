@@ -1,0 +1,353 @@
+trigger:
+  branches:
+    include:
+    - dev
+    - staging
+    - release
+    - master
+resources:
+  repositories:
+  - repository: Templates
+    type: git
+    name: DigitalFactory DevOps/az-pipeline-templates
+    ref: "refs/tags/v0.0.9"
+variables:
+- name: DOCKER_BUILDKIT
+  value: 1
+- name: dockerRegistryServiceConnection
+  value: "abbdigitalaccelerator"
+- name: PACKAGE_NAME
+  value: "frontend"
+- name: POOL_NAME
+  value: rda-dev-agent-deploy
+- name: REACT_APP_ACTIVATE_RBAC
+  value: true
+- name: REACT_APP_ACTIVATE_SHIFTS
+  value: true
+stages:
+- stage: PREBUILD
+  displayName: NPM Version, Name & Git
+  jobs:
+  - job: Vars
+    displayName: Get variables from NPM & Git
+    pool:
+      vmImage: ubuntu-18.04
+    steps:
+    - task: Bash@3
+      displayName: 'Get and process parameters from pipeline environment'
+      name: Git
+      env:
+        GIT_COMMIT: $(Build.SourceVersion)
+        GIT_BRANCH: $(Build.SourceBranch)
+        GIT_BRANCH_PULL: $(System.PullRequest.SourceBranch)
+        REPO_NAME: $(Build.Repository.Name)
+        SHA_LENGTH: 8
+      inputs:
+        targetType: inline
+        script: >
+          SHA="${GIT_COMMIT:0:8}"
+
+          BRANCH="$(echo "$(Build.SourceBranch)" | sed -e 's#refs/[^/]*/##' -e 's#[/ ]#-#g')"
+
+          IMAGE_NAME="${REPO_NAME,,}"
+
+          TAG="$(git describe --tags)"
+
+          TAG_LAST="$(git describe --abbrev=0)"
+
+          TAG_REAL="$( [ "${TAG}" == "${TAG_LAST}" ] && echo "${TAG}" || echo "" )"
+
+
+          if [[ "${BRANCH}" = "master" || "${BRANCH}" = "main" || "${BRANCH}" = "release" ]]
+
+          then
+              COMPONENT_ENV="pro"
+              IMAGE_ENV=""
+          else
+              if [[ "${BRANCH}" = "staging" || "${BRANCH}" = "playground" ]]
+              then
+                  COMPONENT_ENV="staging"
+              else
+                  COMPONENT_ENV="dev"
+              fi
+
+              IMAGE_ENV="-${COMPONENT_ENV}"
+          fi
+
+
+          echo "Inputs:"
+
+          echo "- GIT_COMMIT: ${GIT_COMMIT}"
+
+          echo "- GIT_BRANCH: ${GIT_BRANCH}"
+
+          echo "- GIT_BRANCH_PULL: ${GIT_BRANCH_PULL}"
+
+          echo "- REPO_NAME: ${REPO_NAME}"
+
+          echo "- SHA_LENGTH: ${SHA_LENGTH}"
+
+          echo "Outputs:"
+
+          echo "- SHA: ${SHA}"
+
+          echo "- BRANCH: ${BRANCH}"
+
+          echo "- IMAGE_NAME: ${IMAGE_NAME}"
+
+          echo "- IMAGE_ENV: ${IMAGE_ENV}"
+
+          echo "- COMPONENT_ENV: ${COMPONENT_ENV}"
+
+          echo "- TAG: ${TAG}"
+
+          echo "- TAG_LAST: ${TAG_LAST}"
+
+          echo "- TAG_REAL: ${TAG_REAL}"
+
+
+          echo "##vso[task.setvariable variable=SHA;isOutput=true]${SHA}"
+
+          echo "##vso[task.setvariable variable=BRANCH;isOutput=true]${BRANCH}"
+
+          echo "##vso[task.setvariable variable=IMAGE_NAME;isOutput=true]${IMAGE_NAME}"
+
+          echo "##vso[task.setvariable variable=IMAGE_ENV;isOutput=true]${IMAGE_ENV}"
+
+          echo "##vso[task.setvariable variable=COMPONENT_ENV;isOutput=true]${COMPONENT_ENV}"
+
+          echo "##vso[task.setvariable variable=TAG;isOutput=true]${TAG}"
+
+          echo "##vso[task.setvariable variable=TAG_LAST;isOutput=true]${TAG_LAST}"
+
+          echo "##vso[task.setvariable variable=TAG_REAL;isOutput=true]${TAG_REAL}"
+    - task: Bash@3
+      displayName: 'Get component name and version from package.json'
+      name: Npm
+      inputs:
+        targetType: inline
+        script: "npmNameString=$(sed 's/.*\"name\": \"\\(.*\\)\".*/\\1/;t;d' ./packages/$(PACKAGE_NAME)/package.json | sed -r 's/(^|-)([a-z])/\\U\\2/g')\nnpmVersionString=$(sed 's/.*\"version\": \"\\(.*\\)\".*/\\1/;t;d' ./packages/$(PACKAGE_NAME)/package.json)  \n\necho \"Component: $(PACKAGE_NAME)\"\necho \"NPM Name: ${npmNameString}\"\necho \"NPM Version: ${npmVersionString}\"\n\necho \"##vso[task.setvariable variable=NPM_NAME;isOutput=true]${npmNameString}\"\necho \"##vso[task.setvariable variable=NPM_VERSION;isOutput=true]${npmVersionString}\"\n"
+- stage: BUILD
+  displayName: Docker build & push
+  dependsOn:
+  - PREBUILD
+  jobs:
+  - job: ''
+    displayName: Docker build & push
+    condition: in(stageDependencies.PREBUILD.Vars.outputs['Git.COMPONENT_ENV'], 'dev', 'staging', 'pro')
+    variables:
+    - name: NPM_NAME
+      value: $[stageDependencies.PREBUILD.Vars.outputs['Npm.NPM_NAME']]
+    - name: NPM_VERSION
+      value: $[stageDependencies.PREBUILD.Vars.outputs['Npm.NPM_VERSION']]
+    - name: IMAGE_ENV
+      value: $[stageDependencies.PREBUILD.Vars.outputs['Git.IMAGE_ENV']]
+    - name: COMPONENT_ENV
+      value: $[stageDependencies.PREBUILD.Vars.outputs['Git.COMPONENT_ENV']]
+    pool:
+      vmImage: ubuntu-18.04
+    steps:
+    - task: CmdLine@2
+      name: PreProcessStep
+      displayName: Preprocessing
+      inputs:
+        script: |
+          set -e
+          if [ "$(COMPONENT_ENV)" == 'dev' ]; then
+            TAG_SUFFIX=$(Build.BuildId)
+          else
+            TAG_SUFFIX=""
+          fi
+          echo "##vso[task.setvariable variable=TAG_SUFFIX;isOutput=true]${TAG_SUFFIX}"
+    - task: CmdLine@2
+      env:
+        BUILD_ARGUMENTS: >
+          REACT_APP_HASURA_ACCESS_KEY=mylongsecretkey
+
+          REACT_APP_ACTIVATE_RBAC=$(REACT_APP_ACTIVATE_RBAC)
+
+          REACT_APP_ACTIVATE_SHIFTS=$(REACT_APP_ACTIVATE_SHIFTS)
+      name: Args
+      displayName: Parse build arguments
+      inputs:
+        script: |
+          set -e
+          nl=$'\n'
+          BUILD_ARGS="$(
+            echo "${BUILD_ARGUMENTS}" \
+              | egrep -v '^$' \
+              | sed -e 's/"/\\"/g' \
+              | sed -e 's/\$/\\$/g' \
+              | sed -e 's/^\([^=]*\)=\(.*\)$/--build-arg \1="\2"/g' \
+              | tr -d '\r' \
+              | tr '\n' ' '
+          )"
+
+          echo "BUILD_ARGUMENTS: ${BUILD_ARGUMENTS}"
+          echo "BUILD_ARGS: ${BUILD_ARGS}"
+          echo "##vso[task.setvariable variable=BUILD_ARGS;isOutput=true]${BUILD_ARGS}"
+
+          if [ $(PRE_PULL) == "true" ]; then
+            PRE_PULL_ARG="--pull"
+          fi
+
+          echo "PRE_PULL_ARG: ${PRE_PULL_ARG}"
+          echo "##vso[task.setvariable variable=PRE_PULL_ARG;isOutput=true]${PRE_PULL_ARG}"
+    - task: CmdLine@2
+      displayName: Show parameters
+      env:
+        BUILD_ARGS: $(Args.BUILD_ARGS)
+      inputs:
+        script: >
+          echo " - IMAGE_NAME     : $(NPM_NAME)"
+
+          echo " - IMAGE_ENV      : $(IMAGE_ENV)"
+
+          echo " - IMAGE_VERSION  : $(NPM_VERSION)"
+
+          echo " - TAG_SUFFIX     : $(PreProcessStep.TAG_SUFFIX)"
+
+          echo " - REGISTRY       : $(dockerRegistryServiceConnection)"
+
+          echo " - DOCKERFILE     : ./$(PACKAGE_NAME).dockerfile"
+
+          echo " - PRE_PULL       : true"
+
+          echo " - BUILDCONTEXT   : "
+
+          echo " - BUILD_ARGUMENTS: REACT_APP_HASURA_ACCESS_KEY=mylongsecretkey
+
+          REACT_APP_ACTIVATE_RBAC=$(REACT_APP_ACTIVATE_RBAC)
+
+          REACT_APP_ACTIVATE_SHIFTS=$(REACT_APP_ACTIVATE_SHIFTS)
+
+          "
+
+          echo " - BUILD_ARGS     : ${BUILD_ARGS}"
+    - task: CmdLine@2
+      name: Suffix
+      displayName: Preprocessing Tag-Suffix for first tag
+      env:
+        SUFFIX: $(PreProcessStep.TAG_SUFFIX)
+        IMAGE_VERSION: $(NPM_VERSION)
+      inputs:
+        script: |
+          set -e
+          if [ -n ${SUFFIX} ]; then
+            FIRST_TAG_SUFFIXED="$(echo "${IMAGE_VERSION}" | egrep -v '\n|latest' | head -1)-${SUFFIX}"
+            : ${FIRST_TAG_SUFFIXED:=${SUFFIX}}
+          fi
+          echo "##vso[task.setvariable variable=FIRST_TAG_SUFFIXED;isOutput=true]${FIRST_TAG_SUFFIXED}"
+    - task: Docker@2.176.0
+      displayName: Build Docker (arguments)
+      inputs:
+        command: build
+        containerRegistry: $(dockerRegistryServiceConnection)
+        repository: $(NPM_NAME)$(IMAGE_ENV)
+        Dockerfile: ./$(PACKAGE_NAME).dockerfile
+        buildContext: ''
+        arguments: |
+          $(Args.PRE_PULL_ARG)
+          $(Args.BUILD_ARGS)
+        tags: >
+          $(Suffix.FIRST_TAG_SUFFIXED)
+
+          $(NPM_VERSION)
+
+          latest
+    - task: Docker@2
+      displayName: Push Docker Image
+      inputs:
+        containerRegistry: $(dockerRegistryServiceConnection)
+        repository: $(NPM_NAME)$(IMAGE_ENV)
+        Dockerfile: ./$(PACKAGE_NAME).dockerfile
+        command: push
+        tags: >
+          $(Suffix.FIRST_TAG_SUFFIXED)
+
+          $(NPM_VERSION)
+
+          latest
+- stage: APPROVAL
+  dependsOn:
+  - PREBUILD
+  - BUILD
+  displayName: waitForValidation(QA)
+  jobs:
+  - job: waitForValidation
+    displayName: Wait for external validation(QA)
+    condition: |
+      and(
+          succeeded(),
+          endsWith(stageDependencies.PREBUILD.Vars.outputs['Git.COMPONENT_ENV'],'staging')
+      )
+    pool:
+      name: server
+    timeoutInMinutes: 4500
+    steps:
+    - task: ManualValidation@0
+      timeoutInMinutes: 4320
+      inputs:
+        notifyUsers: |
+          esteban.martin@alten.es
+          pablo.corniero@alten.es
+          pedro.jimenez@alten.es
+        instructions: "Please validate the build configuration and resume"
+        onTimeout: "reject"
+- stage: ''
+  displayName: Automatic deployment to VM
+  dependsOn:
+  - PREBUILD
+  - BUILD
+  - APPROVAL
+  jobs:
+  - job: ''
+    displayName: Job Automatic deployment to VM
+    condition: |
+      succeeded('BUILD')
+    variables:
+    - name: NPM_NAME
+      value: $[stageDependencies.PREBUILD.Vars.outputs['Npm.NPM_NAME']]
+    - name: COMPONENT_ENV
+      value: $[stageDependencies.PREBUILD.Vars.outputs['Git.COMPONENT_ENV']]
+    pool:
+      name: $(POOL_NAME)
+    steps:
+    - task: CmdLine@2
+      displayName: "Automatic deployment to VM"
+      inputs:
+        script: >
+          echo "---- START ----"
+
+          echo "----------COPY ENV VAR TO DEV ENVIROMENT (ansible.env)----------"
+
+          cp envs/ansible.env  /srv/factorymanager/frontend.dev.env
+
+          _COMPONENT_NAME=$( echo $(NPM_NAME) | awk '{print tolower($0)}')
+
+          echo $_COMPONENT_NAME
+
+          DOCKEREPO="abbdigitalaccelerator.azurecr.io/$_COMPONENT_NAME-$(COMPONENT_ENV)"
+
+          echo "----------PATH-----------"
+
+          echo $DOCKEREPO
+
+          /usr/bin/docker image pull $DOCKEREPO
+
+          echo "----------SERVICE LIST-----------"
+
+          IMG=$(/usr/bin/docker service list |/bin/grep $DOCKEREPO |/usr/bin/awk '{print $2}')
+
+          echo "---------IMAGE------------"
+
+          echo $IMG
+
+          echo "---------------------"
+
+          /usr/bin/docker service update --with-registry-auth --force --image $DOCKEREPO $IMG
+
+          /usr/bin/docker service ps $IMG
+
+          echo "---- END ----"
+

@@ -1,0 +1,64 @@
+2021-08-16T09:53:15.4643408Z ##[debug]Evaluating condition for step: 'Preprocessing Tag-Suffix for first tag'
+2021-08-16T09:53:15.4644419Z ##[debug]Evaluating: SucceededNode()
+2021-08-16T09:53:15.4644903Z ##[debug]Evaluating SucceededNode:
+2021-08-16T09:53:15.4645707Z ##[debug]=> True
+2021-08-16T09:53:15.4646178Z ##[debug]Result: True
+2021-08-16T09:53:15.4646695Z ##[section]Starting: Preprocessing Tag-Suffix for first tag
+2021-08-16T09:53:15.4652112Z ==============================================================================
+2021-08-16T09:53:15.4652475Z Task         : Command line
+2021-08-16T09:53:15.4652828Z Description  : Run a command line script using Bash on Linux and macOS and cmd.exe on Windows
+2021-08-16T09:53:15.4653185Z Version      : 2.182.0
+2021-08-16T09:53:15.4653865Z Author       : Microsoft Corporation
+2021-08-16T09:53:15.4654251Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/command-line
+2021-08-16T09:53:15.4654682Z ==============================================================================
+2021-08-16T09:53:15.4698805Z ##[debug]Using node path: /home/vsts/agents/2.190.0/externals/node10/bin/node
+2021-08-16T09:53:15.5869811Z ##[debug]agent.TempDirectory=/home/vsts/work/_temp
+2021-08-16T09:53:15.5894131Z ##[debug]loading inputs and endpoints
+2021-08-16T09:53:15.5902034Z ##[debug]loading INPUT_SCRIPT
+2021-08-16T09:53:15.5916339Z ##[debug]loading INPUT_WORKINGDIRECTORY
+2021-08-16T09:53:15.5920964Z ##[debug]loading INPUT_FAILONSTDERR
+2021-08-16T09:53:15.5921574Z ##[debug]loading ENDPOINT_AUTH_SYSTEMVSSCONNECTION
+2021-08-16T09:53:15.5922221Z ##[debug]loading ENDPOINT_AUTH_SCHEME_SYSTEMVSSCONNECTION
+2021-08-16T09:53:15.5922911Z ##[debug]loading ENDPOINT_AUTH_PARAMETER_SYSTEMVSSCONNECTION_ACCESSTOKEN
+2021-08-16T09:53:15.5926665Z ##[debug]loading SECRET_SYSTEM_ACCESSTOKEN
+2021-08-16T09:53:15.5927216Z ##[debug]loaded 7
+2021-08-16T09:53:15.5932564Z ##[debug]Agent.ProxyUrl=undefined
+2021-08-16T09:53:15.5933138Z ##[debug]Agent.CAInfo=undefined
+2021-08-16T09:53:15.5933682Z ##[debug]Agent.ClientCert=undefined
+2021-08-16T09:53:15.5934277Z ##[debug]Agent.SkipCertValidation=undefined
+2021-08-16T09:53:15.5983071Z ##[debug]check path : /home/vsts/work/_tasks/CmdLine_d9bafed4-0b18-4f58-968d-86655b4d2ce9/2.182.0/task.json
+2021-08-16T09:53:15.5985133Z ##[debug]adding resource file: /home/vsts/work/_tasks/CmdLine_d9bafed4-0b18-4f58-968d-86655b4d2ce9/2.182.0/task.json
+2021-08-16T09:53:15.5986268Z ##[debug]system.culture=en-US
+2021-08-16T09:53:15.6022915Z ##[debug]failOnStderr=false
+2021-08-16T09:53:15.6026604Z ##[debug]script=set -e
+if [ -n ${SUFFIX} ]; then
+  FIRST_TAG_SUFFIXED="$(echo "${IMAGE_VERSION}" | egrep -v '\n|latest' | head -1)-${SUFFIX}"
+  : ${FIRST_TAG_SUFFIXED:=${SUFFIX}}
+fi
+echo "##vso[task.setvariable variable=FIRST_TAG_SUFFIXED;isOutput=true]${FIRST_TAG_SUFFIXED}"
+2021-08-16T09:53:15.6027653Z ##[debug]workingDirectory=/home/vsts/work/1/s
+2021-08-16T09:53:15.6028259Z ##[debug]check path : /home/vsts/work/1/s
+2021-08-16T09:53:15.6028745Z Generating script.
+2021-08-16T09:53:15.6029176Z ##[debug]Agent.Version=2.190.0
+2021-08-16T09:53:15.6029767Z ##[debug]agent.tempDirectory=/home/vsts/work/_temp
+2021-08-16T09:53:15.6030374Z ##[debug]check path : /home/vsts/work/_temp
+2021-08-16T09:53:15.6030936Z ========================== Starting Command Output ===========================
+2021-08-16T09:53:15.6031624Z ##[debug]which 'bash'
+2021-08-16T09:53:15.6039625Z ##[debug]found: '/bin/bash'
+2021-08-16T09:53:15.6040320Z ##[debug]which '/bin/bash'
+2021-08-16T09:53:15.6040956Z ##[debug]found: '/bin/bash'
+2021-08-16T09:53:15.6041633Z ##[debug]/bin/bash arg: --noprofile
+2021-08-16T09:53:15.6044199Z ##[debug]/bin/bash arg: --norc
+2021-08-16T09:53:15.6044970Z ##[debug]/bin/bash arg: /home/vsts/work/_temp/79d355ed-2341-45e9-8e69-e65d1c8fa740.sh
+2021-08-16T09:53:15.6045795Z ##[debug]exec tool: /bin/bash
+2021-08-16T09:53:15.6046334Z ##[debug]arguments:
+2021-08-16T09:53:15.6048076Z ##[debug]   --noprofile
+2021-08-16T09:53:15.6048707Z ##[debug]   --norc
+2021-08-16T09:53:15.6049406Z ##[debug]   /home/vsts/work/_temp/79d355ed-2341-45e9-8e69-e65d1c8fa740.sh
+2021-08-16T09:53:15.6050571Z [command]/bin/bash --noprofile --norc /home/vsts/work/_temp/79d355ed-2341-45e9-8e69-e65d1c8fa740.sh
+2021-08-16T09:53:15.6144493Z ##[debug]Processed: ##vso[task.setvariable variable=FIRST_TAG_SUFFIXED;isOutput=true]0.20.5-24602
+2021-08-16T09:53:15.6154105Z ##[debug]Exit code 0 received from tool '/bin/bash'
+2021-08-16T09:53:15.6160558Z ##[debug]STDIO streams have closed for tool '/bin/bash'
+2021-08-16T09:53:15.6170552Z ##[debug]task result: Succeeded
+2021-08-16T09:53:15.6172403Z ##[debug]Processed: ##vso[task.complete result=Succeeded;done=true;]
+2021-08-16T09:53:15.6198846Z ##[section]Finishing: Preprocessing Tag-Suffix for first tag

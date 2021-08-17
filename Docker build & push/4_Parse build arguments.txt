@@ -1,0 +1,88 @@
+2021-08-16T09:53:15.1445590Z ##[debug]Evaluating condition for step: 'Parse build arguments'
+2021-08-16T09:53:15.1447555Z ##[debug]Evaluating: SucceededNode()
+2021-08-16T09:53:15.1448209Z ##[debug]Evaluating SucceededNode:
+2021-08-16T09:53:15.1449381Z ##[debug]=> True
+2021-08-16T09:53:15.1449967Z ##[debug]Result: True
+2021-08-16T09:53:15.1450609Z ##[section]Starting: Parse build arguments
+2021-08-16T09:53:15.1457508Z ==============================================================================
+2021-08-16T09:53:15.1457875Z Task         : Command line
+2021-08-16T09:53:15.1458260Z Description  : Run a command line script using Bash on Linux and macOS and cmd.exe on Windows
+2021-08-16T09:53:15.1458604Z Version      : 2.182.0
+2021-08-16T09:53:15.1459022Z Author       : Microsoft Corporation
+2021-08-16T09:53:15.1459403Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/command-line
+2021-08-16T09:53:15.1459842Z ==============================================================================
+2021-08-16T09:53:15.1519248Z ##[debug]Using node path: /home/vsts/agents/2.190.0/externals/node10/bin/node
+2021-08-16T09:53:15.2664083Z ##[debug]agent.TempDirectory=/home/vsts/work/_temp
+2021-08-16T09:53:15.2688131Z ##[debug]loading inputs and endpoints
+2021-08-16T09:53:15.2694708Z ##[debug]loading INPUT_SCRIPT
+2021-08-16T09:53:15.2708924Z ##[debug]loading INPUT_WORKINGDIRECTORY
+2021-08-16T09:53:15.2710861Z ##[debug]loading INPUT_FAILONSTDERR
+2021-08-16T09:53:15.2712667Z ##[debug]loading ENDPOINT_AUTH_SYSTEMVSSCONNECTION
+2021-08-16T09:53:15.2715242Z ##[debug]loading ENDPOINT_AUTH_SCHEME_SYSTEMVSSCONNECTION
+2021-08-16T09:53:15.2715970Z ##[debug]loading ENDPOINT_AUTH_PARAMETER_SYSTEMVSSCONNECTION_ACCESSTOKEN
+2021-08-16T09:53:15.2721391Z ##[debug]loading SECRET_SYSTEM_ACCESSTOKEN
+2021-08-16T09:53:15.2721945Z ##[debug]loaded 7
+2021-08-16T09:53:15.2727621Z ##[debug]Agent.ProxyUrl=undefined
+2021-08-16T09:53:15.2728204Z ##[debug]Agent.CAInfo=undefined
+2021-08-16T09:53:15.2728753Z ##[debug]Agent.ClientCert=undefined
+2021-08-16T09:53:15.2729339Z ##[debug]Agent.SkipCertValidation=undefined
+2021-08-16T09:53:15.2782913Z ##[debug]check path : /home/vsts/work/_tasks/CmdLine_d9bafed4-0b18-4f58-968d-86655b4d2ce9/2.182.0/task.json
+2021-08-16T09:53:15.2784112Z ##[debug]adding resource file: /home/vsts/work/_tasks/CmdLine_d9bafed4-0b18-4f58-968d-86655b4d2ce9/2.182.0/task.json
+2021-08-16T09:53:15.2784944Z ##[debug]system.culture=en-US
+2021-08-16T09:53:15.2798000Z ##[debug]failOnStderr=false
+2021-08-16T09:53:15.2801113Z ##[debug]script=set -e
+nl=$'\n'
+BUILD_ARGS="$(
+  echo "${BUILD_ARGUMENTS}" \
+    | egrep -v '^$' \
+    | sed -e 's/"/\\"/g' \
+    | sed -e 's/\$/\\$/g' \
+    | sed -e 's/^\([^=]*\)=\(.*\)$/--build-arg \1="\2"/g' \
+    | tr -d '\r' \
+    | tr '\n' ' '
+)"
+
+echo "BUILD_ARGUMENTS: ${BUILD_ARGUMENTS}"
+echo "BUILD_ARGS: ${BUILD_ARGS}"
+echo "##vso[task.setvariable variable=BUILD_ARGS;isOutput=true]${BUILD_ARGS}"
+
+if [ $(PRE_PULL) == "true" ]; then
+  PRE_PULL_ARG="--pull"
+fi
+
+echo "PRE_PULL_ARG: ${PRE_PULL_ARG}"
+echo "##vso[task.setvariable variable=PRE_PULL_ARG;isOutput=true]${PRE_PULL_ARG}"
+2021-08-16T09:53:15.2802746Z ##[debug]workingDirectory=/home/vsts/work/1/s
+2021-08-16T09:53:15.2803349Z ##[debug]check path : /home/vsts/work/1/s
+2021-08-16T09:53:15.2812752Z Generating script.
+2021-08-16T09:53:15.2815704Z ##[debug]Agent.Version=2.190.0
+2021-08-16T09:53:15.2816254Z ##[debug]agent.tempDirectory=/home/vsts/work/_temp
+2021-08-16T09:53:15.2816836Z ##[debug]check path : /home/vsts/work/_temp
+2021-08-16T09:53:15.2821380Z ========================== Starting Command Output ===========================
+2021-08-16T09:53:15.2823478Z ##[debug]which 'bash'
+2021-08-16T09:53:15.2834868Z ##[debug]found: '/bin/bash'
+2021-08-16T09:53:15.2837285Z ##[debug]which '/bin/bash'
+2021-08-16T09:53:15.2837978Z ##[debug]found: '/bin/bash'
+2021-08-16T09:53:15.2838676Z ##[debug]/bin/bash arg: --noprofile
+2021-08-16T09:53:15.2839339Z ##[debug]/bin/bash arg: --norc
+2021-08-16T09:53:15.2843504Z ##[debug]/bin/bash arg: /home/vsts/work/_temp/9de2f858-9b29-41ad-95b2-0f486552319b.sh
+2021-08-16T09:53:15.2845577Z ##[debug]exec tool: /bin/bash
+2021-08-16T09:53:15.2846154Z ##[debug]arguments:
+2021-08-16T09:53:15.2846834Z ##[debug]   --noprofile
+2021-08-16T09:53:15.2847447Z ##[debug]   --norc
+2021-08-16T09:53:15.2848148Z ##[debug]   /home/vsts/work/_temp/9de2f858-9b29-41ad-95b2-0f486552319b.sh
+2021-08-16T09:53:15.2849055Z [command]/bin/bash --noprofile --norc /home/vsts/work/_temp/9de2f858-9b29-41ad-95b2-0f486552319b.sh
+2021-08-16T09:53:15.2980792Z BUILD_ARGUMENTS: REACT_APP_HASURA_ACCESS_KEY=mylongsecretkey
+2021-08-16T09:53:15.2981536Z REACT_APP_ACTIVATE_RBAC=true
+2021-08-16T09:53:15.2982021Z REACT_APP_ACTIVATE_SHIFTS=true
+2021-08-16T09:53:15.2983384Z BUILD_ARGS: --build-arg REACT_APP_HASURA_ACCESS_KEY="mylongsecretkey" --build-arg REACT_APP_ACTIVATE_RBAC="true" --build-arg REACT_APP_ACTIVATE_SHIFTS="true" 
+2021-08-16T09:53:15.2986640Z ##[debug]Processed: ##vso[task.setvariable variable=BUILD_ARGS;isOutput=true]--build-arg REACT_APP_HASURA_ACCESS_KEY="mylongsecretkey" --build-arg REACT_APP_ACTIVATE_RBAC="true" --build-arg REACT_APP_ACTIVATE_SHIFTS="true" 
+2021-08-16T09:53:15.2992216Z /home/vsts/work/_temp/9de2f858-9b29-41ad-95b2-0f486552319b.sh: line 17: PRE_PULL: command not found
+2021-08-16T09:53:15.3037535Z /home/vsts/work/_temp/9de2f858-9b29-41ad-95b2-0f486552319b.sh: line 17: [: ==: unary operator expected
+2021-08-16T09:53:15.3038327Z PRE_PULL_ARG: 
+2021-08-16T09:53:15.3039837Z ##[debug]Processed: ##vso[task.setvariable variable=PRE_PULL_ARG;isOutput=true]
+2021-08-16T09:53:15.3040859Z ##[debug]Exit code 0 received from tool '/bin/bash'
+2021-08-16T09:53:15.3041749Z ##[debug]STDIO streams have closed for tool '/bin/bash'
+2021-08-16T09:53:15.3042496Z ##[debug]task result: Succeeded
+2021-08-16T09:53:15.3044592Z ##[debug]Processed: ##vso[task.complete result=Succeeded;done=true;]
+2021-08-16T09:53:15.3072969Z ##[section]Finishing: Parse build arguments

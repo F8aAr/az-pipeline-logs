@@ -1,0 +1,17 @@
+2021-08-16T09:56:47.9323062Z ##[debug]Evaluating condition for step: 'Checkout WB-FactoryManager@dev to s'
+2021-08-16T09:56:47.9324967Z ##[debug]Evaluating: AlwaysNode()
+2021-08-16T09:56:47.9325723Z ##[debug]Evaluating AlwaysNode:
+2021-08-16T09:56:47.9328131Z ##[debug]=> True
+2021-08-16T09:56:47.9328917Z ##[debug]Result: True
+2021-08-16T09:56:47.9329744Z ##[section]Starting: Checkout WB-FactoryManager@dev to s
+2021-08-16T09:56:47.9335623Z ==============================================================================
+2021-08-16T09:56:47.9336116Z Task         : Get sources
+2021-08-16T09:56:47.9336648Z Description  : Get sources from a repository. Supports Git, TfsVC, and SVN repositories.
+2021-08-16T09:56:47.9337021Z Version      : 1.0.0
+2021-08-16T09:56:47.9337258Z Author       : Microsoft
+2021-08-16T09:56:47.9337640Z Help         : [More Information](https://go.microsoft.com/fwlink/?LinkId=798199)
+2021-08-16T09:56:47.9338060Z ==============================================================================
+2021-08-16T09:56:48.2902290Z Cleaning any cached credential from repository: WB-FactoryManager (Git)
+2021-08-16T09:56:48.2920142Z ##[debug]Repository url=https://abbrobotics.visualstudio.com/DigitalFactory/_git/WB-FactoryManager
+2021-08-16T09:56:48.2921078Z ##[debug]targetPath=/home/vsts/work/1/s
+2021-08-16T09:56:48.2952922Z ##[section]Finishing: Checkout WB-FactoryManager@dev to s

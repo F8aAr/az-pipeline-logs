@@ -1,0 +1,1052 @@
+2021-08-16T09:56:37.7784448Z ##[debug]Evaluating condition for step: 'Push Docker Image'
+2021-08-16T09:56:37.7786423Z ##[debug]Evaluating: SucceededNode()
+2021-08-16T09:56:37.7787072Z ##[debug]Evaluating SucceededNode:
+2021-08-16T09:56:37.7788130Z ##[debug]=> True
+2021-08-16T09:56:37.7788724Z ##[debug]Result: True
+2021-08-16T09:56:37.7789285Z ##[section]Starting: Push Docker Image
+2021-08-16T09:56:37.7797948Z ==============================================================================
+2021-08-16T09:56:37.7798322Z Task         : Docker
+2021-08-16T09:56:37.7798700Z Description  : Build or push Docker images, login or logout, start or stop containers, or run a Docker command
+2021-08-16T09:56:37.7799084Z Version      : 2.188.0
+2021-08-16T09:56:37.7799344Z Author       : Microsoft Corporation
+2021-08-16T09:56:37.7799669Z Help         : https://aka.ms/azpipes-docker-tsg
+2021-08-16T09:56:37.7800029Z ==============================================================================
+2021-08-16T09:56:37.7905137Z ##[debug]Using node path: /home/vsts/agents/2.190.0/externals/node10/bin/node
+2021-08-16T09:56:37.9015751Z ##[debug]agent.TempDirectory=/home/vsts/work/_temp
+2021-08-16T09:56:37.9037952Z ##[debug]loading inputs and endpoints
+2021-08-16T09:56:37.9045908Z ##[debug]loading INPUT_CONTAINERREGISTRY
+2021-08-16T09:56:37.9059057Z ##[debug]loading INPUT_REPOSITORY
+2021-08-16T09:56:37.9060846Z ##[debug]loading INPUT_COMMAND
+2021-08-16T09:56:37.9061818Z ##[debug]loading INPUT_DOCKERFILE
+2021-08-16T09:56:37.9062808Z ##[debug]loading INPUT_BUILDCONTEXT
+2021-08-16T09:56:37.9063797Z ##[debug]loading INPUT_TAGS
+2021-08-16T09:56:37.9064757Z ##[debug]loading INPUT_ADDPIPELINEDATA
+2021-08-16T09:56:37.9065732Z ##[debug]loading INPUT_ADDBASEIMAGEDATA
+2021-08-16T09:56:37.9067340Z ##[debug]loading ENDPOINT_AUTH_88c2f2b9-7894-4c48-a18d-e923454ccae4
+2021-08-16T09:56:37.9068680Z ##[debug]loading ENDPOINT_AUTH_SCHEME_88c2f2b9-7894-4c48-a18d-e923454ccae4
+2021-08-16T09:56:37.9069985Z ##[debug]loading ENDPOINT_AUTH_PARAMETER_88c2f2b9-7894-4c48-a18d-e923454ccae4_TENANTID
+2021-08-16T09:56:37.9071415Z ##[debug]loading ENDPOINT_AUTH_PARAMETER_88c2f2b9-7894-4c48-a18d-e923454ccae4_SERVICEPRINCIPALID
+2021-08-16T09:56:37.9072744Z ##[debug]loading ENDPOINT_AUTH_PARAMETER_88c2f2b9-7894-4c48-a18d-e923454ccae4_SCOPE
+2021-08-16T09:56:37.9074833Z ##[debug]loading ENDPOINT_AUTH_PARAMETER_88c2f2b9-7894-4c48-a18d-e923454ccae4_LOGINSERVER
+2021-08-16T09:56:37.9076090Z ##[debug]loading ENDPOINT_AUTH_PARAMETER_88c2f2b9-7894-4c48-a18d-e923454ccae4_SERVICEPRINCIPALKEY
+2021-08-16T09:56:37.9077018Z ##[debug]loading ENDPOINT_AUTH_SYSTEMVSSCONNECTION
+2021-08-16T09:56:37.9077792Z ##[debug]loading ENDPOINT_AUTH_SCHEME_SYSTEMVSSCONNECTION
+2021-08-16T09:56:37.9078618Z ##[debug]loading ENDPOINT_AUTH_PARAMETER_SYSTEMVSSCONNECTION_ACCESSTOKEN
+2021-08-16T09:56:37.9079416Z ##[debug]loading SECRET_CONTAINER_PASSWORD
+2021-08-16T09:56:37.9080253Z ##[debug]loading SECRET_SYSTEM_ACCESSTOKEN
+2021-08-16T09:56:37.9080959Z ##[debug]loading SECRET_CONTAINER_AUTHENTICATIONTOKEN
+2021-08-16T09:56:37.9081665Z ##[debug]loading SECRET_CONTAINER_USERNAME
+2021-08-16T09:56:37.9082320Z ##[debug]loaded 22
+2021-08-16T09:56:37.9085781Z ##[debug]Agent.ProxyUrl=undefined
+2021-08-16T09:56:37.9086647Z ##[debug]Agent.CAInfo=undefined
+2021-08-16T09:56:37.9087320Z ##[debug]Agent.ClientCert=undefined
+2021-08-16T09:56:37.9087981Z ##[debug]Agent.SkipCertValidation=undefined
+2021-08-16T09:56:37.9249885Z ##[debug]check path : /home/vsts/work/_tasks/Docker_e28912f1-0114-4464-802a-a3a35437fd16/2.188.0/node_modules/azure-pipelines-tasks-docker-common-v2/module.json
+2021-08-16T09:56:37.9251564Z ##[debug]adding resource file: /home/vsts/work/_tasks/Docker_e28912f1-0114-4464-802a-a3a35437fd16/2.188.0/node_modules/azure-pipelines-tasks-docker-common-v2/module.json
+2021-08-16T09:56:37.9252727Z ##[debug]system.culture=en-US
+2021-08-16T09:56:37.9269667Z ##[debug]Resource file has already set to: /home/vsts/work/_tasks/Docker_e28912f1-0114-4464-802a-a3a35437fd16/2.188.0/node_modules/azure-pipelines-tasks-docker-common-v2/module.json
+2021-08-16T09:56:37.9282189Z ##[debug]check path : /home/vsts/work/_tasks/Docker_e28912f1-0114-4464-802a-a3a35437fd16/2.188.0/task.json
+2021-08-16T09:56:37.9283730Z ##[debug]adding resource file: /home/vsts/work/_tasks/Docker_e28912f1-0114-4464-802a-a3a35437fd16/2.188.0/task.json
+2021-08-16T09:56:37.9284713Z ##[debug]system.culture=en-US
+2021-08-16T09:56:37.9294821Z ##[debug]containerRegistry=88c2f2b9-7894-4c48-a18d-e923454ccae4
+2021-08-16T09:56:37.9295940Z ##[debug]88c2f2b9-7894-4c48-a18d-e923454ccae4 data registrytype = ACR
+2021-08-16T09:56:37.9297715Z ##[debug]88c2f2b9-7894-4c48-a18d-e923454ccae4 auth param loginServer = ***
+2021-08-16T09:56:37.9298975Z ##[debug]Reading the acr registry in old versions
+2021-08-16T09:56:37.9299762Z ##[debug]Reading the acr registry in kubernetesV1
+2021-08-16T09:56:37.9301909Z ##[debug]88c2f2b9-7894-4c48-a18d-e923454ccae4 auth param serviceprincipalid = ***
+2021-08-16T09:56:37.9303375Z ##[debug]88c2f2b9-7894-4c48-a18d-e923454ccae4 auth param serviceprincipalkey = ***
+2021-08-16T09:56:37.9304249Z ##[debug]System.ServerType=Hosted
+2021-08-16T09:56:37.9310366Z ##[debug]Processed: ##vso[task.setvariable variable=CONTAINER_USERNAME;issecret=true;]***
+2021-08-16T09:56:37.9312283Z ##[debug]Processed: ##vso[task.setvariable variable=CONTAINER_PASSWORD;issecret=true;]***
+2021-08-16T09:56:37.9313113Z ##[debug]command=push
+2021-08-16T09:56:37.9314040Z ##[debug]which 'docker'
+2021-08-16T09:56:37.9320315Z ##[debug]found: '/usr/bin/docker'
+2021-08-16T09:56:37.9323694Z ##[debug]DOCKER_CONFIG=
+2021-08-16T09:56:37.9346065Z ##[debug]Processed: ##vso[task.setvariable variable=CONTAINER_AUTHENTICATIONTOKEN;issecret=true;]***
+2021-08-16T09:56:37.9346841Z ##[debug]agent.tempDirectory=/home/vsts/work/_temp
+2021-08-16T09:56:37.9349278Z ##[debug]testing directory '/home/vsts/work/_temp/DockerConfig_1629107797934/trust/private'
+2021-08-16T09:56:37.9351905Z ##[debug]testing directory '/home/vsts/work/_temp/DockerConfig_1629107797934/trust'
+2021-08-16T09:56:37.9353102Z ##[debug]testing directory '/home/vsts/work/_temp/DockerConfig_1629107797934'
+2021-08-16T09:56:37.9354384Z ##[debug]mkdir '/home/vsts/work/_temp/DockerConfig_1629107797934/trust'
+2021-08-16T09:56:37.9356716Z ##[debug]mkdir '/home/vsts/work/_temp/DockerConfig_1629107797934/trust/private'
+2021-08-16T09:56:37.9358504Z ##[debug]Writing Docker config to temp file. File path: /home/vsts/work/_temp/DockerConfig_1629107797934/config.json, Docker config: {"auths": { "***": {"auth": "***", "email": "ServicePrincipal@AzureRM" } }, "HttpHeaders":{"X-Meta-Source-Client":"VSTS"} }
+2021-08-16T09:56:37.9376541Z ##[debug]Synced the file content to the disk. The content is {"auths": { "***": {"auth": "***", "email": "ServicePrincipal@AzureRM" } }, "HttpHeaders":{"X-Meta-Source-Client":"VSTS"} }.
+2021-08-16T09:56:37.9377675Z ##[debug]SYSTEM_JOBID=83516c17-6666-5250-abde-63983ce72a49
+2021-08-16T09:56:38.0078947Z ##[debug]Processed: ##vso[telemetry.publish area=TaskEndpointId;feature=DockerV2]{"command":"push","jobId":"83516c17-6666-5250-abde-63983ce72a49"}
+2021-08-16T09:56:38.0080500Z ##[debug]System.TeamFoundationCollectionUri=https://abbrobotics.visualstudio.com/
+2021-08-16T09:56:38.0081211Z ##[debug]System.HostType=build
+2021-08-16T09:56:38.0081756Z ##[debug]agent.proxyurl=undefined
+2021-08-16T09:56:38.0082349Z ##[debug]VSTS_ARM_REST_IGNORE_SSL_ERRORS=undefined
+2021-08-16T09:56:38.0083652Z ##[debug]AZURE_HTTP_USER_AGENT=VSTS_d0e896db-668c-4819-b567-437ddebfca8e_build_602_0
+2021-08-16T09:56:38.0084438Z ##[debug]which '/usr/bin/docker'
+2021-08-16T09:56:38.0085100Z ##[debug]found: '/usr/bin/docker'
+2021-08-16T09:56:38.0085815Z ##[debug]/usr/bin/docker arg: images
+2021-08-16T09:56:38.0086369Z ##[debug]DOCKER_HOST=undefined
+2021-08-16T09:56:38.0086918Z ##[debug]exec tool: /usr/bin/docker
+2021-08-16T09:56:38.0087474Z ##[debug]arguments:
+2021-08-16T09:56:38.0087977Z ##[debug]   images
+2021-08-16T09:56:38.0088390Z [command]/usr/bin/docker images
+2021-08-16T09:56:38.0088838Z ##[debug]arguments=undefined
+2021-08-16T09:56:38.0089510Z ##[debug]tags=0.20.5-24602
+0.20.5
+latest
+2021-08-16T09:56:38.0090202Z ##[debug]repository=FactoryManagerFrontend-dev
+2021-08-16T09:56:38.0091298Z ##[debug]containerRegistry=88c2f2b9-7894-4c48-a18d-e923454ccae4
+2021-08-16T09:56:38.0091965Z ##[debug]dockerFile=/home/vsts/work/1/s/frontend.dockerfile
+2021-08-16T09:56:38.0092923Z ##[debug]Pushing ImageNameWithTag: ***/factorymanagerfrontend-dev:0.20.5-24602
+2021-08-16T09:56:38.0093707Z ##[debug]which '/usr/bin/docker'
+2021-08-16T09:56:38.0094359Z ##[debug]found: '/usr/bin/docker'
+2021-08-16T09:56:38.0094928Z ##[debug]/usr/bin/docker arg: push
+2021-08-16T09:56:38.0095764Z ##[debug]/usr/bin/docker arg: ***/factorymanagerfrontend-dev:0.20.5-24602
+2021-08-16T09:56:38.0096406Z ##[debug]DOCKER_HOST=undefined
+2021-08-16T09:56:38.0096955Z ##[debug]exec tool: /usr/bin/docker
+2021-08-16T09:56:38.0097494Z ##[debug]arguments:
+2021-08-16T09:56:38.0098007Z ##[debug]   push
+2021-08-16T09:56:38.0098755Z ##[debug]   ***/factorymanagerfrontend-dev:0.20.5-24602
+2021-08-16T09:56:38.0099674Z [command]/usr/bin/docker push ***/factorymanagerfrontend-dev:0.20.5-24602
+2021-08-16T09:56:38.0100515Z ##[debug]Pushing ImageNameWithTag: ***/factorymanagerfrontend-dev:0.20.5
+2021-08-16T09:56:38.0101455Z ##[debug]Pushing ImageNameWithTag: ***/factorymanagerfrontend-dev:latest
+2021-08-16T09:56:38.0424766Z REPOSITORY                                                    TAG            IMAGE ID       CREATED         SIZE
+2021-08-16T09:56:38.0426682Z ***/factorymanagerfrontend-dev   0.20.5         0d0d8d387fb5   7 seconds ago   182MB
+2021-08-16T09:56:38.0427589Z ***/factorymanagerfrontend-dev   0.20.5-24602   0d0d8d387fb5   7 seconds ago   182MB
+2021-08-16T09:56:38.0428436Z ***/factorymanagerfrontend-dev   latest         0d0d8d387fb5   7 seconds ago   182MB
+2021-08-16T09:56:38.0429045Z node                                                          12             7e90b11a78a2   2 weeks ago     918MB
+2021-08-16T09:56:38.0429924Z node                                                          12-alpine      8f64b60a9fa9   2 weeks ago     88.9MB
+2021-08-16T09:56:38.0430573Z node                                                          14             7528ad312b56   2 weeks ago     944MB
+2021-08-16T09:56:38.0431456Z node                                                          14-alpine      d93b35a67404   2 weeks ago     117MB
+2021-08-16T09:56:38.0432085Z ubuntu                                                        16.04          38b3fa4640d4   2 weeks ago     135MB
+2021-08-16T09:56:38.0432720Z ubuntu                                                        20.04          1318b700e415   2 weeks ago     72.8MB
+2021-08-16T09:56:38.0433360Z ubuntu                                                        18.04          39a8cfeef173   2 weeks ago     63.1MB
+2021-08-16T09:56:38.0434228Z buildpack-deps                                                stretch        f48f3be4f883   3 weeks ago     835MB
+2021-08-16T09:56:38.0435087Z buildpack-deps                                                buster         eec48b721769   3 weeks ago     804MB
+2021-08-16T09:56:38.0435733Z debian                                                        9              2c3ad12c6ecf   3 weeks ago     101MB
+2021-08-16T09:56:38.0436368Z debian                                                        10             0980b84bde89   3 weeks ago     114MB
+2021-08-16T09:56:38.0437241Z node                                                          10-alpine      aa67ba258e18   4 months ago    82.7MB
+2021-08-16T09:56:38.0437878Z alpine                                                        3.11           e389ae589224   4 months ago    5.61MB
+2021-08-16T09:56:38.0477310Z alpine                                                        3.12           13621d1b12d4   4 months ago    5.58MB
+2021-08-16T09:56:38.0478041Z alpine                                                        3.13           6dbb9cc54074   4 months ago    5.61MB
+2021-08-16T09:56:38.0478688Z node                                                          10             28dca6642db8   4 months ago    910MB
+2021-08-16T09:56:38.0497023Z ##[debug]Exit code 0 received from tool '/usr/bin/docker'
+2021-08-16T09:56:38.0504000Z ##[debug]STDIO streams have closed for tool '/usr/bin/docker'
+2021-08-16T09:56:38.0900512Z The push refers to repository [***/factorymanagerfrontend-dev]
+2021-08-16T09:56:38.1494178Z faff4125222d: Preparing
+2021-08-16T09:56:38.1494633Z 0167f6a61f4a: Preparing
+2021-08-16T09:56:38.1495060Z 836f02253991: Preparing
+2021-08-16T09:56:38.1495423Z 5016feb4b55c: Preparing
+2021-08-16T09:56:38.1495745Z 50ee91d2425b: Preparing
+2021-08-16T09:56:38.1496077Z 93b44b54c3bd: Preparing
+2021-08-16T09:56:38.1496409Z c926e11367c5: Preparing
+2021-08-16T09:56:38.1496726Z 383bdf11a8cf: Preparing
+2021-08-16T09:56:38.1497055Z 63c7daf07eec: Preparing
+2021-08-16T09:56:38.1497386Z 5110a5397aa9: Preparing
+2021-08-16T09:56:38.1497703Z 910f8e31fdb4: Preparing
+2021-08-16T09:56:38.1498035Z 5936fd903200: Preparing
+2021-08-16T09:56:38.1498367Z d7add6a58d08: Preparing
+2021-08-16T09:56:38.1498697Z 244d15df7f6a: Preparing
+2021-08-16T09:56:38.1499012Z 58fba0ace534: Preparing
+2021-08-16T09:56:38.1499340Z d984e64ffab6: Preparing
+2021-08-16T09:56:38.1499677Z 787a70c9c5bd: Preparing
+2021-08-16T09:56:38.1499994Z df9eec7ebcd6: Preparing
+2021-08-16T09:56:38.1500322Z 14be20d881b0: Preparing
+2021-08-16T09:56:38.1500653Z 44f7d9f20b3a: Preparing
+2021-08-16T09:56:38.1500967Z cb381a32b229: Preparing
+2021-08-16T09:56:38.1501294Z 93b44b54c3bd: Waiting
+2021-08-16T09:56:38.1501879Z c926e11367c5: Waiting
+2021-08-16T09:56:38.1502205Z 383bdf11a8cf: Waiting
+2021-08-16T09:56:38.1502517Z 63c7daf07eec: Waiting
+2021-08-16T09:56:38.1502845Z 5110a5397aa9: Waiting
+2021-08-16T09:56:38.1503170Z 910f8e31fdb4: Waiting
+2021-08-16T09:56:38.1503482Z 5936fd903200: Waiting
+2021-08-16T09:56:38.1503807Z d7add6a58d08: Waiting
+2021-08-16T09:56:38.1504132Z 244d15df7f6a: Waiting
+2021-08-16T09:56:38.1504442Z 58fba0ace534: Waiting
+2021-08-16T09:56:38.1504765Z d984e64ffab6: Waiting
+2021-08-16T09:56:38.1505087Z 787a70c9c5bd: Waiting
+2021-08-16T09:56:38.1505395Z df9eec7ebcd6: Waiting
+2021-08-16T09:56:38.1505722Z 14be20d881b0: Waiting
+2021-08-16T09:56:38.1506048Z 44f7d9f20b3a: Waiting
+2021-08-16T09:56:38.1506378Z cb381a32b229: Waiting
+2021-08-16T09:56:39.1323793Z 0167f6a61f4a: Pushed
+2021-08-16T09:56:39.1539183Z 50ee91d2425b: Pushed
+2021-08-16T09:56:39.2991921Z 836f02253991: Pushed
+2021-08-16T09:56:39.7606188Z c926e11367c5: Pushed
+2021-08-16T09:56:39.7887921Z 383bdf11a8cf: Pushed
+2021-08-16T09:56:39.8206860Z 93b44b54c3bd: Pushed
+2021-08-16T09:56:39.9333882Z faff4125222d: Pushed
+2021-08-16T09:56:40.7595322Z 910f8e31fdb4: Pushed
+2021-08-16T09:56:40.8190791Z 63c7daf07eec: Pushed
+2021-08-16T09:56:41.3768432Z 5936fd903200: Pushed
+2021-08-16T09:56:41.6819305Z d7add6a58d08: Pushed
+2021-08-16T09:56:41.7125168Z 244d15df7f6a: Pushed
+2021-08-16T09:56:41.8647201Z 787a70c9c5bd: Layer already exists
+2021-08-16T09:56:41.8786432Z d984e64ffab6: Layer already exists
+2021-08-16T09:56:42.0424710Z df9eec7ebcd6: Layer already exists
+2021-08-16T09:56:42.1692219Z 14be20d881b0: Layer already exists
+2021-08-16T09:56:42.2948523Z 44f7d9f20b3a: Layer already exists
+2021-08-16T09:56:42.3286143Z 58fba0ace534: Pushed
+2021-08-16T09:56:42.3399875Z cb381a32b229: Layer already exists
+2021-08-16T09:56:43.8764624Z 5110a5397aa9: Pushed
+2021-08-16T09:56:44.8612289Z 5016feb4b55c: Pushed
+2021-08-16T09:56:45.7998368Z 0.20.5-24602: digest: sha256:460dd23b1e3486cc649dbdd92d061b077557a391fae0fc7881e2d8fc33b5176f size: 4709
+2021-08-16T09:56:45.8088030Z ##[debug]Exit code 0 received from tool '/usr/bin/docker'
+2021-08-16T09:56:45.8089205Z ##[debug]STDIO streams have closed for tool '/usr/bin/docker'
+2021-08-16T09:56:45.8094375Z ##[debug]outputImageName: ***/factorymanagerfrontend-dev:0.20.5-24602
+commandOutput: The push refers to repository [***/factorymanagerfrontend-dev]
+faff4125222d: Preparing
+0167f6a61f4a: Preparing
+836f02253991: Preparing
+5016feb4b55c: Preparing
+50ee91d2425b: Preparing
+93b44b54c3bd: Preparing
+c926e11367c5: Preparing
+383bdf11a8cf: Preparing
+63c7daf07eec: Preparing
+5110a5397aa9: Preparing
+910f8e31fdb4: Preparing
+5936fd903200: Preparing
+d7add6a58d08: Preparing
+244d15df7f6a: Preparing
+58fba0ace534: Preparing
+d984e64ffab6: Preparing
+787a70c9c5bd: Preparing
+df9eec7ebcd6: Preparing
+14be20d881b0: Preparing
+44f7d9f20b3a: Preparing
+cb381a32b229: Preparing
+93b44b54c3bd: Waiting
+c926e11367c5: Waiting
+383bdf11a8cf: Waiting
+63c7daf07eec: Waiting
+5110a5397aa9: Waiting
+910f8e31fdb4: Waiting
+5936fd903200: Waiting
+d7add6a58d08: Waiting
+244d15df7f6a: Waiting
+58fba0ace534: Waiting
+d984e64ffab6: Waiting
+787a70c9c5bd: Waiting
+df9eec7ebcd6: Waiting
+14be20d881b0: Waiting
+44f7d9f20b3a: Waiting
+cb381a32b229: Waiting
+0167f6a61f4a: Pushed
+50ee91d2425b: Pushed
+836f02253991: Pushed
+c926e11367c5: Pushed
+383bdf11a8cf: Pushed
+93b44b54c3bd: Pushed
+faff4125222d: Pushed
+910f8e31fdb4: Pushed
+63c7daf07eec: Pushed
+5936fd903200: Pushed
+d7add6a58d08: Pushed
+244d15df7f6a: Pushed
+787a70c9c5bd: Layer already exists
+d984e64ffab6: Layer already exists
+df9eec7ebcd6: Layer already exists
+14be20d881b0: Layer already exists
+44f7d9f20b3a: Layer already exists
+58fba0ace534: Pushed
+cb381a32b229: Layer already exists
+5110a5397aa9: Pushed
+5016feb4b55c: Pushed
+0.20.5-24602: digest: sha256:460dd23b1e3486cc649dbdd92d061b077557a391fae0fc7881e2d8fc33b5176f size: 4709
+
+
+digest:460dd23b1e3486cc649dbdd92d061b077557a391fae0fc7881e2d8fc33b5176fimageSize:
+2021-08-16T09:56:45.8099338Z ##[debug]which '/usr/bin/docker'
+2021-08-16T09:56:45.8100232Z ##[debug]found: '/usr/bin/docker'
+2021-08-16T09:56:45.8101018Z ##[debug]/usr/bin/docker arg: history
+2021-08-16T09:56:45.8102308Z ##[debug]/usr/bin/docker arg: ["--format","createdAt:{{.CreatedAt}}; layerSize:{{.Size}}; createdBy:{{.CreatedBy}}; layerId:{{.ID}}"]
+2021-08-16T09:56:45.8103415Z ##[debug]/usr/bin/docker arg: --no-trunc
+2021-08-16T09:56:45.8116986Z ##[debug]/usr/bin/docker arg: ***/factorymanagerfrontend-dev:0.20.5-24602
+2021-08-16T09:56:45.8118231Z ##[debug]DOCKER_HOST=undefined
+2021-08-16T09:56:45.8132383Z ##[debug]exec tool: /usr/bin/docker
+2021-08-16T09:56:45.8133192Z ##[debug]arguments:
+2021-08-16T09:56:45.8133917Z ##[debug]   history
+2021-08-16T09:56:45.8134876Z ##[debug]   --format
+2021-08-16T09:56:45.8135689Z ##[debug]   createdAt:{{.CreatedAt}}; layerSize:{{.Size}}; createdBy:{{.CreatedBy}}; layerId:{{.ID}}
+2021-08-16T09:56:45.8136831Z ##[debug]   --no-trunc
+2021-08-16T09:56:45.8137961Z ##[debug]   ***/factorymanagerfrontend-dev:0.20.5-24602
+2021-08-16T09:56:45.8139309Z [command]/usr/bin/docker history --format createdAt:{{.CreatedAt}}; layerSize:{{.Size}}; createdBy:{{.CreatedBy}}; layerId:{{.ID}} --no-trunc ***/factorymanagerfrontend-dev:0.20.5-24602
+2021-08-16T09:56:45.8217152Z ##[debug]which '/usr/bin/docker'
+2021-08-16T09:56:45.8218324Z ##[debug]found: '/usr/bin/docker'
+2021-08-16T09:56:45.8219235Z ##[debug]/usr/bin/docker arg: push
+2021-08-16T09:56:45.8220670Z ##[debug]/usr/bin/docker arg: ***/factorymanagerfrontend-dev:0.20.5
+2021-08-16T09:56:45.8221521Z ##[debug]DOCKER_HOST=undefined
+2021-08-16T09:56:45.8222316Z ##[debug]exec tool: /usr/bin/docker
+2021-08-16T09:56:45.8222897Z ##[debug]arguments:
+2021-08-16T09:56:45.8223673Z ##[debug]   push
+2021-08-16T09:56:45.8225787Z ##[debug]   ***/factorymanagerfrontend-dev:0.20.5
+2021-08-16T09:56:45.8226893Z [command]/usr/bin/docker push ***/factorymanagerfrontend-dev:0.20.5
+2021-08-16T09:56:45.8680900Z createdAt:2021-08-16T09:56:31Z; layerSize:0B; createdBy:CMD ["/usr/local/bin/entry_script.sh"]; layerId:sha256:0d0d8d387fb5486fc6754ca26e5c2081c229183565a7a2846379a3abacbfcbd0
+2021-08-16T09:56:45.8682360Z createdAt:2021-08-16T09:56:31Z; layerSize:14.8MB; createdBy:COPY /usr/app/src/packages/frontend/build /usr/share/nginx/html # buildkit; layerId:<missing>
+2021-08-16T09:56:45.8683582Z createdAt:2021-08-16T09:56:31Z; layerSize:603B; createdBy:COPY packages/frontend/nginx.config /etc/nginx/conf.d/default.conf # buildkit; layerId:<missing>
+2021-08-16T09:56:45.8684728Z createdAt:2021-08-16T09:56:31Z; layerSize:111B; createdBy:RUN /bin/sh -c chmod 755 /usr/local/bin/entry_script.sh # buildkit; layerId:<missing>
+2021-08-16T09:56:45.8685964Z createdAt:2021-08-16T09:56:31Z; layerSize:73.2MB; createdBy:RUN /bin/sh -c yarn # buildkit; layerId:<missing>
+2021-08-16T09:56:45.8686974Z createdAt:2021-08-16T09:56:08Z; layerSize:1.01kB; createdBy:COPY /usr/app/src/.npmrc /usr/app/src # buildkit; layerId:<missing>
+2021-08-16T09:56:45.8688302Z createdAt:2021-08-16T09:53:25Z; layerSize:30.4kB; createdBy:COPY packages/initiator/* /usr/app/src/ # buildkit; layerId:<missing>
+2021-08-16T09:56:45.8689400Z createdAt:2021-08-16T09:53:25Z; layerSize:111B; createdBy:COPY scripts/entry_script.sh /usr/local/bin/entry_script.sh # buildkit; layerId:<missing>
+2021-08-16T09:56:45.8690386Z createdAt:2021-08-16T09:53:25Z; layerSize:0B; createdBy:WORKDIR /usr/app/src; layerId:<missing>
+2021-08-16T09:56:45.8691337Z createdAt:2021-08-16T09:53:25Z; layerSize:5.67MB; createdBy:RUN /bin/sh -c apk add yarn # buildkit; layerId:<missing>
+2021-08-16T09:56:45.8692333Z createdAt:2021-08-16T09:53:24Z; layerSize:54.5MB; createdBy:RUN /bin/sh -c apk add nodejs npm # buildkit; layerId:<missing>
+2021-08-16T09:56:45.8693331Z createdAt:2021-08-16T09:53:22Z; layerSize:1.25MB; createdBy:RUN /bin/sh -c apk add jq # buildkit; layerId:<missing>
+2021-08-16T09:56:45.8694341Z createdAt:2021-08-16T09:53:22Z; layerSize:6.65MB; createdBy:RUN /bin/sh -c apk add syslog-ng # buildkit; layerId:<missing>
+2021-08-16T09:56:45.8695332Z createdAt:2021-08-16T09:53:21Z; layerSize:125kB; createdBy:RUN /bin/sh -c apk add curl # buildkit; layerId:<missing>
+2021-08-16T09:56:45.8696309Z createdAt:2021-08-16T09:53:20Z; layerSize:1.65MB; createdBy:RUN /bin/sh -c apk add bash # buildkit; layerId:<missing>
+2021-08-16T09:56:45.8697406Z createdAt:2021-08-16T09:53:19Z; layerSize:1.99MB; createdBy:RUN /bin/sh -c apk update # buildkit; layerId:<missing>
+2021-08-16T09:56:45.8698433Z createdAt:2021-02-17T23:52:57Z; layerSize:0B; createdBy:/bin/sh -c #(nop)  CMD ["nginx" "-g" "daemon off;"]; layerId:<missing>
+2021-08-16T09:56:45.8699451Z createdAt:2021-02-17T23:52:57Z; layerSize:0B; createdBy:/bin/sh -c #(nop)  STOPSIGNAL SIGQUIT; layerId:<missing>
+2021-08-16T09:56:45.8700404Z createdAt:2021-02-17T23:52:57Z; layerSize:0B; createdBy:/bin/sh -c #(nop)  EXPOSE 80; layerId:<missing>
+2021-08-16T09:56:45.8701406Z createdAt:2021-02-17T23:52:56Z; layerSize:0B; createdBy:/bin/sh -c #(nop)  ENTRYPOINT ["/docker-entrypoint.sh"]; layerId:<missing>
+2021-08-16T09:56:45.8702689Z createdAt:2021-02-17T23:52:56Z; layerSize:4.62kB; createdBy:/bin/sh -c #(nop) COPY file:c7f3907578be6851a0db02acac9e97c4d7eabda5f22a5a1ffe21139197dceb7a in /docker-entrypoint.d ; layerId:<missing>
+2021-08-16T09:56:45.8704101Z createdAt:2021-02-17T23:52:56Z; layerSize:1.04kB; createdBy:/bin/sh -c #(nop) COPY file:0fd5fca330dcd6a7de297435e32af634f29f7132ed0550d342cad9fd20158258 in /docker-entrypoint.d ; layerId:<missing>
+2021-08-16T09:56:45.8705495Z createdAt:2021-02-17T23:52:55Z; layerSize:1.96kB; createdBy:/bin/sh -c #(nop) COPY file:0b866ff3fc1ef5b03c4e6c8c513ae014f691fb05d530257dfffd07035c1b75da in /docker-entrypoint.d ; layerId:<missing>
+2021-08-16T09:56:45.8706830Z createdAt:2021-02-17T23:52:55Z; layerSize:1.2kB; createdBy:/bin/sh -c #(nop) COPY file:65504f71f5855ca017fb64d502ce873a31b2e0decd75297a8fb0a287f97acf92 in / ; layerId:<missing>
+2021-08-16T09:56:45.8718449Z createdAt:2021-02-17T23:52:54Z; layerSize:16.9MB; createdBy:/bin/sh -c set -x     && addgroup -g 101 -S nginx     && adduser -S -D -H -u 101 -h /var/cache/nginx -s /sbin/nologin -G nginx -g nginx nginx     && apkArch="$(cat /etc/apk/arch)"     && nginxPackages="         nginx=${NGINX_VERSION}-r${PKG_RELEASE}         nginx-module-xslt=${NGINX_VERSION}-r${PKG_RELEASE}         nginx-module-geoip=${NGINX_VERSION}-r${PKG_RELEASE}         nginx-module-image-filter=${NGINX_VERSION}-r${PKG_RELEASE}         nginx-module-njs=${NGINX_VERSION}.${NJS_VERSION}-r${PKG_RELEASE}     "     && case "$apkArch" in         x86_64)             set -x             && KEY_SHA512="e7fa8303923d9b95db37a77ad46c68fd4755ff935d0a534d26eba83de193c76166c68bfe7f65471bf8881004ef4aa6df3e34689c305662750c0172fca5d8552a *stdin"             && apk add --no-cache --virtual .cert-deps                 openssl             && wget -O /tmp/nginx_signing.rsa.pub https://nginx.org/keys/nginx_signing.rsa.pub             && if [ "$(openssl rsa -pubin -in /tmp/nginx_signing.rsa.pub -text -noout | openssl sha512 -r)" = "$KEY_SHA512" ]; then                 echo "key verification succeeded!";                 mv /tmp/nginx_signing.rsa.pub /etc/apk/keys/;             else                 echo "key verification failed!";                 exit 1;             fi             && apk del .cert-deps             && apk add -X "https://nginx.org/packages/mainline/alpine/v$(egrep -o '^[0-9]+\.[0-9]+' /etc/alpine-release)/main" --no-cache $nginxPackages             ;;         *)             set -x             && tempDir="$(mktemp -d)"             && chown nobody:nobody $tempDir             && apk add --no-cache --virtual .build-deps                 gcc                 libc-dev                 make                 openssl-dev                 pcre-dev                 zlib-dev                 linux-headers                 libxslt-dev                 gd-dev                 geoip-dev                 perl-dev                 libedit-dev                 mercurial                 bash                 alpine-sdk                 findutils             && su nobody -s /bin/sh -c "                 export HOME=${tempDir}                 && cd ${tempDir}                 && hg clone https://hg.nginx.org/pkg-oss                 && cd pkg-oss                 && hg up ${NGINX_VERSION}-${PKG_RELEASE}                 && cd alpine                 && make all                 && apk index -o ${tempDir}/packages/alpine/${apkArch}/APKINDEX.tar.gz ${tempDir}/packages/alpine/${apkArch}/*.apk                 && abuild-sign -k ${tempDir}/.abuild/abuild-key.rsa ${tempDir}/packages/alpine/${apkArch}/APKINDEX.tar.gz                 "             && cp ${tempDir}/.abuild/abuild-key.rsa.pub /etc/apk/keys/             && apk del .build-deps             && apk add -X ${tempDir}/packages/alpine/ --no-cache $nginxPackages             ;;     esac     && if [ -n "$tempDir" ]; then rm -rf "$tempDir"; fi     && if [ -n "/etc/apk/keys/abuild-key.rsa.pub" ]; then rm -f /etc/apk/keys/abuild-key.rsa.pub; fi     && if [ -n "/etc/apk/keys/nginx_signing.rsa.pub" ]; then rm -f /etc/apk/keys/nginx_signing.rsa.pub; fi     && apk add --no-cache --virtual .gettext gettext     && mv /usr/bin/envsubst /tmp/         && runDeps="$(         scanelf --needed --nobanner /tmp/envsubst             | awk '{ gsub(/,/, "\nso:", $2); print "so:" $2 }'             | sort -u             | xargs -r apk info --installed             | sort -u     )"     && apk add --no-cache $runDeps     && apk del .gettext     && mv /tmp/envsubst /usr/local/bin/     && apk add --no-cache tzdata     && apk add --no-cache curl ca-certificates     && ln -sf /dev/stdout /var/log/nginx/access.log     && ln -sf /dev/stderr /var/log/nginx/error.log     && mkdir /docker-entrypoint.d; layerId:<missing>
+2021-08-16T09:56:45.8726509Z createdAt:2021-02-17T23:52:46Z; layerSize:0B; createdBy:/bin/sh -c #(nop)  ENV PKG_RELEASE=1; layerId:<missing>
+2021-08-16T09:56:45.8727529Z createdAt:2021-02-17T23:52:46Z; layerSize:0B; createdBy:/bin/sh -c #(nop)  ENV NJS_VERSION=0.5.1; layerId:<missing>
+2021-08-16T09:56:45.8728549Z createdAt:2021-02-17T23:52:46Z; layerSize:0B; createdBy:/bin/sh -c #(nop)  ENV NGINX_VERSION=1.19.7; layerId:<missing>
+2021-08-16T09:56:45.8729720Z createdAt:2021-02-17T23:52:45Z; layerSize:0B; createdBy:/bin/sh -c #(nop)  LABEL maintainer=NGINX Docker Maintainers <docker-maint@nginx.com>; layerId:<missing>
+2021-08-16T09:56:45.8730806Z createdAt:2021-02-17T21:19:54Z; layerSize:0B; createdBy:/bin/sh -c #(nop)  CMD ["/bin/sh"]; layerId:<missing>
+2021-08-16T09:56:45.8731974Z createdAt:2021-02-17T21:19:54Z; layerSize:5.61MB; createdBy:/bin/sh -c #(nop) ADD file:80bf8bd014071345b1c0364eeb0a5e48f3fb0d87f9c31cb990e57caa652b59b8 in / ; layerId:<missing>
+2021-08-16T09:56:45.8761961Z ##[debug]Exit code 0 received from tool '/usr/bin/docker'
+2021-08-16T09:56:45.8762824Z ##[debug]STDIO streams have closed for tool '/usr/bin/docker'
+2021-08-16T09:56:45.8794400Z ##[debug]which '/usr/bin/docker'
+2021-08-16T09:56:45.8795234Z ##[debug]found: '/usr/bin/docker'
+2021-08-16T09:56:45.8796075Z ##[debug]/usr/bin/docker arg: inspect
+2021-08-16T09:56:45.8796757Z ##[debug]/usr/bin/docker arg: 0d0d8d387fb5486fc6754ca26e5c2081c229183565a7a2846379a3abacbfcbd0
+2021-08-16T09:56:45.8797618Z ##[debug]/usr/bin/docker arg: ["-f","{{.RootFS.Layers}}"]
+2021-08-16T09:56:45.8798218Z ##[debug]DOCKER_HOST=undefined
+2021-08-16T09:56:45.8798782Z ##[debug]exec tool: /usr/bin/docker
+2021-08-16T09:56:45.8799324Z ##[debug]arguments:
+2021-08-16T09:56:45.8799841Z ##[debug]   inspect
+2021-08-16T09:56:45.8800438Z ##[debug]   0d0d8d387fb5486fc6754ca26e5c2081c229183565a7a2846379a3abacbfcbd0
+2021-08-16T09:56:45.8801132Z ##[debug]   -f
+2021-08-16T09:56:45.8801646Z ##[debug]   {{.RootFS.Layers}}
+2021-08-16T09:56:45.8802526Z [command]/usr/bin/docker inspect 0d0d8d387fb5486fc6754ca26e5c2081c229183565a7a2846379a3abacbfcbd0 -f {{.RootFS.Layers}}
+2021-08-16T09:56:45.8853996Z The push refers to repository [***/factorymanagerfrontend-dev]
+2021-08-16T09:56:45.9261761Z [sha256:cb381a32b2296e4eb5af3f84092a2e6685e88adbc54ee0768a1a1010ce6376c7 sha256:44f7d9f20b3a753e5fe61db13bc895701462d6c71feeba54bb57da63aebf173a sha256:14be20d881b0567fa589a7b63528f73d02f7d9bcec62b396b7893a5be2b705ef sha256:df9eec7ebcd63f97c3d967b1b0d9235d1bbbae957dbc4e870191815898a93840 sha256:787a70c9c5bd040d66b3688ba1ee46e1ea96b224b0030624ff2376717840abd5 sha256:d984e64ffab6aaab0f5ef2b8ed580dea5f16ba7a1ec9d889badb7a3fa4bbcef8 sha256:58fba0ace534a463be76d1f8caa924dd8ef187d8f9381346aa15d4a9ef55f781 sha256:244d15df7f6a219428020663e2d26c2ab03bde2e4144eed282f3a521f90ebb59 sha256:d7add6a58d0813f6785650c01e56958d395436822f7f5a7e53066843080d5e6e sha256:5936fd903200643488925894070780caa1895d03b8ccedad3db6ea68435ecc63 sha256:910f8e31fdb4e5132733c81e931e8b7b0017aaf0b587549e5242ab8311f9d559 sha256:5110a5397aa9a1579845f314638633656113148672327217be174ec5e56d619c sha256:63c7daf07eecfcfeb8355ebf9b60e1245bc03fb2dcbc46d972bff7afdbb66eee sha256:383bdf11a8cf14cfcb9a52ad19b1e11ab27679336523e3c42425bd1fbe91057f sha256:c926e11367c5053358d19d17d31d2dc241b8c91e490de9c0d0fd8f23f162f798 sha256:93b44b54c3bd2bf1efca912cef124e2e07950c189796301751de623f3ad26bf3 sha256:50ee91d2425b86ec42d70e3c081fb198eb67bc84e9fa537e9d69b6877fe15294 sha256:5016feb4b55c3fd778e28e0695a5eb0565f7075a98b6993d51792e465f167fca sha256:836f02253991cb6c6d965714bd063779bcb50298b5e39844dd2b9c620579b915 sha256:0167f6a61f4a1a4e085c7eb5ddee5b213efd924f5e4e9aa96a69b0aaa4ea6a80 sha256:faff4125222d08b4b368e5571757e7faec418b3fe2b2e83dd0d19c89b46e91b0]
+2021-08-16T09:56:45.9300754Z ##[debug]Exit code 0 received from tool '/usr/bin/docker'
+2021-08-16T09:56:45.9301732Z ##[debug]STDIO streams have closed for tool '/usr/bin/docker'
+2021-08-16T09:56:45.9302523Z ##[debug]System.HostType=build
+2021-08-16T09:56:45.9303075Z ##[debug]Build.BuildId=24602
+2021-08-16T09:56:45.9303621Z ##[debug]Build.BuildNumber=20210816.5
+2021-08-16T09:56:45.9304309Z ##[debug]System.DefinitionName=WB-FactoryManager
+2021-08-16T09:56:45.9305175Z ##[debug]System.DefinitionId=602
+2021-08-16T09:56:45.9305788Z ##[debug]System.PhaseDisplayName=Docker build & push
+2021-08-16T09:56:45.9306383Z ##[debug]Build.Reason=Manual
+2021-08-16T09:56:45.9306957Z ##[debug]Build.RequestedForEmail=fernando.ochoa@alten.es
+2021-08-16T09:56:45.9307578Z ##[debug]System.TeamProject=DigitalFactory
+2021-08-16T09:56:45.9308130Z ##[debug]Build.BuildId=24602
+2021-08-16T09:56:45.9308663Z ##[debug]System.DefinitionId=602
+2021-08-16T09:56:45.9309374Z ##[debug]System.TeamProject=DigitalFactory
+2021-08-16T09:56:45.9310243Z ##[debug]Build.Repository.Uri=https://abbrobotics.visualstudio.com/DigitalFactory/_git/WB-FactoryManager
+2021-08-16T09:56:45.9311012Z ##[debug]Build.SourceVersion=61d5272d260933f736a27fd1506e5f6688f2205c
+2021-08-16T09:56:45.9311616Z ##[debug]addPipelineData=true
+2021-08-16T09:56:45.9312281Z ##[debug]SYSTEM_TEAMFOUNDATIONCOLLECTIONURI=https://abbrobotics.visualstudio.com/
+2021-08-16T09:56:45.9313222Z ##[debug]Reverse DNS name com.visualstudio.abbrobotics
+2021-08-16T09:56:45.9313940Z ##[debug]SYSTEM_TEAMFOUNDATIONCOLLECTIONURI=https://abbrobotics.visualstudio.com/
+2021-08-16T09:56:45.9314837Z ##[debug]SYSTEM_TEAMPROJECT=DigitalFactory
+2021-08-16T09:56:45.9315770Z ##[debug]BUILD_REPOSITORY_NAME=WB-FactoryManager
+2021-08-16T09:56:45.9316364Z ##[debug]SYSTEM_HOSTTYPE=build
+2021-08-16T09:56:45.9317074Z ##[debug]BUILD_SOURCEVERSION=61d5272d260933f736a27fd1506e5f6688f2205c
+2021-08-16T09:56:45.9320433Z ##[debug]BUILD_REPOSITORY_URI=https://abbrobotics.visualstudio.com/DigitalFactory/_git/WB-FactoryManager
+2021-08-16T09:56:45.9321185Z ##[debug]BUILD_SOURCEBRANCHNAME=dev
+2021-08-16T09:56:45.9321887Z ##[debug]BUILD_DEFINITIONNAME=WB-FactoryManager
+2021-08-16T09:56:45.9322488Z ##[debug]BUILD_BUILDNUMBER=20210816.5
+2021-08-16T09:56:45.9356279Z ##[debug]BUILD_BUILDURI=vstfs:///Build/Build/24602
+2021-08-16T09:56:45.9357793Z ##[debug]buildContext=/home/vsts/work/1/s/**
+2021-08-16T09:56:45.9358737Z ##[debug]SYSTEM_DEFAULTWORKINGDIRECTORY=/home/vsts/work/1/s
+2021-08-16T09:56:45.9359311Z ##[debug]Build.Repository.Provider=TfsGit
+2021-08-16T09:56:45.9360203Z ##[debug]Build.Repository.ID=dcac2ee4-c6a2-4c53-99c9-c634eabf67ca
+2021-08-16T09:56:45.9361133Z ##[debug]Build.Repository.Name=WB-FactoryManager
+2021-08-16T09:56:45.9361740Z ##[debug]Build.SourceBranchName=dev
+2021-08-16T09:56:45.9362406Z ##[debug]System.TeamFoundationCollectionUri=https://abbrobotics.visualstudio.com/
+2021-08-16T09:56:45.9363172Z ##[debug]System.TeamProject=DigitalFactory
+2021-08-16T09:56:45.9364857Z ##[debug]set RESOURCE_URIS=https://***/factorymanagerfrontend-dev@sha256:460dd23b1e3486cc649dbdd92d061b077557a391fae0fc7881e2d8fc33b5176f
+2021-08-16T09:56:45.9367350Z ##[debug]Processed: ##vso[task.setvariable variable=RESOURCE_URIS;issecret=false;]https://***/factorymanagerfrontend-dev@sha256:460dd23b1e3486cc649dbdd92d061b077557a391fae0fc7881e2d8fc33b5176f
+2021-08-16T09:56:45.9371023Z ##[debug]SYSTEMVSSCONNECTION auth param ACCESSTOKEN = ***
+2021-08-16T09:56:45.9371952Z ##[debug]requestUrl: https://abbrobotics.visualstudio.com/DigitalFactory/_apis/deployment/imagedetails?api-version=5.0-preview.1
+2021-08-16T09:56:45.9397088Z ##[debug]requestBody: {"imageName":"https://***/factorymanagerfrontend-dev@sha256:460dd23b1e3486cc649dbdd92d061b077557a391fae0fc7881e2d8fc33b5176f","imageUri":"https://***/factorymanagerfrontend-dev@sha256:460dd23b1e3486cc649dbdd92d061b077557a391fae0fc7881e2d8fc33b5176f","hash":"460dd23b1e3486cc649dbdd92d061b077557a391fae0fc7881e2d8fc33b5176f","baseImageName":"NA","distance":31,"imageType":"","mediaType":"","tags":["0.20.5-24602","0.20.5","latest"],"layerInfo":[{"directive":"ADD","arguments":"file:80bf8bd014071345b1c0364eeb0a5e48f3fb0d87f9c31cb990e57caa652b59b8 in / ","createdOn":"2021-02-17T21:19:54Z","size":"5.61MB"},{"directive":"CMD","arguments":"[\"/bin/sh\"]","createdOn":"2021-02-17T21:19:54Z","size":"0B"},{"directive":"LABEL","arguments":"maintainer=NGINX Docker Maintainers <docker-maint@nginx.com>","createdOn":"2021-02-17T23:52:45Z","size":"0B"},{"directive":"ENV","arguments":"NGINX_VERSION=1.19.7","createdOn":"2021-02-17T23:52:46Z","size":"0B"},{"directive":"ENV","arguments":"NJS_VERSION=0.5.1","createdOn":"2021-02-17T23:52:46Z","size":"0B"},{"directive":"ENV","arguments":"PKG_RELEASE=1","createdOn":"2021-02-17T23:52:46Z","size":"0B"},{"directive":"RUN","arguments":"/bin/sh -c set -x     && addgroup -g 101 -S nginx     && adduser -S -D -H -u 101 -h /var/cache/nginx -s /sbin/nologin -G nginx -g nginx nginx     && apkArch=\"$(cat /etc/apk/arch)\"     && nginxPackages=\"         nginx=${NGINX_VERSION}-r${PKG_RELEASE}         nginx-module-xslt=${NGINX_VERSION}-r${PKG_RELEASE}         nginx-module-geoip=${NGINX_VERSION}-r${PKG_RELEASE}         nginx-module-image-filter=${NGINX_VERSION}-r${PKG_RELEASE}         nginx-module-njs=${NGINX_VERSION}.${NJS_VERSION}-r${PKG_RELEASE}     \"     && case \"$apkArch\" in         x86_64)             set -x             && KEY_SHA512=\"e7fa8303923d9b95db37a77ad46c68fd4755ff935d0a534d26eba83de193c76166c68bfe7f65471bf8881004ef4aa6df3e34689c305662750c0172fca5d8552a *stdin\"             && apk add --no-cache --virtual .cert-deps                 openssl             && wget -O /tmp/nginx_signing.rsa.pub https://nginx.org/keys/nginx_signing.rsa.pub             && if [ \"$(openssl rsa -pubin -in /tmp/nginx_signing.rsa.pub -text -noout | openssl sha512 -r)\" = \"$KEY_SHA512\" ]; then                 echo \"key verification succeeded!\";                 mv /tmp/nginx_signing.rsa.pub /etc/apk/keys/;             else                 echo \"key verification failed!\";                 exit 1;             fi             && apk del .cert-deps             && apk add -X \"https://nginx.org/packages/mainline/alpine/v$(egrep -o '^[0-9]+\\.[0-9]+' /etc/alpine-release)/main\" --no-cache $nginxPackages             ;;         *)             set -x             && tempDir=\"$(mktemp -d)\"             && chown nobody:nobody $tempDir             && apk add --no-cache --virtual .build-deps                 gcc                 libc-dev                 make                 openssl-dev                 pcre-dev                 zlib-dev                 linux-headers                 libxslt-dev                 gd-dev                 geoip-dev                 perl-dev                 libedit-dev                 mercurial                 bash                 alpine-sdk                 findutils             && su nobody -s /bin/sh -c \"                 export HOME=${tempDir}                 && cd ${tempDir}                 && hg clone https://hg.nginx.org/pkg-oss                 && cd pkg-oss                 && hg up ${NGINX_VERSION}-${PKG_RELEASE}                 && cd alpine                 && make all                 && apk index -o ${tempDir}/packages/alpine/${apkArch}/APKINDEX.tar.gz ${tempDir}/packages/alpine/${apkArch}/*.apk                 && abuild-sign -k ${tempDir}/.abuild/abuild-key.rsa ${tempDir}/packages/alpine/${apkArch}/APKINDEX.tar.gz                 \"             && cp ${tempDir}/.abuild/abuild-key.rsa.pub /etc/apk/keys/             && apk del .build-deps             && apk add -X ${tempDir}/packages/alpine/ --no-cache $nginxPackages             ;;     esac     && if [ -n \"$tempDir\" ]; then rm -rf \"$tempDir\"; fi     && if [ -n \"/etc/apk/keys/abuild-key.rsa.pub\" ]; then rm -f /etc/apk/keys/abuild-key.rsa.pub; fi     && if [ -n \"/etc/apk/keys/nginx_signing.rsa.pub\" ]; then rm -f /etc/apk/keys/nginx_signing.rsa.pub; fi     && apk add --no-cache --virtual .gettext gettext     && mv /usr/bin/envsubst /tmp/         && runDeps=\"$(         scanelf --needed --nobanner /tmp/envsubst             | awk '{ gsub(/,/, \"\\nso:\", $2); print \"so:\" $2 }'             | sort -u             | xargs -r apk info --installed             | sort -u     )\"     && apk add --no-cache $runDeps     && apk del .gettext     && mv /tmp/envsubst /usr/local/bin/     && apk add --no-cache tzdata     && apk add --no-cache curl ca-certificates     && ln -sf /dev/stdout /var/log/nginx/access.log     && ln -sf /dev/stderr /var/log/nginx/error.log     && mkdir /docker-entrypoint.d","createdOn":"2021-02-17T23:52:54Z","size":"16.9MB"},{"directive":"COPY","arguments":"file:65504f71f5855ca017fb64d502ce873a31b2e0decd75297a8fb0a287f97acf92 in / ","createdOn":"2021-02-17T23:52:55Z","size":"1.2kB"},{"directive":"COPY","arguments":"file:0b866ff3fc1ef5b03c4e6c8c513ae014f691fb05d530257dfffd07035c1b75da in /docker-entrypoint.d ","createdOn":"2021-02-17T23:52:55Z","size":"1.96kB"},{"directive":"COPY","arguments":"file:0fd5fca330dcd6a7de297435e32af634f29f7132ed0550d342cad9fd20158258 in /docker-entrypoint.d ","createdOn":"2021-02-17T23:52:56Z","size":"1.04kB"},{"directive":"COPY","arguments":"file:c7f3907578be6851a0db02acac9e97c4d7eabda5f22a5a1ffe21139197dceb7a in /docker-entrypoint.d ","createdOn":"2021-02-17T23:52:56Z","size":"4.62kB"},{"directive":"ENTRYPOINT","arguments":"[\"/docker-entrypoint.sh\"]","createdOn":"2021-02-17T23:52:56Z","size":"0B"},{"directive":"EXPOSE","arguments":"80","createdOn":"2021-02-17T23:52:57Z","size":"0B"},{"directive":"STOPSIGNAL","arguments":"SIGQUIT","createdOn":"2021-02-17T23:52:57Z","size":"0B"},{"directive":"CMD","arguments":"[\"nginx\" \"-g\" \"daemon off;\"]","createdOn":"2021-02-17T23:52:57Z","size":"0B"},{"directive":"RUN","arguments":"RUN /bin/sh -c apk update # buildkit","createdOn":"2021-08-16T09:53:19Z","size":"1.99MB"},{"directive":"RUN","arguments":"RUN /bin/sh -c apk add bash # buildkit","createdOn":"2021-08-16T09:53:20Z","size":"1.65MB"},{"directive":"RUN","arguments":"RUN /bin/sh -c apk add curl # buildkit","createdOn":"2021-08-16T09:53:21Z","size":"125kB"},{"directive":"RUN","arguments":"RUN /bin/sh -c apk add syslog-ng # buildkit","createdOn":"2021-08-16T09:53:22Z","size":"6.65MB"},{"directive":"RUN","arguments":"RUN /bin/sh -c apk add jq # buildkit","createdOn":"2021-08-16T09:53:22Z","size":"1.25MB"},{"directive":"RUN","arguments":"RUN /bin/sh -c apk add nodejs npm # buildkit","createdOn":"2021-08-16T09:53:24Z","size":"54.5MB"},{"directive":"RUN","arguments":"RUN /bin/sh -c apk add yarn # buildkit","createdOn":"2021-08-16T09:53:25Z","size":"5.67MB"},{"directive":"RUN","arguments":"WORKDIR /usr/app/src","createdOn":"2021-08-16T09:53:25Z","size":"0B"},{"directive":"RUN","arguments":"COPY scripts/entry_script.sh /usr/local/bin/entry_script.sh # buildkit","createdOn":"2021-08-16T09:53:25Z","size":"111B"},{"directive":"RUN","arguments":"COPY packages/initiator/* /usr/app/src/ # buildkit","createdOn":"2021-08-16T09:53:25Z","size":"30.4kB"},{"directive":"RUN","arguments":"COPY /usr/app/src/.npmrc /usr/app/src # buildkit","createdOn":"2021-08-16T09:56:08Z","size":"1.01kB"},{"directive":"RUN","arguments":"RUN /bin/sh -c yarn # buildkit","createdOn":"2021-08-16T09:56:31Z","size":"73.2MB"},{"directive":"RUN","arguments":"RUN /bin/sh -c chmod 755 /usr/local/bin/entry_script.sh # buildkit","createdOn":"2021-08-16T09:56:31Z","size":"111B"},{"directive":"RUN","arguments":"COPY packages/frontend/nginx.config /etc/nginx/conf.d/default.conf # buildkit","createdOn":"2021-08-16T09:56:31Z","size":"603B"},{"directive":"RUN","arguments":"COPY /usr/app/src/packages/frontend/build /usr/share/nginx/html # buildkit","createdOn":"2021-08-16T09:56:31Z","size":"14.8MB"},{"directive":"RUN","arguments":"CMD [\"/usr/local/bin/entry_script.sh\"]","createdOn":"2021-08-16T09:56:31Z","size":"0B"}],"runId":24602,"pipelineVersion":"20210816.5","pipelineName":"WB-FactoryManager","pipelineId":"602","jobName":"Docker build & push","imageSize":"191241539.24B","creator":"fernando.ochoa@alten.es","logsUri":"https://abbrobotics.visualstudio.com/DigitalFactory/_build/results?buildId=24602","artifactStorageSourceUri":"https://abbrobotics.visualstudio.com/DigitalFactory/_build?definitionId=602","contextUrl":"https://abbrobotics.visualstudio.com/DigitalFactory/_git/WB-FactoryManager","revisionId":"61d5272d260933f736a27fd1506e5f6688f2205c","buildOptions":{"dockerFilePath":"","labels":"com.visualstudio.abbrobotics.image.system.teamfoundationcollectionuri=https://abbrobotics.visualstudio.com/, com.visualstudio.abbrobotics.image.system.teamproject=DigitalFactory, com.visualstudio.abbrobotics.image.build.repository.name=WB-FactoryManager, com.visualstudio.abbrobotics.image.build.sourceversion=61d5272d260933f736a27fd1506e5f6688f2205c, com.visualstudio.abbrobotics.image.build.repository.uri=https://abbrobotics.visualstudio.com/DigitalFactory/_git/WB-FactoryManager, com.visualstudio.abbrobotics.image.build.sourcebranchname=dev, com.visualstudio.abbrobotics.image.build.definitionname=WB-FactoryManager, com.visualstudio.abbrobotics.image.build.buildnumber=20210816.5, com.visualstudio.abbrobotics.image.build.builduri=vstfs:///Build/Build/24602","tags":"0.20.5-24602, 0.20.5, latest","context":"."},"repositoryTypeName":"TfsGit","repositoryId":"dcac2ee4-c6a2-4c53-99c9-c634eabf67ca","repositoryName":"WB-FactoryManager","branch":"dev","imageFingerPrint":{"v1Name":"0d0d8d387fb5486fc6754ca26e5c2081c229183565a7a2846379a3abacbfcbd0","v2Blobs":["cb381a32b2296e4eb5af3f84092a2e6685e88adbc54ee0768a1a1010ce6376c7","44f7d9f20b3a753e5fe61db13bc895701462d6c71feeba54bb57da63aebf173a","14be20d881b0567fa589a7b63528f73d02f7d9bcec62b396b7893a5be2b705ef","df9eec7ebcd63f97c3d967b1b0d9235d1bbbae957dbc4e870191815898a93840","787a70c9c5bd040d66b3688ba1ee46e1ea96b224b0030624ff2376717840abd5","d984e64ffab6aaab0f5ef2b8ed580dea5f16ba7a1ec9d889badb7a3fa4bbcef8","58fba0ace534a463be76d1f8caa924dd8ef187d8f9381346aa15d4a9ef55f781","244d15df7f6a219428020663e2d26c2ab03bde2e4144eed282f3a521f90ebb59","d7add6a58d0813f6785650c01e56958d395436822f7f5a7e53066843080d5e6e","5936fd903200643488925894070780caa1895d03b8ccedad3db6ea68435ecc63","910f8e31fdb4e5132733c81e931e8b7b0017aaf0b587549e5242ab8311f9d559","5110a5397aa9a1579845f314638633656113148672327217be174ec5e56d619c","63c7daf07eecfcfeb8355ebf9b60e1245bc03fb2dcbc46d972bff7afdbb66eee","383bdf11a8cf14cfcb9a52ad19b1e11ab27679336523e3c42425bd1fbe91057f","c926e11367c5053358d19d17d31d2dc241b8c91e490de9c0d0fd8f23f162f798","93b44b54c3bd2bf1efca912cef124e2e07950c189796301751de623f3ad26bf3","50ee91d2425b86ec42d70e3c081fb198eb67bc84e9fa537e9d69b6877fe15294","5016feb4b55c3fd778e28e0695a5eb0565f7075a98b6993d51792e465f167fca","836f02253991cb6c6d965714bd063779bcb50298b5e39844dd2b9c620579b915","0167f6a61f4a1a4e085c7eb5ddee5b213efd924f5e4e9aa96a69b0aaa4ea6a80","faff4125222d08b4b368e5571757e7faec418b3fe2b2e83dd0d19c89b46e91b0"],"v2Name":"d1703a4c075dc20a32dbcfb442ac70387a8c0b41948b08f2c88063becc45c890"}}
+2021-08-16T09:56:45.9425671Z ##[debug]accessToken: ***
+2021-08-16T09:56:45.9426350Z ##[debug]Sending request for pushing image to Image meta data store
+2021-08-16T09:56:45.9427268Z ##[debug][POST]https://abbrobotics.visualstudio.com/DigitalFactory/_apis/deployment/imagedetails?api-version=5.0-preview.1
+2021-08-16T09:56:45.9550344Z faff4125222d: Preparing
+2021-08-16T09:56:45.9551010Z 0167f6a61f4a: Preparing
+2021-08-16T09:56:45.9551718Z 836f02253991: Preparing
+2021-08-16T09:56:45.9552240Z 5016feb4b55c: Preparing
+2021-08-16T09:56:45.9552780Z 50ee91d2425b: Preparing
+2021-08-16T09:56:45.9553311Z 93b44b54c3bd: Preparing
+2021-08-16T09:56:45.9553838Z c926e11367c5: Preparing
+2021-08-16T09:56:45.9554416Z 383bdf11a8cf: Preparing
+2021-08-16T09:56:45.9555154Z 63c7daf07eec: Preparing
+2021-08-16T09:56:45.9555633Z 5110a5397aa9: Preparing
+2021-08-16T09:56:45.9555980Z 910f8e31fdb4: Preparing
+2021-08-16T09:56:45.9556324Z 5936fd903200: Preparing
+2021-08-16T09:56:45.9556658Z d7add6a58d08: Preparing
+2021-08-16T09:56:45.9556996Z 244d15df7f6a: Preparing
+2021-08-16T09:56:45.9557315Z 58fba0ace534: Preparing
+2021-08-16T09:56:45.9557647Z d984e64ffab6: Preparing
+2021-08-16T09:56:45.9557979Z 787a70c9c5bd: Preparing
+2021-08-16T09:56:45.9558294Z df9eec7ebcd6: Preparing
+2021-08-16T09:56:45.9558634Z 14be20d881b0: Preparing
+2021-08-16T09:56:45.9558964Z 44f7d9f20b3a: Preparing
+2021-08-16T09:56:45.9559295Z cb381a32b229: Preparing
+2021-08-16T09:56:45.9559609Z 910f8e31fdb4: Waiting
+2021-08-16T09:56:45.9559936Z 5936fd903200: Waiting
+2021-08-16T09:56:45.9560259Z d7add6a58d08: Waiting
+2021-08-16T09:56:45.9560570Z 244d15df7f6a: Waiting
+2021-08-16T09:56:45.9560896Z 58fba0ace534: Waiting
+2021-08-16T09:56:45.9561218Z d984e64ffab6: Waiting
+2021-08-16T09:56:45.9561527Z 787a70c9c5bd: Waiting
+2021-08-16T09:56:45.9561852Z df9eec7ebcd6: Waiting
+2021-08-16T09:56:45.9562178Z 14be20d881b0: Waiting
+2021-08-16T09:56:45.9562489Z 44f7d9f20b3a: Waiting
+2021-08-16T09:56:45.9562820Z cb381a32b229: Waiting
+2021-08-16T09:56:45.9563141Z 93b44b54c3bd: Waiting
+2021-08-16T09:56:45.9563465Z c926e11367c5: Waiting
+2021-08-16T09:56:45.9563773Z 383bdf11a8cf: Waiting
+2021-08-16T09:56:45.9564095Z 63c7daf07eec: Waiting
+2021-08-16T09:56:45.9564417Z 5110a5397aa9: Waiting
+2021-08-16T09:56:45.9970183Z ##[debug]ImageDetailsApiResponse: {"statusCode":204,"statusMessage":"No Content","headers":{"cache-control":"no-cache, no-store, must-revalidate","pragma":"no-cache","expires":"-1","p3p":"CP=\"CAO DSP COR ADMa DEV CONo TELo CUR PSA PSD TAI IVDo OUR SAMi BUS DEM NAV STA UNI COM INT PHY ONL FIN PUR LOC CNT\"","set-cookie":["VstsSession=%257B%2522PersistentSessionId%2522%253A%25225a4d07ec-7ee1-4315-aee1-fdd5340853c4%2522%252C%2522PendingAuthenticationSessionId%2522%253A%252200000000-0000-0000-0000-000000000000%2522%252C%2522CurrentAuthenticationSessionId%2522%253A%252200000000-0000-0000-0000-000000000000%2522%252C%2522SignInState%2522%253A%257B%257D%257D;SameSite=None; domain=.visualstudio.com; expires=Tue, 16-Aug-2022 09:56:45 GMT; path=/; secure; HttpOnly"],"x-tfs-processid":"340b7e39-a75f-4927-a448-dc4be6b0e77c","strict-transport-security":"max-age=31536000; includeSubDomains","activityid":"bb38f202-2991-4853-8da3-bc4ce8689f9b","x-tfs-session":"bb38f202-2991-4853-8da3-bc4ce8689f9b","x-vss-e2eid":"bb38f202-2991-4853-8da3-bc4ce8689f9b","x-vss-senderdeploymentid":"fa85298d-d7df-eba2-6cd2-9d3c9247a546","x-vss-userdata":"cafb760e-ec79-4cd3-ad3d-f2f6679405ef:f642d5db-33b5-4397-b7cf-53cd841ba4c3","x-frame-options":"SAMEORIGIN","request-context":"appId=cid-v1:a32646d4-6542-4ff0-b4b1-416ef6b2d466","access-control-expose-headers":"Request-Context","x-content-type-options":"nosniff","x-cache":"CONFIG_NOCACHE","x-msedge-ref":"Ref A: 18AC93A70B184F5083BCE2C428E6AF3A Ref B: PRAEDGE1006 Ref C: 2021-08-16T09:56:45Z","date":"Mon, 16 Aug 2021 09:56:45 GMT","connection":"close"}}
+2021-08-16T09:56:46.1349992Z 50ee91d2425b: Layer already exists
+2021-08-16T09:56:46.1378176Z 0167f6a61f4a: Layer already exists
+2021-08-16T09:56:46.1427524Z faff4125222d: Layer already exists
+2021-08-16T09:56:46.1526456Z 836f02253991: Layer already exists
+2021-08-16T09:56:46.1611127Z 5016feb4b55c: Layer already exists
+2021-08-16T09:56:46.1953333Z c926e11367c5: Layer already exists
+2021-08-16T09:56:46.2097788Z 93b44b54c3bd: Layer already exists
+2021-08-16T09:56:46.2192287Z 383bdf11a8cf: Layer already exists
+2021-08-16T09:56:46.2219210Z 63c7daf07eec: Layer already exists
+2021-08-16T09:56:46.2254308Z 5110a5397aa9: Layer already exists
+2021-08-16T09:56:46.2625672Z 910f8e31fdb4: Layer already exists
+2021-08-16T09:56:46.2947205Z 244d15df7f6a: Layer already exists
+2021-08-16T09:56:46.2954334Z 5936fd903200: Layer already exists
+2021-08-16T09:56:46.2959310Z d7add6a58d08: Layer already exists
+2021-08-16T09:56:46.3026888Z 58fba0ace534: Layer already exists
+2021-08-16T09:56:46.3095349Z d984e64ffab6: Layer already exists
+2021-08-16T09:56:46.3447990Z df9eec7ebcd6: Layer already exists
+2021-08-16T09:56:46.3463914Z 14be20d881b0: Layer already exists
+2021-08-16T09:56:46.3512312Z 787a70c9c5bd: Layer already exists
+2021-08-16T09:56:46.3538907Z 44f7d9f20b3a: Layer already exists
+2021-08-16T09:56:46.3605402Z cb381a32b229: Layer already exists
+2021-08-16T09:56:46.8233241Z 0.20.5: digest: sha256:460dd23b1e3486cc649dbdd92d061b077557a391fae0fc7881e2d8fc33b5176f size: 4709
+2021-08-16T09:56:46.8271492Z ##[debug]Exit code 0 received from tool '/usr/bin/docker'
+2021-08-16T09:56:46.8272496Z ##[debug]STDIO streams have closed for tool '/usr/bin/docker'
+2021-08-16T09:56:46.8281567Z ##[debug]outputImageName: ***/factorymanagerfrontend-dev:0.20.5
+commandOutput: The push refers to repository [***/factorymanagerfrontend-dev]
+faff4125222d: Preparing
+0167f6a61f4a: Preparing
+836f02253991: Preparing
+5016feb4b55c: Preparing
+50ee91d2425b: Preparing
+93b44b54c3bd: Preparing
+c926e11367c5: Preparing
+383bdf11a8cf: Preparing
+63c7daf07eec: Preparing
+5110a5397aa9: Preparing
+910f8e31fdb4: Preparing
+5936fd903200: Preparing
+d7add6a58d08: Preparing
+244d15df7f6a: Preparing
+58fba0ace534: Preparing
+d984e64ffab6: Preparing
+787a70c9c5bd: Preparing
+df9eec7ebcd6: Preparing
+14be20d881b0: Preparing
+44f7d9f20b3a: Preparing
+cb381a32b229: Preparing
+910f8e31fdb4: Waiting
+5936fd903200: Waiting
+d7add6a58d08: Waiting
+244d15df7f6a: Waiting
+58fba0ace534: Waiting
+d984e64ffab6: Waiting
+787a70c9c5bd: Waiting
+df9eec7ebcd6: Waiting
+14be20d881b0: Waiting
+44f7d9f20b3a: Waiting
+cb381a32b229: Waiting
+93b44b54c3bd: Waiting
+c926e11367c5: Waiting
+383bdf11a8cf: Waiting
+63c7daf07eec: Waiting
+5110a5397aa9: Waiting
+50ee91d2425b: Layer already exists
+0167f6a61f4a: Layer already exists
+faff4125222d: Layer already exists
+836f02253991: Layer already exists
+5016feb4b55c: Layer already exists
+c926e11367c5: Layer already exists
+93b44b54c3bd: Layer already exists
+383bdf11a8cf: Layer already exists
+63c7daf07eec: Layer already exists
+5110a5397aa9: Layer already exists
+910f8e31fdb4: Layer already exists
+244d15df7f6a: Layer already exists
+5936fd903200: Layer already exists
+d7add6a58d08: Layer already exists
+58fba0ace534: Layer already exists
+d984e64ffab6: Layer already exists
+df9eec7ebcd6: Layer already exists
+14be20d881b0: Layer already exists
+787a70c9c5bd: Layer already exists
+44f7d9f20b3a: Layer already exists
+cb381a32b229: Layer already exists
+0.20.5: digest: sha256:460dd23b1e3486cc649dbdd92d061b077557a391fae0fc7881e2d8fc33b5176f size: 4709
+
+
+digest:460dd23b1e3486cc649dbdd92d061b077557a391fae0fc7881e2d8fc33b5176fimageSize:
+2021-08-16T09:56:46.8287686Z ##[debug]which '/usr/bin/docker'
+2021-08-16T09:56:46.8288555Z ##[debug]found: '/usr/bin/docker'
+2021-08-16T09:56:46.8289253Z ##[debug]/usr/bin/docker arg: history
+2021-08-16T09:56:46.8290354Z ##[debug]/usr/bin/docker arg: ["--format","createdAt:{{.CreatedAt}}; layerSize:{{.Size}}; createdBy:{{.CreatedBy}}; layerId:{{.ID}}"]
+2021-08-16T09:56:46.8291434Z ##[debug]/usr/bin/docker arg: --no-trunc
+2021-08-16T09:56:46.8292643Z ##[debug]/usr/bin/docker arg: ***/factorymanagerfrontend-dev:0.20.5
+2021-08-16T09:56:46.8293408Z ##[debug]DOCKER_HOST=undefined
+2021-08-16T09:56:46.8294069Z ##[debug]exec tool: /usr/bin/docker
+2021-08-16T09:56:46.8294730Z ##[debug]arguments:
+2021-08-16T09:56:46.8295349Z ##[debug]   history
+2021-08-16T09:56:46.8296092Z ##[debug]   --format
+2021-08-16T09:56:46.8296923Z ##[debug]   createdAt:{{.CreatedAt}}; layerSize:{{.Size}}; createdBy:{{.CreatedBy}}; layerId:{{.ID}}
+2021-08-16T09:56:46.8297861Z ##[debug]   --no-trunc
+2021-08-16T09:56:46.8299131Z ##[debug]   ***/factorymanagerfrontend-dev:0.20.5
+2021-08-16T09:56:46.8300814Z [command]/usr/bin/docker history --format createdAt:{{.CreatedAt}}; layerSize:{{.Size}}; createdBy:{{.CreatedBy}}; layerId:{{.ID}} --no-trunc ***/factorymanagerfrontend-dev:0.20.5
+2021-08-16T09:56:46.8355722Z ##[debug]which '/usr/bin/docker'
+2021-08-16T09:56:46.8356516Z ##[debug]found: '/usr/bin/docker'
+2021-08-16T09:56:46.8357102Z ##[debug]/usr/bin/docker arg: push
+2021-08-16T09:56:46.8358628Z ##[debug]/usr/bin/docker arg: ***/factorymanagerfrontend-dev:latest
+2021-08-16T09:56:46.8359324Z ##[debug]DOCKER_HOST=undefined
+2021-08-16T09:56:46.8359891Z ##[debug]exec tool: /usr/bin/docker
+2021-08-16T09:56:46.8360461Z ##[debug]arguments:
+2021-08-16T09:56:46.8360965Z ##[debug]   push
+2021-08-16T09:56:46.8362261Z ##[debug]   ***/factorymanagerfrontend-dev:latest
+2021-08-16T09:56:46.8363368Z [command]/usr/bin/docker push ***/factorymanagerfrontend-dev:latest
+2021-08-16T09:56:46.8859523Z createdAt:2021-08-16T09:56:31Z; layerSize:0B; createdBy:CMD ["/usr/local/bin/entry_script.sh"]; layerId:sha256:0d0d8d387fb5486fc6754ca26e5c2081c229183565a7a2846379a3abacbfcbd0
+2021-08-16T09:56:46.8861508Z createdAt:2021-08-16T09:56:31Z; layerSize:14.8MB; createdBy:COPY /usr/app/src/packages/frontend/build /usr/share/nginx/html # buildkit; layerId:<missing>
+2021-08-16T09:56:46.8862961Z createdAt:2021-08-16T09:56:31Z; layerSize:603B; createdBy:COPY packages/frontend/nginx.config /etc/nginx/conf.d/default.conf # buildkit; layerId:<missing>
+2021-08-16T09:56:46.8864244Z createdAt:2021-08-16T09:56:31Z; layerSize:111B; createdBy:RUN /bin/sh -c chmod 755 /usr/local/bin/entry_script.sh # buildkit; layerId:<missing>
+2021-08-16T09:56:46.8865210Z createdAt:2021-08-16T09:56:31Z; layerSize:73.2MB; createdBy:RUN /bin/sh -c yarn # buildkit; layerId:<missing>
+2021-08-16T09:56:46.8866155Z createdAt:2021-08-16T09:56:08Z; layerSize:1.01kB; createdBy:COPY /usr/app/src/.npmrc /usr/app/src # buildkit; layerId:<missing>
+2021-08-16T09:56:46.8867116Z createdAt:2021-08-16T09:53:25Z; layerSize:30.4kB; createdBy:COPY packages/initiator/* /usr/app/src/ # buildkit; layerId:<missing>
+2021-08-16T09:56:46.8868151Z createdAt:2021-08-16T09:53:25Z; layerSize:111B; createdBy:COPY scripts/entry_script.sh /usr/local/bin/entry_script.sh # buildkit; layerId:<missing>
+2021-08-16T09:56:46.8869061Z createdAt:2021-08-16T09:53:25Z; layerSize:0B; createdBy:WORKDIR /usr/app/src; layerId:<missing>
+2021-08-16T09:56:46.8869946Z createdAt:2021-08-16T09:53:25Z; layerSize:5.67MB; createdBy:RUN /bin/sh -c apk add yarn # buildkit; layerId:<missing>
+2021-08-16T09:56:46.8870884Z createdAt:2021-08-16T09:53:24Z; layerSize:54.5MB; createdBy:RUN /bin/sh -c apk add nodejs npm # buildkit; layerId:<missing>
+2021-08-16T09:56:46.8872070Z createdAt:2021-08-16T09:53:22Z; layerSize:1.25MB; createdBy:RUN /bin/sh -c apk add jq # buildkit; layerId:<missing>
+2021-08-16T09:56:46.8873000Z createdAt:2021-08-16T09:53:22Z; layerSize:6.65MB; createdBy:RUN /bin/sh -c apk add syslog-ng # buildkit; layerId:<missing>
+2021-08-16T09:56:46.8873934Z createdAt:2021-08-16T09:53:21Z; layerSize:125kB; createdBy:RUN /bin/sh -c apk add curl # buildkit; layerId:<missing>
+2021-08-16T09:56:46.8874853Z createdAt:2021-08-16T09:53:20Z; layerSize:1.65MB; createdBy:RUN /bin/sh -c apk add bash # buildkit; layerId:<missing>
+2021-08-16T09:56:46.8875750Z createdAt:2021-08-16T09:53:19Z; layerSize:1.99MB; createdBy:RUN /bin/sh -c apk update # buildkit; layerId:<missing>
+2021-08-16T09:56:46.8876847Z createdAt:2021-02-17T23:52:57Z; layerSize:0B; createdBy:/bin/sh -c #(nop)  CMD ["nginx" "-g" "daemon off;"]; layerId:<missing>
+2021-08-16T09:56:46.8878062Z createdAt:2021-02-17T23:52:57Z; layerSize:0B; createdBy:/bin/sh -c #(nop)  STOPSIGNAL SIGQUIT; layerId:<missing>
+2021-08-16T09:56:46.8879004Z createdAt:2021-02-17T23:52:57Z; layerSize:0B; createdBy:/bin/sh -c #(nop)  EXPOSE 80; layerId:<missing>
+2021-08-16T09:56:46.8879935Z createdAt:2021-02-17T23:52:56Z; layerSize:0B; createdBy:/bin/sh -c #(nop)  ENTRYPOINT ["/docker-entrypoint.sh"]; layerId:<missing>
+2021-08-16T09:56:46.8881259Z createdAt:2021-02-17T23:52:56Z; layerSize:4.62kB; createdBy:/bin/sh -c #(nop) COPY file:c7f3907578be6851a0db02acac9e97c4d7eabda5f22a5a1ffe21139197dceb7a in /docker-entrypoint.d ; layerId:<missing>
+2021-08-16T09:56:46.8882571Z createdAt:2021-02-17T23:52:56Z; layerSize:1.04kB; createdBy:/bin/sh -c #(nop) COPY file:0fd5fca330dcd6a7de297435e32af634f29f7132ed0550d342cad9fd20158258 in /docker-entrypoint.d ; layerId:<missing>
+2021-08-16T09:56:46.8883869Z createdAt:2021-02-17T23:52:55Z; layerSize:1.96kB; createdBy:/bin/sh -c #(nop) COPY file:0b866ff3fc1ef5b03c4e6c8c513ae014f691fb05d530257dfffd07035c1b75da in /docker-entrypoint.d ; layerId:<missing>
+2021-08-16T09:56:46.8885114Z createdAt:2021-02-17T23:52:55Z; layerSize:1.2kB; createdBy:/bin/sh -c #(nop) COPY file:65504f71f5855ca017fb64d502ce873a31b2e0decd75297a8fb0a287f97acf92 in / ; layerId:<missing>
+2021-08-16T09:56:46.8900382Z createdAt:2021-02-17T23:52:54Z; layerSize:16.9MB; createdBy:/bin/sh -c set -x     && addgroup -g 101 -S nginx     && adduser -S -D -H -u 101 -h /var/cache/nginx -s /sbin/nologin -G nginx -g nginx nginx     && apkArch="$(cat /etc/apk/arch)"     && nginxPackages="         nginx=${NGINX_VERSION}-r${PKG_RELEASE}         nginx-module-xslt=${NGINX_VERSION}-r${PKG_RELEASE}         nginx-module-geoip=${NGINX_VERSION}-r${PKG_RELEASE}         nginx-module-image-filter=${NGINX_VERSION}-r${PKG_RELEASE}         nginx-module-njs=${NGINX_VERSION}.${NJS_VERSION}-r${PKG_RELEASE}     "     && case "$apkArch" in         x86_64)             set -x             && KEY_SHA512="e7fa8303923d9b95db37a77ad46c68fd4755ff935d0a534d26eba83de193c76166c68bfe7f65471bf8881004ef4aa6df3e34689c305662750c0172fca5d8552a *stdin"             && apk add --no-cache --virtual .cert-deps                 openssl             && wget -O /tmp/nginx_signing.rsa.pub https://nginx.org/keys/nginx_signing.rsa.pub             && if [ "$(openssl rsa -pubin -in /tmp/nginx_signing.rsa.pub -text -noout | openssl sha512 -r)" = "$KEY_SHA512" ]; then                 echo "key verification succeeded!";                 mv /tmp/nginx_signing.rsa.pub /etc/apk/keys/;             else                 echo "key verification failed!";                 exit 1;             fi             && apk del .cert-deps             && apk add -X "https://nginx.org/packages/mainline/alpine/v$(egrep -o '^[0-9]+\.[0-9]+' /etc/alpine-release)/main" --no-cache $nginxPackages             ;;         *)             set -x             && tempDir="$(mktemp -d)"             && chown nobody:nobody $tempDir             && apk add --no-cache --virtual .build-deps                 gcc                 libc-dev                 make                 openssl-dev                 pcre-dev                 zlib-dev                 linux-headers                 libxslt-dev                 gd-dev                 geoip-dev                 perl-dev                 libedit-dev                 mercurial                 bash                 alpine-sdk                 findutils             && su nobody -s /bin/sh -c "                 export HOME=${tempDir}                 && cd ${tempDir}                 && hg clone https://hg.nginx.org/pkg-oss                 && cd pkg-oss                 && hg up ${NGINX_VERSION}-${PKG_RELEASE}                 && cd alpine                 && make all                 && apk index -o ${tempDir}/packages/alpine/${apkArch}/APKINDEX.tar.gz ${tempDir}/packages/alpine/${apkArch}/*.apk                 && abuild-sign -k ${tempDir}/.abuild/abuild-key.rsa ${tempDir}/packages/alpine/${apkArch}/APKINDEX.tar.gz                 "             && cp ${tempDir}/.abuild/abuild-key.rsa.pub /etc/apk/keys/             && apk del .build-deps             && apk add -X ${tempDir}/packages/alpine/ --no-cache $nginxPackages             ;;     esac     && if [ -n "$tempDir" ]; then rm -rf "$tempDir"; fi     && if [ -n "/etc/apk/keys/abuild-key.rsa.pub" ]; then rm -f /etc/apk/keys/abuild-key.rsa.pub; fi     && if [ -n "/etc/apk/keys/nginx_signing.rsa.pub" ]; then rm -f /etc/apk/keys/nginx_signing.rsa.pub; fi     && apk add --no-cache --virtual .gettext gettext     && mv /usr/bin/envsubst /tmp/         && runDeps="$(         scanelf --needed --nobanner /tmp/envsubst             | awk '{ gsub(/,/, "\nso:", $2); print "so:" $2 }'             | sort -u             | xargs -r apk info --installed             | sort -u     )"     && apk add --no-cache $runDeps     && apk del .gettext     && mv /tmp/envsubst /usr/local/bin/     && apk add --no-cache tzdata     && apk add --no-cache curl ca-certificates     && ln -sf /dev/stdout /var/log/nginx/access.log     && ln -sf /dev/stderr /var/log/nginx/error.log     && mkdir /docker-entrypoint.d; layerId:<missing>
+2021-08-16T09:56:46.8907973Z createdAt:2021-02-17T23:52:46Z; layerSize:0B; createdBy:/bin/sh -c #(nop)  ENV PKG_RELEASE=1; layerId:<missing>
+2021-08-16T09:56:46.8908941Z createdAt:2021-02-17T23:52:46Z; layerSize:0B; createdBy:/bin/sh -c #(nop)  ENV NJS_VERSION=0.5.1; layerId:<missing>
+2021-08-16T09:56:46.8909901Z createdAt:2021-02-17T23:52:46Z; layerSize:0B; createdBy:/bin/sh -c #(nop)  ENV NGINX_VERSION=1.19.7; layerId:<missing>
+2021-08-16T09:56:46.8910977Z createdAt:2021-02-17T23:52:45Z; layerSize:0B; createdBy:/bin/sh -c #(nop)  LABEL maintainer=NGINX Docker Maintainers <docker-maint@nginx.com>; layerId:<missing>
+2021-08-16T09:56:46.8911976Z createdAt:2021-02-17T21:19:54Z; layerSize:0B; createdBy:/bin/sh -c #(nop)  CMD ["/bin/sh"]; layerId:<missing>
+2021-08-16T09:56:46.8913066Z createdAt:2021-02-17T21:19:54Z; layerSize:5.61MB; createdBy:/bin/sh -c #(nop) ADD file:80bf8bd014071345b1c0364eeb0a5e48f3fb0d87f9c31cb990e57caa652b59b8 in / ; layerId:<missing>
+2021-08-16T09:56:46.8914158Z ##[debug]Exit code 0 received from tool '/usr/bin/docker'
+2021-08-16T09:56:46.8914893Z ##[debug]STDIO streams have closed for tool '/usr/bin/docker'
+2021-08-16T09:56:46.8915543Z ##[debug]which '/usr/bin/docker'
+2021-08-16T09:56:46.8916413Z ##[debug]found: '/usr/bin/docker'
+2021-08-16T09:56:46.8917140Z ##[debug]/usr/bin/docker arg: inspect
+2021-08-16T09:56:46.8917795Z ##[debug]/usr/bin/docker arg: 0d0d8d387fb5486fc6754ca26e5c2081c229183565a7a2846379a3abacbfcbd0
+2021-08-16T09:56:46.8918586Z ##[debug]/usr/bin/docker arg: ["-f","{{.RootFS.Layers}}"]
+2021-08-16T09:56:46.8919144Z ##[debug]DOCKER_HOST=undefined
+2021-08-16T09:56:46.8919657Z ##[debug]exec tool: /usr/bin/docker
+2021-08-16T09:56:46.8920182Z ##[debug]arguments:
+2021-08-16T09:56:46.8920652Z ##[debug]   inspect
+2021-08-16T09:56:46.8921212Z ##[debug]   0d0d8d387fb5486fc6754ca26e5c2081c229183565a7a2846379a3abacbfcbd0
+2021-08-16T09:56:46.8921862Z ##[debug]   -f
+2021-08-16T09:56:46.8922339Z ##[debug]   {{.RootFS.Layers}}
+2021-08-16T09:56:46.8923143Z [command]/usr/bin/docker inspect 0d0d8d387fb5486fc6754ca26e5c2081c229183565a7a2846379a3abacbfcbd0 -f {{.RootFS.Layers}}
+2021-08-16T09:56:46.8929299Z The push refers to repository [***/factorymanagerfrontend-dev]
+2021-08-16T09:56:46.9335876Z [sha256:cb381a32b2296e4eb5af3f84092a2e6685e88adbc54ee0768a1a1010ce6376c7 sha256:44f7d9f20b3a753e5fe61db13bc895701462d6c71feeba54bb57da63aebf173a sha256:14be20d881b0567fa589a7b63528f73d02f7d9bcec62b396b7893a5be2b705ef sha256:df9eec7ebcd63f97c3d967b1b0d9235d1bbbae957dbc4e870191815898a93840 sha256:787a70c9c5bd040d66b3688ba1ee46e1ea96b224b0030624ff2376717840abd5 sha256:d984e64ffab6aaab0f5ef2b8ed580dea5f16ba7a1ec9d889badb7a3fa4bbcef8 sha256:58fba0ace534a463be76d1f8caa924dd8ef187d8f9381346aa15d4a9ef55f781 sha256:244d15df7f6a219428020663e2d26c2ab03bde2e4144eed282f3a521f90ebb59 sha256:d7add6a58d0813f6785650c01e56958d395436822f7f5a7e53066843080d5e6e sha256:5936fd903200643488925894070780caa1895d03b8ccedad3db6ea68435ecc63 sha256:910f8e31fdb4e5132733c81e931e8b7b0017aaf0b587549e5242ab8311f9d559 sha256:5110a5397aa9a1579845f314638633656113148672327217be174ec5e56d619c sha256:63c7daf07eecfcfeb8355ebf9b60e1245bc03fb2dcbc46d972bff7afdbb66eee sha256:383bdf11a8cf14cfcb9a52ad19b1e11ab27679336523e3c42425bd1fbe91057f sha256:c926e11367c5053358d19d17d31d2dc241b8c91e490de9c0d0fd8f23f162f798 sha256:93b44b54c3bd2bf1efca912cef124e2e07950c189796301751de623f3ad26bf3 sha256:50ee91d2425b86ec42d70e3c081fb198eb67bc84e9fa537e9d69b6877fe15294 sha256:5016feb4b55c3fd778e28e0695a5eb0565f7075a98b6993d51792e465f167fca sha256:836f02253991cb6c6d965714bd063779bcb50298b5e39844dd2b9c620579b915 sha256:0167f6a61f4a1a4e085c7eb5ddee5b213efd924f5e4e9aa96a69b0aaa4ea6a80 sha256:faff4125222d08b4b368e5571757e7faec418b3fe2b2e83dd0d19c89b46e91b0]
+2021-08-16T09:56:46.9365361Z ##[debug]Exit code 0 received from tool '/usr/bin/docker'
+2021-08-16T09:56:46.9368821Z ##[debug]STDIO streams have closed for tool '/usr/bin/docker'
+2021-08-16T09:56:46.9371136Z ##[debug]System.HostType=build
+2021-08-16T09:56:46.9373509Z ##[debug]Build.BuildId=24602
+2021-08-16T09:56:46.9375235Z ##[debug]Build.BuildNumber=20210816.5
+2021-08-16T09:56:46.9387631Z ##[debug]System.DefinitionName=WB-FactoryManager
+2021-08-16T09:56:46.9413181Z ##[debug]System.DefinitionId=602
+2021-08-16T09:56:46.9414199Z ##[debug]System.PhaseDisplayName=Docker build & push
+2021-08-16T09:56:46.9415144Z ##[debug]Build.Reason=Manual
+2021-08-16T09:56:46.9415805Z ##[debug]Build.RequestedForEmail=fernando.ochoa@alten.es
+2021-08-16T09:56:46.9416418Z ##[debug]System.TeamProject=DigitalFactory
+2021-08-16T09:56:46.9416937Z ##[debug]Build.BuildId=24602
+2021-08-16T09:56:46.9417434Z ##[debug]System.DefinitionId=602
+2021-08-16T09:56:46.9417956Z ##[debug]System.TeamProject=DigitalFactory
+2021-08-16T09:56:46.9419095Z ##[debug]Build.Repository.Uri=https://abbrobotics.visualstudio.com/DigitalFactory/_git/WB-FactoryManager
+2021-08-16T09:56:46.9419863Z ##[debug]Build.SourceVersion=61d5272d260933f736a27fd1506e5f6688f2205c
+2021-08-16T09:56:46.9420467Z ##[debug]addPipelineData=true
+2021-08-16T09:56:46.9421133Z ##[debug]SYSTEM_TEAMFOUNDATIONCOLLECTIONURI=https://abbrobotics.visualstudio.com/
+2021-08-16T09:56:46.9421831Z ##[debug]Reverse DNS name com.visualstudio.abbrobotics
+2021-08-16T09:56:46.9422523Z ##[debug]SYSTEM_TEAMFOUNDATIONCOLLECTIONURI=https://abbrobotics.visualstudio.com/
+2021-08-16T09:56:46.9423191Z ##[debug]SYSTEM_TEAMPROJECT=DigitalFactory
+2021-08-16T09:56:46.9423912Z ##[debug]BUILD_REPOSITORY_NAME=WB-FactoryManager
+2021-08-16T09:56:46.9424497Z ##[debug]SYSTEM_HOSTTYPE=build
+2021-08-16T09:56:46.9425101Z ##[debug]BUILD_SOURCEVERSION=61d5272d260933f736a27fd1506e5f6688f2205c
+2021-08-16T09:56:46.9426075Z ##[debug]BUILD_REPOSITORY_URI=https://abbrobotics.visualstudio.com/DigitalFactory/_git/WB-FactoryManager
+2021-08-16T09:56:46.9426717Z ##[debug]BUILD_SOURCEBRANCHNAME=dev
+2021-08-16T09:56:46.9427338Z ##[debug]BUILD_DEFINITIONNAME=WB-FactoryManager
+2021-08-16T09:56:46.9427880Z ##[debug]BUILD_BUILDNUMBER=20210816.5
+2021-08-16T09:56:46.9428446Z ##[debug]BUILD_BUILDURI=vstfs:///Build/Build/24602
+2021-08-16T09:56:46.9429011Z ##[debug]buildContext=/home/vsts/work/1/s/**
+2021-08-16T09:56:46.9429892Z ##[debug]SYSTEM_DEFAULTWORKINGDIRECTORY=/home/vsts/work/1/s
+2021-08-16T09:56:46.9430466Z ##[debug]Build.Repository.Provider=TfsGit
+2021-08-16T09:56:46.9431156Z ##[debug]Build.Repository.ID=dcac2ee4-c6a2-4c53-99c9-c634eabf67ca
+2021-08-16T09:56:46.9431834Z ##[debug]Build.Repository.Name=WB-FactoryManager
+2021-08-16T09:56:46.9432374Z ##[debug]Build.SourceBranchName=dev
+2021-08-16T09:56:46.9433009Z ##[debug]System.TeamFoundationCollectionUri=https://abbrobotics.visualstudio.com/
+2021-08-16T09:56:46.9433628Z ##[debug]System.TeamProject=DigitalFactory
+2021-08-16T09:56:46.9434573Z ##[debug]set RESOURCE_URIS=https://***/factorymanagerfrontend-dev@sha256:460dd23b1e3486cc649dbdd92d061b077557a391fae0fc7881e2d8fc33b5176f
+2021-08-16T09:56:46.9436811Z ##[debug]Processed: ##vso[task.setvariable variable=RESOURCE_URIS;issecret=false;]https://***/factorymanagerfrontend-dev@sha256:460dd23b1e3486cc649dbdd92d061b077557a391fae0fc7881e2d8fc33b5176f
+2021-08-16T09:56:46.9439747Z ##[debug]SYSTEMVSSCONNECTION auth param ACCESSTOKEN = ***
+2021-08-16T09:56:46.9440614Z ##[debug]requestUrl: https://abbrobotics.visualstudio.com/DigitalFactory/_apis/deployment/imagedetails?api-version=5.0-preview.1
+2021-08-16T09:56:46.9467513Z ##[debug]requestBody: {"imageName":"https://***/factorymanagerfrontend-dev@sha256:460dd23b1e3486cc649dbdd92d061b077557a391fae0fc7881e2d8fc33b5176f","imageUri":"https://***/factorymanagerfrontend-dev@sha256:460dd23b1e3486cc649dbdd92d061b077557a391fae0fc7881e2d8fc33b5176f","hash":"460dd23b1e3486cc649dbdd92d061b077557a391fae0fc7881e2d8fc33b5176f","baseImageName":"NA","distance":31,"imageType":"","mediaType":"","tags":["0.20.5-24602","0.20.5","latest"],"layerInfo":[{"directive":"ADD","arguments":"file:80bf8bd014071345b1c0364eeb0a5e48f3fb0d87f9c31cb990e57caa652b59b8 in / ","createdOn":"2021-02-17T21:19:54Z","size":"5.61MB"},{"directive":"CMD","arguments":"[\"/bin/sh\"]","createdOn":"2021-02-17T21:19:54Z","size":"0B"},{"directive":"LABEL","arguments":"maintainer=NGINX Docker Maintainers <docker-maint@nginx.com>","createdOn":"2021-02-17T23:52:45Z","size":"0B"},{"directive":"ENV","arguments":"NGINX_VERSION=1.19.7","createdOn":"2021-02-17T23:52:46Z","size":"0B"},{"directive":"ENV","arguments":"NJS_VERSION=0.5.1","createdOn":"2021-02-17T23:52:46Z","size":"0B"},{"directive":"ENV","arguments":"PKG_RELEASE=1","createdOn":"2021-02-17T23:52:46Z","size":"0B"},{"directive":"RUN","arguments":"/bin/sh -c set -x     && addgroup -g 101 -S nginx     && adduser -S -D -H -u 101 -h /var/cache/nginx -s /sbin/nologin -G nginx -g nginx nginx     && apkArch=\"$(cat /etc/apk/arch)\"     && nginxPackages=\"         nginx=${NGINX_VERSION}-r${PKG_RELEASE}         nginx-module-xslt=${NGINX_VERSION}-r${PKG_RELEASE}         nginx-module-geoip=${NGINX_VERSION}-r${PKG_RELEASE}         nginx-module-image-filter=${NGINX_VERSION}-r${PKG_RELEASE}         nginx-module-njs=${NGINX_VERSION}.${NJS_VERSION}-r${PKG_RELEASE}     \"     && case \"$apkArch\" in         x86_64)             set -x             && KEY_SHA512=\"e7fa8303923d9b95db37a77ad46c68fd4755ff935d0a534d26eba83de193c76166c68bfe7f65471bf8881004ef4aa6df3e34689c305662750c0172fca5d8552a *stdin\"             && apk add --no-cache --virtual .cert-deps                 openssl             && wget -O /tmp/nginx_signing.rsa.pub https://nginx.org/keys/nginx_signing.rsa.pub             && if [ \"$(openssl rsa -pubin -in /tmp/nginx_signing.rsa.pub -text -noout | openssl sha512 -r)\" = \"$KEY_SHA512\" ]; then                 echo \"key verification succeeded!\";                 mv /tmp/nginx_signing.rsa.pub /etc/apk/keys/;             else                 echo \"key verification failed!\";                 exit 1;             fi             && apk del .cert-deps             && apk add -X \"https://nginx.org/packages/mainline/alpine/v$(egrep -o '^[0-9]+\\.[0-9]+' /etc/alpine-release)/main\" --no-cache $nginxPackages             ;;         *)             set -x             && tempDir=\"$(mktemp -d)\"             && chown nobody:nobody $tempDir             && apk add --no-cache --virtual .build-deps                 gcc                 libc-dev                 make                 openssl-dev                 pcre-dev                 zlib-dev                 linux-headers                 libxslt-dev                 gd-dev                 geoip-dev                 perl-dev                 libedit-dev                 mercurial                 bash                 alpine-sdk                 findutils             && su nobody -s /bin/sh -c \"                 export HOME=${tempDir}                 && cd ${tempDir}                 && hg clone https://hg.nginx.org/pkg-oss                 && cd pkg-oss                 && hg up ${NGINX_VERSION}-${PKG_RELEASE}                 && cd alpine                 && make all                 && apk index -o ${tempDir}/packages/alpine/${apkArch}/APKINDEX.tar.gz ${tempDir}/packages/alpine/${apkArch}/*.apk                 && abuild-sign -k ${tempDir}/.abuild/abuild-key.rsa ${tempDir}/packages/alpine/${apkArch}/APKINDEX.tar.gz                 \"             && cp ${tempDir}/.abuild/abuild-key.rsa.pub /etc/apk/keys/             && apk del .build-deps             && apk add -X ${tempDir}/packages/alpine/ --no-cache $nginxPackages             ;;     esac     && if [ -n \"$tempDir\" ]; then rm -rf \"$tempDir\"; fi     && if [ -n \"/etc/apk/keys/abuild-key.rsa.pub\" ]; then rm -f /etc/apk/keys/abuild-key.rsa.pub; fi     && if [ -n \"/etc/apk/keys/nginx_signing.rsa.pub\" ]; then rm -f /etc/apk/keys/nginx_signing.rsa.pub; fi     && apk add --no-cache --virtual .gettext gettext     && mv /usr/bin/envsubst /tmp/         && runDeps=\"$(         scanelf --needed --nobanner /tmp/envsubst             | awk '{ gsub(/,/, \"\\nso:\", $2); print \"so:\" $2 }'             | sort -u             | xargs -r apk info --installed             | sort -u     )\"     && apk add --no-cache $runDeps     && apk del .gettext     && mv /tmp/envsubst /usr/local/bin/     && apk add --no-cache tzdata     && apk add --no-cache curl ca-certificates     && ln -sf /dev/stdout /var/log/nginx/access.log     && ln -sf /dev/stderr /var/log/nginx/error.log     && mkdir /docker-entrypoint.d","createdOn":"2021-02-17T23:52:54Z","size":"16.9MB"},{"directive":"COPY","arguments":"file:65504f71f5855ca017fb64d502ce873a31b2e0decd75297a8fb0a287f97acf92 in / ","createdOn":"2021-02-17T23:52:55Z","size":"1.2kB"},{"directive":"COPY","arguments":"file:0b866ff3fc1ef5b03c4e6c8c513ae014f691fb05d530257dfffd07035c1b75da in /docker-entrypoint.d ","createdOn":"2021-02-17T23:52:55Z","size":"1.96kB"},{"directive":"COPY","arguments":"file:0fd5fca330dcd6a7de297435e32af634f29f7132ed0550d342cad9fd20158258 in /docker-entrypoint.d ","createdOn":"2021-02-17T23:52:56Z","size":"1.04kB"},{"directive":"COPY","arguments":"file:c7f3907578be6851a0db02acac9e97c4d7eabda5f22a5a1ffe21139197dceb7a in /docker-entrypoint.d ","createdOn":"2021-02-17T23:52:56Z","size":"4.62kB"},{"directive":"ENTRYPOINT","arguments":"[\"/docker-entrypoint.sh\"]","createdOn":"2021-02-17T23:52:56Z","size":"0B"},{"directive":"EXPOSE","arguments":"80","createdOn":"2021-02-17T23:52:57Z","size":"0B"},{"directive":"STOPSIGNAL","arguments":"SIGQUIT","createdOn":"2021-02-17T23:52:57Z","size":"0B"},{"directive":"CMD","arguments":"[\"nginx\" \"-g\" \"daemon off;\"]","createdOn":"2021-02-17T23:52:57Z","size":"0B"},{"directive":"RUN","arguments":"RUN /bin/sh -c apk update # buildkit","createdOn":"2021-08-16T09:53:19Z","size":"1.99MB"},{"directive":"RUN","arguments":"RUN /bin/sh -c apk add bash # buildkit","createdOn":"2021-08-16T09:53:20Z","size":"1.65MB"},{"directive":"RUN","arguments":"RUN /bin/sh -c apk add curl # buildkit","createdOn":"2021-08-16T09:53:21Z","size":"125kB"},{"directive":"RUN","arguments":"RUN /bin/sh -c apk add syslog-ng # buildkit","createdOn":"2021-08-16T09:53:22Z","size":"6.65MB"},{"directive":"RUN","arguments":"RUN /bin/sh -c apk add jq # buildkit","createdOn":"2021-08-16T09:53:22Z","size":"1.25MB"},{"directive":"RUN","arguments":"RUN /bin/sh -c apk add nodejs npm # buildkit","createdOn":"2021-08-16T09:53:24Z","size":"54.5MB"},{"directive":"RUN","arguments":"RUN /bin/sh -c apk add yarn # buildkit","createdOn":"2021-08-16T09:53:25Z","size":"5.67MB"},{"directive":"RUN","arguments":"WORKDIR /usr/app/src","createdOn":"2021-08-16T09:53:25Z","size":"0B"},{"directive":"RUN","arguments":"COPY scripts/entry_script.sh /usr/local/bin/entry_script.sh # buildkit","createdOn":"2021-08-16T09:53:25Z","size":"111B"},{"directive":"RUN","arguments":"COPY packages/initiator/* /usr/app/src/ # buildkit","createdOn":"2021-08-16T09:53:25Z","size":"30.4kB"},{"directive":"RUN","arguments":"COPY /usr/app/src/.npmrc /usr/app/src # buildkit","createdOn":"2021-08-16T09:56:08Z","size":"1.01kB"},{"directive":"RUN","arguments":"RUN /bin/sh -c yarn # buildkit","createdOn":"2021-08-16T09:56:31Z","size":"73.2MB"},{"directive":"RUN","arguments":"RUN /bin/sh -c chmod 755 /usr/local/bin/entry_script.sh # buildkit","createdOn":"2021-08-16T09:56:31Z","size":"111B"},{"directive":"RUN","arguments":"COPY packages/frontend/nginx.config /etc/nginx/conf.d/default.conf # buildkit","createdOn":"2021-08-16T09:56:31Z","size":"603B"},{"directive":"RUN","arguments":"COPY /usr/app/src/packages/frontend/build /usr/share/nginx/html # buildkit","createdOn":"2021-08-16T09:56:31Z","size":"14.8MB"},{"directive":"RUN","arguments":"CMD [\"/usr/local/bin/entry_script.sh\"]","createdOn":"2021-08-16T09:56:31Z","size":"0B"}],"runId":24602,"pipelineVersion":"20210816.5","pipelineName":"WB-FactoryManager","pipelineId":"602","jobName":"Docker build & push","imageSize":"191241539.24B","creator":"fernando.ochoa@alten.es","logsUri":"https://abbrobotics.visualstudio.com/DigitalFactory/_build/results?buildId=24602","artifactStorageSourceUri":"https://abbrobotics.visualstudio.com/DigitalFactory/_build?definitionId=602","contextUrl":"https://abbrobotics.visualstudio.com/DigitalFactory/_git/WB-FactoryManager","revisionId":"61d5272d260933f736a27fd1506e5f6688f2205c","buildOptions":{"dockerFilePath":"","labels":"com.visualstudio.abbrobotics.image.system.teamfoundationcollectionuri=https://abbrobotics.visualstudio.com/, com.visualstudio.abbrobotics.image.system.teamproject=DigitalFactory, com.visualstudio.abbrobotics.image.build.repository.name=WB-FactoryManager, com.visualstudio.abbrobotics.image.build.sourceversion=61d5272d260933f736a27fd1506e5f6688f2205c, com.visualstudio.abbrobotics.image.build.repository.uri=https://abbrobotics.visualstudio.com/DigitalFactory/_git/WB-FactoryManager, com.visualstudio.abbrobotics.image.build.sourcebranchname=dev, com.visualstudio.abbrobotics.image.build.definitionname=WB-FactoryManager, com.visualstudio.abbrobotics.image.build.buildnumber=20210816.5, com.visualstudio.abbrobotics.image.build.builduri=vstfs:///Build/Build/24602","tags":"0.20.5-24602, 0.20.5, latest","context":"."},"repositoryTypeName":"TfsGit","repositoryId":"dcac2ee4-c6a2-4c53-99c9-c634eabf67ca","repositoryName":"WB-FactoryManager","branch":"dev","imageFingerPrint":{"v1Name":"0d0d8d387fb5486fc6754ca26e5c2081c229183565a7a2846379a3abacbfcbd0","v2Blobs":["cb381a32b2296e4eb5af3f84092a2e6685e88adbc54ee0768a1a1010ce6376c7","44f7d9f20b3a753e5fe61db13bc895701462d6c71feeba54bb57da63aebf173a","14be20d881b0567fa589a7b63528f73d02f7d9bcec62b396b7893a5be2b705ef","df9eec7ebcd63f97c3d967b1b0d9235d1bbbae957dbc4e870191815898a93840","787a70c9c5bd040d66b3688ba1ee46e1ea96b224b0030624ff2376717840abd5","d984e64ffab6aaab0f5ef2b8ed580dea5f16ba7a1ec9d889badb7a3fa4bbcef8","58fba0ace534a463be76d1f8caa924dd8ef187d8f9381346aa15d4a9ef55f781","244d15df7f6a219428020663e2d26c2ab03bde2e4144eed282f3a521f90ebb59","d7add6a58d0813f6785650c01e56958d395436822f7f5a7e53066843080d5e6e","5936fd903200643488925894070780caa1895d03b8ccedad3db6ea68435ecc63","910f8e31fdb4e5132733c81e931e8b7b0017aaf0b587549e5242ab8311f9d559","5110a5397aa9a1579845f314638633656113148672327217be174ec5e56d619c","63c7daf07eecfcfeb8355ebf9b60e1245bc03fb2dcbc46d972bff7afdbb66eee","383bdf11a8cf14cfcb9a52ad19b1e11ab27679336523e3c42425bd1fbe91057f","c926e11367c5053358d19d17d31d2dc241b8c91e490de9c0d0fd8f23f162f798","93b44b54c3bd2bf1efca912cef124e2e07950c189796301751de623f3ad26bf3","50ee91d2425b86ec42d70e3c081fb198eb67bc84e9fa537e9d69b6877fe15294","5016feb4b55c3fd778e28e0695a5eb0565f7075a98b6993d51792e465f167fca","836f02253991cb6c6d965714bd063779bcb50298b5e39844dd2b9c620579b915","0167f6a61f4a1a4e085c7eb5ddee5b213efd924f5e4e9aa96a69b0aaa4ea6a80","faff4125222d08b4b368e5571757e7faec418b3fe2b2e83dd0d19c89b46e91b0"],"v2Name":"d1703a4c075dc20a32dbcfb442ac70387a8c0b41948b08f2c88063becc45c890"}}
+2021-08-16T09:56:46.9493809Z ##[debug]accessToken: ***
+2021-08-16T09:56:46.9494477Z ##[debug]Sending request for pushing image to Image meta data store
+2021-08-16T09:56:46.9495405Z ##[debug][POST]https://abbrobotics.visualstudio.com/DigitalFactory/_apis/deployment/imagedetails?api-version=5.0-preview.1
+2021-08-16T09:56:46.9496020Z faff4125222d: Preparing
+2021-08-16T09:56:46.9496343Z 0167f6a61f4a: Preparing
+2021-08-16T09:56:46.9496677Z 836f02253991: Preparing
+2021-08-16T09:56:46.9497013Z 5016feb4b55c: Preparing
+2021-08-16T09:56:46.9497332Z 50ee91d2425b: Preparing
+2021-08-16T09:56:46.9497663Z 93b44b54c3bd: Preparing
+2021-08-16T09:56:46.9497995Z c926e11367c5: Preparing
+2021-08-16T09:56:46.9498310Z 383bdf11a8cf: Preparing
+2021-08-16T09:56:46.9498647Z 63c7daf07eec: Preparing
+2021-08-16T09:56:46.9498975Z 5110a5397aa9: Preparing
+2021-08-16T09:56:46.9499302Z 910f8e31fdb4: Preparing
+2021-08-16T09:56:46.9499620Z 5936fd903200: Preparing
+2021-08-16T09:56:46.9499950Z d7add6a58d08: Preparing
+2021-08-16T09:56:46.9500279Z 244d15df7f6a: Preparing
+2021-08-16T09:56:46.9500826Z 58fba0ace534: Preparing
+2021-08-16T09:56:46.9501155Z d984e64ffab6: Preparing
+2021-08-16T09:56:46.9501487Z 787a70c9c5bd: Preparing
+2021-08-16T09:56:46.9501799Z df9eec7ebcd6: Preparing
+2021-08-16T09:56:46.9502126Z 14be20d881b0: Preparing
+2021-08-16T09:56:46.9502454Z 44f7d9f20b3a: Preparing
+2021-08-16T09:56:46.9502785Z cb381a32b229: Preparing
+2021-08-16T09:56:46.9503099Z 93b44b54c3bd: Waiting
+2021-08-16T09:56:46.9503422Z c926e11367c5: Waiting
+2021-08-16T09:56:46.9503747Z 383bdf11a8cf: Waiting
+2021-08-16T09:56:46.9504057Z 63c7daf07eec: Waiting
+2021-08-16T09:56:46.9504381Z 5110a5397aa9: Waiting
+2021-08-16T09:56:46.9504708Z 910f8e31fdb4: Waiting
+2021-08-16T09:56:46.9505025Z 5936fd903200: Waiting
+2021-08-16T09:56:46.9505351Z d7add6a58d08: Waiting
+2021-08-16T09:56:46.9505680Z 244d15df7f6a: Waiting
+2021-08-16T09:56:46.9506346Z 58fba0ace534: Waiting
+2021-08-16T09:56:46.9506840Z d984e64ffab6: Waiting
+2021-08-16T09:56:46.9507170Z 787a70c9c5bd: Waiting
+2021-08-16T09:56:46.9507492Z df9eec7ebcd6: Waiting
+2021-08-16T09:56:46.9507808Z 14be20d881b0: Waiting
+2021-08-16T09:56:46.9508134Z 44f7d9f20b3a: Waiting
+2021-08-16T09:56:46.9508461Z cb381a32b229: Waiting
+2021-08-16T09:56:46.9676860Z ##[debug]ImageDetailsApiResponse: {"statusCode":204,"statusMessage":"No Content","headers":{"cache-control":"no-cache, no-store, must-revalidate","pragma":"no-cache","expires":"-1","p3p":"CP=\"CAO DSP COR ADMa DEV CONo TELo CUR PSA PSD TAI IVDo OUR SAMi BUS DEM NAV STA UNI COM INT PHY ONL FIN PUR LOC CNT\"","set-cookie":["VstsSession=%257B%2522PersistentSessionId%2522%253A%252272ab24f5-eee5-484e-890f-acf5b31d5eac%2522%252C%2522PendingAuthenticationSessionId%2522%253A%252200000000-0000-0000-0000-000000000000%2522%252C%2522CurrentAuthenticationSessionId%2522%253A%252200000000-0000-0000-0000-000000000000%2522%252C%2522SignInState%2522%253A%257B%257D%257D;SameSite=None; domain=.visualstudio.com; expires=Tue, 16-Aug-2022 09:56:46 GMT; path=/; secure; HttpOnly"],"x-tfs-processid":"9d05e0c7-1098-4c85-a4e6-9af3092b88df","strict-transport-security":"max-age=31536000; includeSubDomains","activityid":"9afb4d62-ee0d-40f3-a266-70cab3c6214a","x-tfs-session":"9afb4d62-ee0d-40f3-a266-70cab3c6214a","x-vss-e2eid":"9afb4d62-ee0d-40f3-a266-70cab3c6214a","x-vss-senderdeploymentid":"fa85298d-d7df-eba2-6cd2-9d3c9247a546","x-vss-userdata":"cafb760e-ec79-4cd3-ad3d-f2f6679405ef:f642d5db-33b5-4397-b7cf-53cd841ba4c3","x-frame-options":"SAMEORIGIN","request-context":"appId=cid-v1:a32646d4-6542-4ff0-b4b1-416ef6b2d466","access-control-expose-headers":"Request-Context","x-content-type-options":"nosniff","x-cache":"CONFIG_NOCACHE","x-msedge-ref":"Ref A: CDF13E7777FE4CE1A75545FC36E43731 Ref B: PRAEDGE0814 Ref C: 2021-08-16T09:56:46Z","date":"Mon, 16 Aug 2021 09:56:46 GMT","connection":"close"}}
+2021-08-16T09:56:47.1382709Z 836f02253991: Layer already exists
+2021-08-16T09:56:47.1402603Z faff4125222d: Layer already exists
+2021-08-16T09:56:47.1404862Z 50ee91d2425b: Layer already exists
+2021-08-16T09:56:47.1435986Z 5016feb4b55c: Layer already exists
+2021-08-16T09:56:47.2040959Z 383bdf11a8cf: Layer already exists
+2021-08-16T09:56:47.2073097Z 0167f6a61f4a: Layer already exists
+2021-08-16T09:56:47.2104422Z 93b44b54c3bd: Layer already exists
+2021-08-16T09:56:47.2117535Z 63c7daf07eec: Layer already exists
+2021-08-16T09:56:47.2124149Z c926e11367c5: Layer already exists
+2021-08-16T09:56:47.2660248Z 5110a5397aa9: Layer already exists
+2021-08-16T09:56:47.2806160Z 910f8e31fdb4: Layer already exists
+2021-08-16T09:56:47.2880479Z 5936fd903200: Layer already exists
+2021-08-16T09:56:47.2896478Z d7add6a58d08: Layer already exists
+2021-08-16T09:56:47.2966451Z 244d15df7f6a: Layer already exists
+2021-08-16T09:56:47.3367616Z d984e64ffab6: Layer already exists
+2021-08-16T09:56:47.3374967Z 58fba0ace534: Layer already exists
+2021-08-16T09:56:47.3377781Z 787a70c9c5bd: Layer already exists
+2021-08-16T09:56:47.3442180Z df9eec7ebcd6: Layer already exists
+2021-08-16T09:56:47.3471424Z 14be20d881b0: Layer already exists
+2021-08-16T09:56:47.3890749Z cb381a32b229: Layer already exists
+2021-08-16T09:56:47.3972604Z 44f7d9f20b3a: Layer already exists
+2021-08-16T09:56:47.7798722Z latest: digest: sha256:460dd23b1e3486cc649dbdd92d061b077557a391fae0fc7881e2d8fc33b5176f size: 4709
+2021-08-16T09:56:47.7834913Z ##[debug]Exit code 0 received from tool '/usr/bin/docker'
+2021-08-16T09:56:47.7835937Z ##[debug]STDIO streams have closed for tool '/usr/bin/docker'
+2021-08-16T09:56:47.7842201Z ##[debug]outputImageName: ***/factorymanagerfrontend-dev:latest
+commandOutput: The push refers to repository [***/factorymanagerfrontend-dev]
+faff4125222d: Preparing
+0167f6a61f4a: Preparing
+836f02253991: Preparing
+5016feb4b55c: Preparing
+50ee91d2425b: Preparing
+93b44b54c3bd: Preparing
+c926e11367c5: Preparing
+383bdf11a8cf: Preparing
+63c7daf07eec: Preparing
+5110a5397aa9: Preparing
+910f8e31fdb4: Preparing
+5936fd903200: Preparing
+d7add6a58d08: Preparing
+244d15df7f6a: Preparing
+58fba0ace534: Preparing
+d984e64ffab6: Preparing
+787a70c9c5bd: Preparing
+df9eec7ebcd6: Preparing
+14be20d881b0: Preparing
+44f7d9f20b3a: Preparing
+cb381a32b229: Preparing
+93b44b54c3bd: Waiting
+c926e11367c5: Waiting
+383bdf11a8cf: Waiting
+63c7daf07eec: Waiting
+5110a5397aa9: Waiting
+910f8e31fdb4: Waiting
+5936fd903200: Waiting
+d7add6a58d08: Waiting
+244d15df7f6a: Waiting
+58fba0ace534: Waiting
+d984e64ffab6: Waiting
+787a70c9c5bd: Waiting
+df9eec7ebcd6: Waiting
+14be20d881b0: Waiting
+44f7d9f20b3a: Waiting
+cb381a32b229: Waiting
+836f02253991: Layer already exists
+faff4125222d: Layer already exists
+50ee91d2425b: Layer already exists
+5016feb4b55c: Layer already exists
+383bdf11a8cf: Layer already exists
+0167f6a61f4a: Layer already exists
+93b44b54c3bd: Layer already exists
+63c7daf07eec: Layer already exists
+c926e11367c5: Layer already exists
+5110a5397aa9: Layer already exists
+910f8e31fdb4: Layer already exists
+5936fd903200: Layer already exists
+d7add6a58d08: Layer already exists
+244d15df7f6a: Layer already exists
+d984e64ffab6: Layer already exists
+58fba0ace534: Layer already exists
+787a70c9c5bd: Layer already exists
+df9eec7ebcd6: Layer already exists
+14be20d881b0: Layer already exists
+cb381a32b229: Layer already exists
+44f7d9f20b3a: Layer already exists
+latest: digest: sha256:460dd23b1e3486cc649dbdd92d061b077557a391fae0fc7881e2d8fc33b5176f size: 4709
+
+
+digest:460dd23b1e3486cc649dbdd92d061b077557a391fae0fc7881e2d8fc33b5176fimageSize:
+2021-08-16T09:56:47.7847966Z ##[debug]which '/usr/bin/docker'
+2021-08-16T09:56:47.7848783Z ##[debug]found: '/usr/bin/docker'
+2021-08-16T09:56:47.7849476Z ##[debug]/usr/bin/docker arg: history
+2021-08-16T09:56:47.7850550Z ##[debug]/usr/bin/docker arg: ["--format","createdAt:{{.CreatedAt}}; layerSize:{{.Size}}; createdBy:{{.CreatedBy}}; layerId:{{.ID}}"]
+2021-08-16T09:56:47.7851638Z ##[debug]/usr/bin/docker arg: --no-trunc
+2021-08-16T09:56:47.7852947Z ##[debug]/usr/bin/docker arg: ***/factorymanagerfrontend-dev:latest
+2021-08-16T09:56:47.7853708Z ##[debug]DOCKER_HOST=undefined
+2021-08-16T09:56:47.7854386Z ##[debug]exec tool: /usr/bin/docker
+2021-08-16T09:56:47.7855035Z ##[debug]arguments:
+2021-08-16T09:56:47.7855663Z ##[debug]   history
+2021-08-16T09:56:47.7856371Z ##[debug]   --format
+2021-08-16T09:56:47.7857238Z ##[debug]   createdAt:{{.CreatedAt}}; layerSize:{{.Size}}; createdBy:{{.CreatedBy}}; layerId:{{.ID}}
+2021-08-16T09:56:47.7858175Z ##[debug]   --no-trunc
+2021-08-16T09:56:47.7859055Z ##[debug]   ***/factorymanagerfrontend-dev:latest
+2021-08-16T09:56:47.7860567Z [command]/usr/bin/docker history --format createdAt:{{.CreatedAt}}; layerSize:{{.Size}}; createdBy:{{.CreatedBy}}; layerId:{{.ID}} --no-trunc ***/factorymanagerfrontend-dev:latest
+2021-08-16T09:56:47.7903397Z ##[debug]agent.tempDirectory=/home/vsts/work/_temp
+2021-08-16T09:56:47.7982476Z ##[debug]Synced the file content to the disk. The content is The push refers to repository [***/factorymanagerfrontend-dev]
+faff4125222d: Preparing
+0167f6a61f4a: Preparing
+836f02253991: Preparing
+5016feb4b55c: Preparing
+50ee91d2425b: Preparing
+93b44b54c3bd: Preparing
+c926e11367c5: Preparing
+383bdf11a8cf: Preparing
+63c7daf07eec: Preparing
+5110a5397aa9: Preparing
+910f8e31fdb4: Preparing
+5936fd903200: Preparing
+d7add6a58d08: Preparing
+244d15df7f6a: Preparing
+58fba0ace534: Preparing
+d984e64ffab6: Preparing
+787a70c9c5bd: Preparing
+df9eec7ebcd6: Preparing
+14be20d881b0: Preparing
+44f7d9f20b3a: Preparing
+cb381a32b229: Preparing
+93b44b54c3bd: Waiting
+c926e11367c5: Waiting
+383bdf11a8cf: Waiting
+63c7daf07eec: Waiting
+5110a5397aa9: Waiting
+910f8e31fdb4: Waiting
+5936fd903200: Waiting
+d7add6a58d08: Waiting
+244d15df7f6a: Waiting
+58fba0ace534: Waiting
+d984e64ffab6: Waiting
+787a70c9c5bd: Waiting
+df9eec7ebcd6: Waiting
+14be20d881b0: Waiting
+44f7d9f20b3a: Waiting
+cb381a32b229: Waiting
+0167f6a61f4a: Pushed
+50ee91d2425b: Pushed
+836f02253991: Pushed
+c926e11367c5: Pushed
+383bdf11a8cf: Pushed
+93b44b54c3bd: Pushed
+faff4125222d: Pushed
+910f8e31fdb4: Pushed
+63c7daf07eec: Pushed
+5936fd903200: Pushed
+d7add6a58d08: Pushed
+244d15df7f6a: Pushed
+787a70c9c5bd: Layer already exists
+d984e64ffab6: Layer already exists
+df9eec7ebcd6: Layer already exists
+14be20d881b0: Layer already exists
+44f7d9f20b3a: Layer already exists
+58fba0ace534: Pushed
+cb381a32b229: Layer already exists
+5110a5397aa9: Pushed
+5016feb4b55c: Pushed
+0.20.5-24602: digest: sha256:460dd23b1e3486cc649dbdd92d061b077557a391fae0fc7881e2d8fc33b5176f size: 4709
+
+The push refers to repository [***/factorymanagerfrontend-dev]
+faff4125222d: Preparing
+0167f6a61f4a: Preparing
+836f02253991: Preparing
+5016feb4b55c: Preparing
+50ee91d2425b: Preparing
+93b44b54c3bd: Preparing
+c926e11367c5: Preparing
+383bdf11a8cf: Preparing
+63c7daf07eec: Preparing
+5110a5397aa9: Preparing
+910f8e31fdb4: Preparing
+5936fd903200: Preparing
+d7add6a58d08: Preparing
+244d15df7f6a: Preparing
+58fba0ace534: Preparing
+d984e64ffab6: Preparing
+787a70c9c5bd: Preparing
+df9eec7ebcd6: Preparing
+14be20d881b0: Preparing
+44f7d9f20b3a: Preparing
+cb381a32b229: Preparing
+910f8e31fdb4: Waiting
+5936fd903200: Waiting
+d7add6a58d08: Waiting
+244d15df7f6a: Waiting
+58fba0ace534: Waiting
+d984e64ffab6: Waiting
+787a70c9c5bd: Waiting
+df9eec7ebcd6: Waiting
+14be20d881b0: Waiting
+44f7d9f20b3a: Waiting
+cb381a32b229: Waiting
+93b44b54c3bd: Waiting
+c926e11367c5: Waiting
+383bdf11a8cf: Waiting
+63c7daf07eec: Waiting
+5110a5397aa9: Waiting
+50ee91d2425b: Layer already exists
+0167f6a61f4a: Layer already exists
+faff4125222d: Layer already exists
+836f02253991: Layer already exists
+5016feb4b55c: Layer already exists
+c926e11367c5: Layer already exists
+93b44b54c3bd: Layer already exists
+383bdf11a8cf: Layer already exists
+63c7daf07eec: Layer already exists
+5110a5397aa9: Layer already exists
+910f8e31fdb4: Layer already exists
+244d15df7f6a: Layer already exists
+5936fd903200: Layer already exists
+d7add6a58d08: Layer already exists
+58fba0ace534: Layer already exists
+d984e64ffab6: Layer already exists
+df9eec7ebcd6: Layer already exists
+14be20d881b0: Layer already exists
+787a70c9c5bd: Layer already exists
+44f7d9f20b3a: Layer already exists
+cb381a32b229: Layer already exists
+0.20.5: digest: sha256:460dd23b1e3486cc649dbdd92d061b077557a391fae0fc7881e2d8fc33b5176f size: 4709
+
+The push refers to repository [***/factorymanagerfrontend-dev]
+faff4125222d: Preparing
+0167f6a61f4a: Preparing
+836f02253991: Preparing
+5016feb4b55c: Preparing
+50ee91d2425b: Preparing
+93b44b54c3bd: Preparing
+c926e11367c5: Preparing
+383bdf11a8cf: Preparing
+63c7daf07eec: Preparing
+5110a5397aa9: Preparing
+910f8e31fdb4: Preparing
+5936fd903200: Preparing
+d7add6a58d08: Preparing
+244d15df7f6a: Preparing
+58fba0ace534: Preparing
+d984e64ffab6: Preparing
+787a70c9c5bd: Preparing
+df9eec7ebcd6: Preparing
+14be20d881b0: Preparing
+44f7d9f20b3a: Preparing
+cb381a32b229: Preparing
+93b44b54c3bd: Waiting
+c926e11367c5: Waiting
+383bdf11a8cf: Waiting
+63c7daf07eec: Waiting
+5110a5397aa9: Waiting
+910f8e31fdb4: Waiting
+5936fd903200: Waiting
+d7add6a58d08: Waiting
+244d15df7f6a: Waiting
+58fba0ace534: Waiting
+d984e64ffab6: Waiting
+787a70c9c5bd: Waiting
+df9eec7ebcd6: Waiting
+14be20d881b0: Waiting
+44f7d9f20b3a: Waiting
+cb381a32b229: Waiting
+836f02253991: Layer already exists
+faff4125222d: Layer already exists
+50ee91d2425b: Layer already exists
+5016feb4b55c: Layer already exists
+383bdf11a8cf: Layer already exists
+0167f6a61f4a: Layer already exists
+93b44b54c3bd: Layer already exists
+63c7daf07eec: Layer already exists
+c926e11367c5: Layer already exists
+5110a5397aa9: Layer already exists
+910f8e31fdb4: Layer already exists
+5936fd903200: Layer already exists
+d7add6a58d08: Layer already exists
+244d15df7f6a: Layer already exists
+d984e64ffab6: Layer already exists
+58fba0ace534: Layer already exists
+787a70c9c5bd: Layer already exists
+df9eec7ebcd6: Layer already exists
+14be20d881b0: Layer already exists
+cb381a32b229: Layer already exists
+44f7d9f20b3a: Layer already exists
+latest: digest: sha256:460dd23b1e3486cc649dbdd92d061b077557a391fae0fc7881e2d8fc33b5176f size: 4709
+
+.
+2021-08-16T09:56:47.7994065Z ##[debug]Trying to logout from registry: ***
+2021-08-16T09:56:47.7994754Z ##[debug]DOCKER_CONFIG=/home/vsts/work/_temp/DockerConfig_1629107797934
+2021-08-16T09:56:47.7995405Z ##[debug]agent.tempDirectory=/home/vsts/work/_temp
+2021-08-16T09:56:47.7997263Z ##[debug]Found the Docker Config stored in the temp path. Docker config path: /home/vsts/work/_temp/DockerConfig_1629107797934/config.json, Docker config: {"auths": { "***": {"auth": "***", "email": "ServicePrincipal@AzureRM" } }, "HttpHeaders":{"X-Meta-Source-Client":"VSTS"} }
+2021-08-16T09:56:47.7998565Z ##[debug]Deleting Docker config directory. Path: /home/vsts/work/_temp/DockerConfig_1629107797934/config.json
+2021-08-16T09:56:47.7999338Z ##[debug]DOCKER_CONFIG=/home/vsts/work/_temp/DockerConfig_1629107797934
+2021-08-16T09:56:47.7999991Z ##[debug]agent.tempDirectory=/home/vsts/work/_temp
+2021-08-16T09:56:47.8000707Z ##[debug]Deleting Docker config directory. Path: /home/vsts/work/_temp/DockerConfig_1629107797934
+2021-08-16T09:56:47.8015681Z ##[debug]set DOCKER_CONFIG=
+2021-08-16T09:56:47.8017117Z ##[debug]Processed: ##vso[task.setvariable variable=DOCKER_CONFIG;issecret=false;]
+2021-08-16T09:56:47.8017893Z ##[debug]set DockerOutput=/home/vsts/work/_temp/task_outputs/push_1629107807789.txt
+2021-08-16T09:56:47.8020267Z ##[debug]Processed: ##vso[task.setvariable variable=DockerOutput;issecret=false;]/home/vsts/work/_temp/task_outputs/push_1629107807789.txt
+2021-08-16T09:56:47.8021065Z ##[debug]task result: Succeeded
+2021-08-16T09:56:47.8022926Z ##[debug]Processed: ##vso[task.complete result=Succeeded;]
+2021-08-16T09:56:47.8306794Z createdAt:2021-08-16T09:56:31Z; layerSize:0B; createdBy:CMD ["/usr/local/bin/entry_script.sh"]; layerId:sha256:0d0d8d387fb5486fc6754ca26e5c2081c229183565a7a2846379a3abacbfcbd0
+2021-08-16T09:56:47.8308178Z createdAt:2021-08-16T09:56:31Z; layerSize:14.8MB; createdBy:COPY /usr/app/src/packages/frontend/build /usr/share/nginx/html # buildkit; layerId:<missing>
+2021-08-16T09:56:47.8309354Z createdAt:2021-08-16T09:56:31Z; layerSize:603B; createdBy:COPY packages/frontend/nginx.config /etc/nginx/conf.d/default.conf # buildkit; layerId:<missing>
+2021-08-16T09:56:47.8310793Z createdAt:2021-08-16T09:56:31Z; layerSize:111B; createdBy:RUN /bin/sh -c chmod 755 /usr/local/bin/entry_script.sh # buildkit; layerId:<missing>
+2021-08-16T09:56:47.8311811Z createdAt:2021-08-16T09:56:31Z; layerSize:73.2MB; createdBy:RUN /bin/sh -c yarn # buildkit; layerId:<missing>
+2021-08-16T09:56:47.8312838Z createdAt:2021-08-16T09:56:08Z; layerSize:1.01kB; createdBy:COPY /usr/app/src/.npmrc /usr/app/src # buildkit; layerId:<missing>
+2021-08-16T09:56:47.8313871Z createdAt:2021-08-16T09:53:25Z; layerSize:30.4kB; createdBy:COPY packages/initiator/* /usr/app/src/ # buildkit; layerId:<missing>
+2021-08-16T09:56:47.8314961Z createdAt:2021-08-16T09:53:25Z; layerSize:111B; createdBy:COPY scripts/entry_script.sh /usr/local/bin/entry_script.sh # buildkit; layerId:<missing>
+2021-08-16T09:56:47.8315993Z createdAt:2021-08-16T09:53:25Z; layerSize:0B; createdBy:WORKDIR /usr/app/src; layerId:<missing>
+2021-08-16T09:56:47.8316876Z createdAt:2021-08-16T09:53:25Z; layerSize:5.67MB; createdBy:RUN /bin/sh -c apk add yarn # buildkit; layerId:<missing>
+2021-08-16T09:56:47.8317812Z createdAt:2021-08-16T09:53:24Z; layerSize:54.5MB; createdBy:RUN /bin/sh -c apk add nodejs npm # buildkit; layerId:<missing>
+2021-08-16T09:56:47.8318733Z createdAt:2021-08-16T09:53:22Z; layerSize:1.25MB; createdBy:RUN /bin/sh -c apk add jq # buildkit; layerId:<missing>
+2021-08-16T09:56:47.8319766Z createdAt:2021-08-16T09:53:22Z; layerSize:6.65MB; createdBy:RUN /bin/sh -c apk add syslog-ng # buildkit; layerId:<missing>
+2021-08-16T09:56:47.8320686Z createdAt:2021-08-16T09:53:21Z; layerSize:125kB; createdBy:RUN /bin/sh -c apk add curl # buildkit; layerId:<missing>
+2021-08-16T09:56:47.8321638Z createdAt:2021-08-16T09:53:20Z; layerSize:1.65MB; createdBy:RUN /bin/sh -c apk add bash # buildkit; layerId:<missing>
+2021-08-16T09:56:47.8322555Z createdAt:2021-08-16T09:53:19Z; layerSize:1.99MB; createdBy:RUN /bin/sh -c apk update # buildkit; layerId:<missing>
+2021-08-16T09:56:47.8323510Z createdAt:2021-02-17T23:52:57Z; layerSize:0B; createdBy:/bin/sh -c #(nop)  CMD ["nginx" "-g" "daemon off;"]; layerId:<missing>
+2021-08-16T09:56:47.8324458Z createdAt:2021-02-17T23:52:57Z; layerSize:0B; createdBy:/bin/sh -c #(nop)  STOPSIGNAL SIGQUIT; layerId:<missing>
+2021-08-16T09:56:47.8325496Z createdAt:2021-02-17T23:52:57Z; layerSize:0B; createdBy:/bin/sh -c #(nop)  EXPOSE 80; layerId:<missing>
+2021-08-16T09:56:47.8326449Z createdAt:2021-02-17T23:52:56Z; layerSize:0B; createdBy:/bin/sh -c #(nop)  ENTRYPOINT ["/docker-entrypoint.sh"]; layerId:<missing>
+2021-08-16T09:56:47.8327636Z createdAt:2021-02-17T23:52:56Z; layerSize:4.62kB; createdBy:/bin/sh -c #(nop) COPY file:c7f3907578be6851a0db02acac9e97c4d7eabda5f22a5a1ffe21139197dceb7a in /docker-entrypoint.d ; layerId:<missing>
+2021-08-16T09:56:47.8328939Z createdAt:2021-02-17T23:52:56Z; layerSize:1.04kB; createdBy:/bin/sh -c #(nop) COPY file:0fd5fca330dcd6a7de297435e32af634f29f7132ed0550d342cad9fd20158258 in /docker-entrypoint.d ; layerId:<missing>
+2021-08-16T09:56:47.8330242Z createdAt:2021-02-17T23:52:55Z; layerSize:1.96kB; createdBy:/bin/sh -c #(nop) COPY file:0b866ff3fc1ef5b03c4e6c8c513ae014f691fb05d530257dfffd07035c1b75da in /docker-entrypoint.d ; layerId:<missing>
+2021-08-16T09:56:47.8331477Z createdAt:2021-02-17T23:52:55Z; layerSize:1.2kB; createdBy:/bin/sh -c #(nop) COPY file:65504f71f5855ca017fb64d502ce873a31b2e0decd75297a8fb0a287f97acf92 in / ; layerId:<missing>
+2021-08-16T09:56:47.8342253Z createdAt:2021-02-17T23:52:54Z; layerSize:16.9MB; createdBy:/bin/sh -c set -x     && addgroup -g 101 -S nginx     && adduser -S -D -H -u 101 -h /var/cache/nginx -s /sbin/nologin -G nginx -g nginx nginx     && apkArch="$(cat /etc/apk/arch)"     && nginxPackages="         nginx=${NGINX_VERSION}-r${PKG_RELEASE}         nginx-module-xslt=${NGINX_VERSION}-r${PKG_RELEASE}         nginx-module-geoip=${NGINX_VERSION}-r${PKG_RELEASE}         nginx-module-image-filter=${NGINX_VERSION}-r${PKG_RELEASE}         nginx-module-njs=${NGINX_VERSION}.${NJS_VERSION}-r${PKG_RELEASE}     "     && case "$apkArch" in         x86_64)             set -x             && KEY_SHA512="e7fa8303923d9b95db37a77ad46c68fd4755ff935d0a534d26eba83de193c76166c68bfe7f65471bf8881004ef4aa6df3e34689c305662750c0172fca5d8552a *stdin"             && apk add --no-cache --virtual .cert-deps                 openssl             && wget -O /tmp/nginx_signing.rsa.pub https://nginx.org/keys/nginx_signing.rsa.pub             && if [ "$(openssl rsa -pubin -in /tmp/nginx_signing.rsa.pub -text -noout | openssl sha512 -r)" = "$KEY_SHA512" ]; then                 echo "key verification succeeded!";                 mv /tmp/nginx_signing.rsa.pub /etc/apk/keys/;             else                 echo "key verification failed!";                 exit 1;             fi             && apk del .cert-deps             && apk add -X "https://nginx.org/packages/mainline/alpine/v$(egrep -o '^[0-9]+\.[0-9]+' /etc/alpine-release)/main" --no-cache $nginxPackages             ;;         *)             set -x             && tempDir="$(mktemp -d)"             && chown nobody:nobody $tempDir             && apk add --no-cache --virtual .build-deps                 gcc                 libc-dev                 make                 openssl-dev                 pcre-dev                 zlib-dev                 linux-headers                 libxslt-dev                 gd-dev                 geoip-dev                 perl-dev                 libedit-dev                 mercurial                 bash                 alpine-sdk                 findutils             && su nobody -s /bin/sh -c "                 export HOME=${tempDir}                 && cd ${tempDir}                 && hg clone https://hg.nginx.org/pkg-oss                 && cd pkg-oss                 && hg up ${NGINX_VERSION}-${PKG_RELEASE}                 && cd alpine                 && make all                 && apk index -o ${tempDir}/packages/alpine/${apkArch}/APKINDEX.tar.gz ${tempDir}/packages/alpine/${apkArch}/*.apk                 && abuild-sign -k ${tempDir}/.abuild/abuild-key.rsa ${tempDir}/packages/alpine/${apkArch}/APKINDEX.tar.gz                 "             && cp ${tempDir}/.abuild/abuild-key.rsa.pub /etc/apk/keys/             && apk del .build-deps             && apk add -X ${tempDir}/packages/alpine/ --no-cache $nginxPackages             ;;     esac     && if [ -n "$tempDir" ]; then rm -rf "$tempDir"; fi     && if [ -n "/etc/apk/keys/abuild-key.rsa.pub" ]; then rm -f /etc/apk/keys/abuild-key.rsa.pub; fi     && if [ -n "/etc/apk/keys/nginx_signing.rsa.pub" ]; then rm -f /etc/apk/keys/nginx_signing.rsa.pub; fi     && apk add --no-cache --virtual .gettext gettext     && mv /usr/bin/envsubst /tmp/         && runDeps="$(         scanelf --needed --nobanner /tmp/envsubst             | awk '{ gsub(/,/, "\nso:", $2); print "so:" $2 }'             | sort -u             | xargs -r apk info --installed             | sort -u     )"     && apk add --no-cache $runDeps     && apk del .gettext     && mv /tmp/envsubst /usr/local/bin/     && apk add --no-cache tzdata     && apk add --no-cache curl ca-certificates     && ln -sf /dev/stdout /var/log/nginx/access.log     && ln -sf /dev/stderr /var/log/nginx/error.log     && mkdir /docker-entrypoint.d; layerId:<missing>
+2021-08-16T09:56:47.8349586Z createdAt:2021-02-17T23:52:46Z; layerSize:0B; createdBy:/bin/sh -c #(nop)  ENV PKG_RELEASE=1; layerId:<missing>
+2021-08-16T09:56:47.8350529Z createdAt:2021-02-17T23:52:46Z; layerSize:0B; createdBy:/bin/sh -c #(nop)  ENV NJS_VERSION=0.5.1; layerId:<missing>
+2021-08-16T09:56:47.8351475Z createdAt:2021-02-17T23:52:46Z; layerSize:0B; createdBy:/bin/sh -c #(nop)  ENV NGINX_VERSION=1.19.7; layerId:<missing>
+2021-08-16T09:56:47.8352559Z createdAt:2021-02-17T23:52:45Z; layerSize:0B; createdBy:/bin/sh -c #(nop)  LABEL maintainer=NGINX Docker Maintainers <docker-maint@nginx.com>; layerId:<missing>
+2021-08-16T09:56:47.8353549Z createdAt:2021-02-17T21:19:54Z; layerSize:0B; createdBy:/bin/sh -c #(nop)  CMD ["/bin/sh"]; layerId:<missing>
+2021-08-16T09:56:47.8354634Z createdAt:2021-02-17T21:19:54Z; layerSize:5.61MB; createdBy:/bin/sh -c #(nop) ADD file:80bf8bd014071345b1c0364eeb0a5e48f3fb0d87f9c31cb990e57caa652b59b8 in / ; layerId:<missing>
+2021-08-16T09:56:47.8403356Z ##[debug]Exit code 0 received from tool '/usr/bin/docker'
+2021-08-16T09:56:47.8404221Z ##[debug]STDIO streams have closed for tool '/usr/bin/docker'
+2021-08-16T09:56:47.8404951Z ##[debug]which '/usr/bin/docker'
+2021-08-16T09:56:47.8405837Z ##[debug]found: '/usr/bin/docker'
+2021-08-16T09:56:47.8406421Z ##[debug]/usr/bin/docker arg: inspect
+2021-08-16T09:56:47.8407105Z ##[debug]/usr/bin/docker arg: 0d0d8d387fb5486fc6754ca26e5c2081c229183565a7a2846379a3abacbfcbd0
+2021-08-16T09:56:47.8407923Z ##[debug]/usr/bin/docker arg: ["-f","{{.RootFS.Layers}}"]
+2021-08-16T09:56:47.8408520Z ##[debug]DOCKER_HOST=undefined
+2021-08-16T09:56:47.8409074Z ##[debug]exec tool: /usr/bin/docker
+2021-08-16T09:56:47.8409628Z ##[debug]arguments:
+2021-08-16T09:56:47.8410135Z ##[debug]   inspect
+2021-08-16T09:56:47.8410740Z ##[debug]   0d0d8d387fb5486fc6754ca26e5c2081c229183565a7a2846379a3abacbfcbd0
+2021-08-16T09:56:47.8411433Z ##[debug]   -f
+2021-08-16T09:56:47.8411957Z ##[debug]   {{.RootFS.Layers}}
+2021-08-16T09:56:47.8412815Z [command]/usr/bin/docker inspect 0d0d8d387fb5486fc6754ca26e5c2081c229183565a7a2846379a3abacbfcbd0 -f {{.RootFS.Layers}}
+2021-08-16T09:56:47.8832684Z [sha256:cb381a32b2296e4eb5af3f84092a2e6685e88adbc54ee0768a1a1010ce6376c7 sha256:44f7d9f20b3a753e5fe61db13bc895701462d6c71feeba54bb57da63aebf173a sha256:14be20d881b0567fa589a7b63528f73d02f7d9bcec62b396b7893a5be2b705ef sha256:df9eec7ebcd63f97c3d967b1b0d9235d1bbbae957dbc4e870191815898a93840 sha256:787a70c9c5bd040d66b3688ba1ee46e1ea96b224b0030624ff2376717840abd5 sha256:d984e64ffab6aaab0f5ef2b8ed580dea5f16ba7a1ec9d889badb7a3fa4bbcef8 sha256:58fba0ace534a463be76d1f8caa924dd8ef187d8f9381346aa15d4a9ef55f781 sha256:244d15df7f6a219428020663e2d26c2ab03bde2e4144eed282f3a521f90ebb59 sha256:d7add6a58d0813f6785650c01e56958d395436822f7f5a7e53066843080d5e6e sha256:5936fd903200643488925894070780caa1895d03b8ccedad3db6ea68435ecc63 sha256:910f8e31fdb4e5132733c81e931e8b7b0017aaf0b587549e5242ab8311f9d559 sha256:5110a5397aa9a1579845f314638633656113148672327217be174ec5e56d619c sha256:63c7daf07eecfcfeb8355ebf9b60e1245bc03fb2dcbc46d972bff7afdbb66eee sha256:383bdf11a8cf14cfcb9a52ad19b1e11ab27679336523e3c42425bd1fbe91057f sha256:c926e11367c5053358d19d17d31d2dc241b8c91e490de9c0d0fd8f23f162f798 sha256:93b44b54c3bd2bf1efca912cef124e2e07950c189796301751de623f3ad26bf3 sha256:50ee91d2425b86ec42d70e3c081fb198eb67bc84e9fa537e9d69b6877fe15294 sha256:5016feb4b55c3fd778e28e0695a5eb0565f7075a98b6993d51792e465f167fca sha256:836f02253991cb6c6d965714bd063779bcb50298b5e39844dd2b9c620579b915 sha256:0167f6a61f4a1a4e085c7eb5ddee5b213efd924f5e4e9aa96a69b0aaa4ea6a80 sha256:faff4125222d08b4b368e5571757e7faec418b3fe2b2e83dd0d19c89b46e91b0]
+2021-08-16T09:56:47.8853594Z ##[debug]Exit code 0 received from tool '/usr/bin/docker'
+2021-08-16T09:56:47.8854725Z ##[debug]STDIO streams have closed for tool '/usr/bin/docker'
+2021-08-16T09:56:47.8855509Z ##[debug]System.HostType=build
+2021-08-16T09:56:47.8856358Z ##[debug]Build.BuildId=24602
+2021-08-16T09:56:47.8857111Z ##[debug]Build.BuildNumber=20210816.5
+2021-08-16T09:56:47.8857987Z ##[debug]System.DefinitionName=WB-FactoryManager
+2021-08-16T09:56:47.8858718Z ##[debug]System.DefinitionId=602
+2021-08-16T09:56:47.8859435Z ##[debug]System.PhaseDisplayName=Docker build & push
+2021-08-16T09:56:47.8860155Z ##[debug]Build.Reason=Manual
+2021-08-16T09:56:47.8860886Z ##[debug]Build.RequestedForEmail=fernando.ochoa@alten.es
+2021-08-16T09:56:47.8861624Z ##[debug]System.TeamProject=DigitalFactory
+2021-08-16T09:56:47.8862310Z ##[debug]Build.BuildId=24602
+2021-08-16T09:56:47.8862994Z ##[debug]System.DefinitionId=602
+2021-08-16T09:56:47.8863685Z ##[debug]System.TeamProject=DigitalFactory
+2021-08-16T09:56:47.8864710Z ##[debug]Build.Repository.Uri=https://abbrobotics.visualstudio.com/DigitalFactory/_git/WB-FactoryManager
+2021-08-16T09:56:47.8866445Z ##[debug]Build.SourceVersion=61d5272d260933f736a27fd1506e5f6688f2205c
+2021-08-16T09:56:47.8867440Z ##[debug]addPipelineData=true
+2021-08-16T09:56:47.8868293Z ##[debug]SYSTEM_TEAMFOUNDATIONCOLLECTIONURI=https://abbrobotics.visualstudio.com/
+2021-08-16T09:56:47.8868998Z ##[debug]Reverse DNS name com.visualstudio.abbrobotics
+2021-08-16T09:56:47.8869695Z ##[debug]SYSTEM_TEAMFOUNDATIONCOLLECTIONURI=https://abbrobotics.visualstudio.com/
+2021-08-16T09:56:47.8870365Z ##[debug]SYSTEM_TEAMPROJECT=DigitalFactory
+2021-08-16T09:56:47.8871139Z ##[debug]BUILD_REPOSITORY_NAME=WB-FactoryManager
+2021-08-16T09:56:47.8871714Z ##[debug]SYSTEM_HOSTTYPE=build
+2021-08-16T09:56:47.8872324Z ##[debug]BUILD_SOURCEVERSION=61d5272d260933f736a27fd1506e5f6688f2205c
+2021-08-16T09:56:47.8873181Z ##[debug]BUILD_REPOSITORY_URI=https://abbrobotics.visualstudio.com/DigitalFactory/_git/WB-FactoryManager
+2021-08-16T09:56:47.8873885Z ##[debug]BUILD_SOURCEBRANCHNAME=dev
+2021-08-16T09:56:47.8874552Z ##[debug]BUILD_DEFINITIONNAME=WB-FactoryManager
+2021-08-16T09:56:47.8875138Z ##[debug]BUILD_BUILDNUMBER=20210816.5
+2021-08-16T09:56:47.8875749Z ##[debug]BUILD_BUILDURI=vstfs:///Build/Build/24602
+2021-08-16T09:56:47.8876369Z ##[debug]buildContext=/home/vsts/work/1/s/**
+2021-08-16T09:56:47.8884323Z ##[debug]SYSTEM_DEFAULTWORKINGDIRECTORY=/home/vsts/work/1/s
+2021-08-16T09:56:47.8885113Z ##[debug]Build.Repository.Provider=TfsGit
+2021-08-16T09:56:47.8886160Z ##[debug]Build.Repository.ID=dcac2ee4-c6a2-4c53-99c9-c634eabf67ca
+2021-08-16T09:56:47.8887058Z ##[debug]Build.Repository.Name=WB-FactoryManager
+2021-08-16T09:56:47.8887605Z ##[debug]Build.SourceBranchName=dev
+2021-08-16T09:56:47.8888225Z ##[debug]System.TeamFoundationCollectionUri=https://abbrobotics.visualstudio.com/
+2021-08-16T09:56:47.8888858Z ##[debug]System.TeamProject=DigitalFactory
+2021-08-16T09:56:47.8889909Z ##[debug]set RESOURCE_URIS=https://***/factorymanagerfrontend-dev@sha256:460dd23b1e3486cc649dbdd92d061b077557a391fae0fc7881e2d8fc33b5176f
+2021-08-16T09:56:47.8892114Z ##[debug]Processed: ##vso[task.setvariable variable=RESOURCE_URIS;issecret=false;]https://***/factorymanagerfrontend-dev@sha256:460dd23b1e3486cc649dbdd92d061b077557a391fae0fc7881e2d8fc33b5176f
+2021-08-16T09:56:47.8895164Z ##[debug]SYSTEMVSSCONNECTION auth param ACCESSTOKEN = ***
+2021-08-16T09:56:47.8896015Z ##[debug]requestUrl: https://abbrobotics.visualstudio.com/DigitalFactory/_apis/deployment/imagedetails?api-version=5.0-preview.1
+2021-08-16T09:56:47.8920845Z ##[debug]requestBody: {"imageName":"https://***/factorymanagerfrontend-dev@sha256:460dd23b1e3486cc649dbdd92d061b077557a391fae0fc7881e2d8fc33b5176f","imageUri":"https://***/factorymanagerfrontend-dev@sha256:460dd23b1e3486cc649dbdd92d061b077557a391fae0fc7881e2d8fc33b5176f","hash":"460dd23b1e3486cc649dbdd92d061b077557a391fae0fc7881e2d8fc33b5176f","baseImageName":"NA","distance":31,"imageType":"","mediaType":"","tags":["0.20.5-24602","0.20.5","latest"],"layerInfo":[{"directive":"ADD","arguments":"file:80bf8bd014071345b1c0364eeb0a5e48f3fb0d87f9c31cb990e57caa652b59b8 in / ","createdOn":"2021-02-17T21:19:54Z","size":"5.61MB"},{"directive":"CMD","arguments":"[\"/bin/sh\"]","createdOn":"2021-02-17T21:19:54Z","size":"0B"},{"directive":"LABEL","arguments":"maintainer=NGINX Docker Maintainers <docker-maint@nginx.com>","createdOn":"2021-02-17T23:52:45Z","size":"0B"},{"directive":"ENV","arguments":"NGINX_VERSION=1.19.7","createdOn":"2021-02-17T23:52:46Z","size":"0B"},{"directive":"ENV","arguments":"NJS_VERSION=0.5.1","createdOn":"2021-02-17T23:52:46Z","size":"0B"},{"directive":"ENV","arguments":"PKG_RELEASE=1","createdOn":"2021-02-17T23:52:46Z","size":"0B"},{"directive":"RUN","arguments":"/bin/sh -c set -x     && addgroup -g 101 -S nginx     && adduser -S -D -H -u 101 -h /var/cache/nginx -s /sbin/nologin -G nginx -g nginx nginx     && apkArch=\"$(cat /etc/apk/arch)\"     && nginxPackages=\"         nginx=${NGINX_VERSION}-r${PKG_RELEASE}         nginx-module-xslt=${NGINX_VERSION}-r${PKG_RELEASE}         nginx-module-geoip=${NGINX_VERSION}-r${PKG_RELEASE}         nginx-module-image-filter=${NGINX_VERSION}-r${PKG_RELEASE}         nginx-module-njs=${NGINX_VERSION}.${NJS_VERSION}-r${PKG_RELEASE}     \"     && case \"$apkArch\" in         x86_64)             set -x             && KEY_SHA512=\"e7fa8303923d9b95db37a77ad46c68fd4755ff935d0a534d26eba83de193c76166c68bfe7f65471bf8881004ef4aa6df3e34689c305662750c0172fca5d8552a *stdin\"             && apk add --no-cache --virtual .cert-deps                 openssl             && wget -O /tmp/nginx_signing.rsa.pub https://nginx.org/keys/nginx_signing.rsa.pub             && if [ \"$(openssl rsa -pubin -in /tmp/nginx_signing.rsa.pub -text -noout | openssl sha512 -r)\" = \"$KEY_SHA512\" ]; then                 echo \"key verification succeeded!\";                 mv /tmp/nginx_signing.rsa.pub /etc/apk/keys/;             else                 echo \"key verification failed!\";                 exit 1;             fi             && apk del .cert-deps             && apk add -X \"https://nginx.org/packages/mainline/alpine/v$(egrep -o '^[0-9]+\\.[0-9]+' /etc/alpine-release)/main\" --no-cache $nginxPackages             ;;         *)             set -x             && tempDir=\"$(mktemp -d)\"             && chown nobody:nobody $tempDir             && apk add --no-cache --virtual .build-deps                 gcc                 libc-dev                 make                 openssl-dev                 pcre-dev                 zlib-dev                 linux-headers                 libxslt-dev                 gd-dev                 geoip-dev                 perl-dev                 libedit-dev                 mercurial                 bash                 alpine-sdk                 findutils             && su nobody -s /bin/sh -c \"                 export HOME=${tempDir}                 && cd ${tempDir}                 && hg clone https://hg.nginx.org/pkg-oss                 && cd pkg-oss                 && hg up ${NGINX_VERSION}-${PKG_RELEASE}                 && cd alpine                 && make all                 && apk index -o ${tempDir}/packages/alpine/${apkArch}/APKINDEX.tar.gz ${tempDir}/packages/alpine/${apkArch}/*.apk                 && abuild-sign -k ${tempDir}/.abuild/abuild-key.rsa ${tempDir}/packages/alpine/${apkArch}/APKINDEX.tar.gz                 \"             && cp ${tempDir}/.abuild/abuild-key.rsa.pub /etc/apk/keys/             && apk del .build-deps             && apk add -X ${tempDir}/packages/alpine/ --no-cache $nginxPackages             ;;     esac     && if [ -n \"$tempDir\" ]; then rm -rf \"$tempDir\"; fi     && if [ -n \"/etc/apk/keys/abuild-key.rsa.pub\" ]; then rm -f /etc/apk/keys/abuild-key.rsa.pub; fi     && if [ -n \"/etc/apk/keys/nginx_signing.rsa.pub\" ]; then rm -f /etc/apk/keys/nginx_signing.rsa.pub; fi     && apk add --no-cache --virtual .gettext gettext     && mv /usr/bin/envsubst /tmp/         && runDeps=\"$(         scanelf --needed --nobanner /tmp/envsubst             | awk '{ gsub(/,/, \"\\nso:\", $2); print \"so:\" $2 }'             | sort -u             | xargs -r apk info --installed             | sort -u     )\"     && apk add --no-cache $runDeps     && apk del .gettext     && mv /tmp/envsubst /usr/local/bin/     && apk add --no-cache tzdata     && apk add --no-cache curl ca-certificates     && ln -sf /dev/stdout /var/log/nginx/access.log     && ln -sf /dev/stderr /var/log/nginx/error.log     && mkdir /docker-entrypoint.d","createdOn":"2021-02-17T23:52:54Z","size":"16.9MB"},{"directive":"COPY","arguments":"file:65504f71f5855ca017fb64d502ce873a31b2e0decd75297a8fb0a287f97acf92 in / ","createdOn":"2021-02-17T23:52:55Z","size":"1.2kB"},{"directive":"COPY","arguments":"file:0b866ff3fc1ef5b03c4e6c8c513ae014f691fb05d530257dfffd07035c1b75da in /docker-entrypoint.d ","createdOn":"2021-02-17T23:52:55Z","size":"1.96kB"},{"directive":"COPY","arguments":"file:0fd5fca330dcd6a7de297435e32af634f29f7132ed0550d342cad9fd20158258 in /docker-entrypoint.d ","createdOn":"2021-02-17T23:52:56Z","size":"1.04kB"},{"directive":"COPY","arguments":"file:c7f3907578be6851a0db02acac9e97c4d7eabda5f22a5a1ffe21139197dceb7a in /docker-entrypoint.d ","createdOn":"2021-02-17T23:52:56Z","size":"4.62kB"},{"directive":"ENTRYPOINT","arguments":"[\"/docker-entrypoint.sh\"]","createdOn":"2021-02-17T23:52:56Z","size":"0B"},{"directive":"EXPOSE","arguments":"80","createdOn":"2021-02-17T23:52:57Z","size":"0B"},{"directive":"STOPSIGNAL","arguments":"SIGQUIT","createdOn":"2021-02-17T23:52:57Z","size":"0B"},{"directive":"CMD","arguments":"[\"nginx\" \"-g\" \"daemon off;\"]","createdOn":"2021-02-17T23:52:57Z","size":"0B"},{"directive":"RUN","arguments":"RUN /bin/sh -c apk update # buildkit","createdOn":"2021-08-16T09:53:19Z","size":"1.99MB"},{"directive":"RUN","arguments":"RUN /bin/sh -c apk add bash # buildkit","createdOn":"2021-08-16T09:53:20Z","size":"1.65MB"},{"directive":"RUN","arguments":"RUN /bin/sh -c apk add curl # buildkit","createdOn":"2021-08-16T09:53:21Z","size":"125kB"},{"directive":"RUN","arguments":"RUN /bin/sh -c apk add syslog-ng # buildkit","createdOn":"2021-08-16T09:53:22Z","size":"6.65MB"},{"directive":"RUN","arguments":"RUN /bin/sh -c apk add jq # buildkit","createdOn":"2021-08-16T09:53:22Z","size":"1.25MB"},{"directive":"RUN","arguments":"RUN /bin/sh -c apk add nodejs npm # buildkit","createdOn":"2021-08-16T09:53:24Z","size":"54.5MB"},{"directive":"RUN","arguments":"RUN /bin/sh -c apk add yarn # buildkit","createdOn":"2021-08-16T09:53:25Z","size":"5.67MB"},{"directive":"RUN","arguments":"WORKDIR /usr/app/src","createdOn":"2021-08-16T09:53:25Z","size":"0B"},{"directive":"RUN","arguments":"COPY scripts/entry_script.sh /usr/local/bin/entry_script.sh # buildkit","createdOn":"2021-08-16T09:53:25Z","size":"111B"},{"directive":"RUN","arguments":"COPY packages/initiator/* /usr/app/src/ # buildkit","createdOn":"2021-08-16T09:53:25Z","size":"30.4kB"},{"directive":"RUN","arguments":"COPY /usr/app/src/.npmrc /usr/app/src # buildkit","createdOn":"2021-08-16T09:56:08Z","size":"1.01kB"},{"directive":"RUN","arguments":"RUN /bin/sh -c yarn # buildkit","createdOn":"2021-08-16T09:56:31Z","size":"73.2MB"},{"directive":"RUN","arguments":"RUN /bin/sh -c chmod 755 /usr/local/bin/entry_script.sh # buildkit","createdOn":"2021-08-16T09:56:31Z","size":"111B"},{"directive":"RUN","arguments":"COPY packages/frontend/nginx.config /etc/nginx/conf.d/default.conf # buildkit","createdOn":"2021-08-16T09:56:31Z","size":"603B"},{"directive":"RUN","arguments":"COPY /usr/app/src/packages/frontend/build /usr/share/nginx/html # buildkit","createdOn":"2021-08-16T09:56:31Z","size":"14.8MB"},{"directive":"RUN","arguments":"CMD [\"/usr/local/bin/entry_script.sh\"]","createdOn":"2021-08-16T09:56:31Z","size":"0B"}],"runId":24602,"pipelineVersion":"20210816.5","pipelineName":"WB-FactoryManager","pipelineId":"602","jobName":"Docker build & push","imageSize":"191241539.24B","creator":"fernando.ochoa@alten.es","logsUri":"https://abbrobotics.visualstudio.com/DigitalFactory/_build/results?buildId=24602","artifactStorageSourceUri":"https://abbrobotics.visualstudio.com/DigitalFactory/_build?definitionId=602","contextUrl":"https://abbrobotics.visualstudio.com/DigitalFactory/_git/WB-FactoryManager","revisionId":"61d5272d260933f736a27fd1506e5f6688f2205c","buildOptions":{"dockerFilePath":"","labels":"com.visualstudio.abbrobotics.image.system.teamfoundationcollectionuri=https://abbrobotics.visualstudio.com/, com.visualstudio.abbrobotics.image.system.teamproject=DigitalFactory, com.visualstudio.abbrobotics.image.build.repository.name=WB-FactoryManager, com.visualstudio.abbrobotics.image.build.sourceversion=61d5272d260933f736a27fd1506e5f6688f2205c, com.visualstudio.abbrobotics.image.build.repository.uri=https://abbrobotics.visualstudio.com/DigitalFactory/_git/WB-FactoryManager, com.visualstudio.abbrobotics.image.build.sourcebranchname=dev, com.visualstudio.abbrobotics.image.build.definitionname=WB-FactoryManager, com.visualstudio.abbrobotics.image.build.buildnumber=20210816.5, com.visualstudio.abbrobotics.image.build.builduri=vstfs:///Build/Build/24602","tags":"0.20.5-24602, 0.20.5, latest","context":"."},"repositoryTypeName":"TfsGit","repositoryId":"dcac2ee4-c6a2-4c53-99c9-c634eabf67ca","repositoryName":"WB-FactoryManager","branch":"dev","imageFingerPrint":{"v1Name":"0d0d8d387fb5486fc6754ca26e5c2081c229183565a7a2846379a3abacbfcbd0","v2Blobs":["cb381a32b2296e4eb5af3f84092a2e6685e88adbc54ee0768a1a1010ce6376c7","44f7d9f20b3a753e5fe61db13bc895701462d6c71feeba54bb57da63aebf173a","14be20d881b0567fa589a7b63528f73d02f7d9bcec62b396b7893a5be2b705ef","df9eec7ebcd63f97c3d967b1b0d9235d1bbbae957dbc4e870191815898a93840","787a70c9c5bd040d66b3688ba1ee46e1ea96b224b0030624ff2376717840abd5","d984e64ffab6aaab0f5ef2b8ed580dea5f16ba7a1ec9d889badb7a3fa4bbcef8","58fba0ace534a463be76d1f8caa924dd8ef187d8f9381346aa15d4a9ef55f781","244d15df7f6a219428020663e2d26c2ab03bde2e4144eed282f3a521f90ebb59","d7add6a58d0813f6785650c01e56958d395436822f7f5a7e53066843080d5e6e","5936fd903200643488925894070780caa1895d03b8ccedad3db6ea68435ecc63","910f8e31fdb4e5132733c81e931e8b7b0017aaf0b587549e5242ab8311f9d559","5110a5397aa9a1579845f314638633656113148672327217be174ec5e56d619c","63c7daf07eecfcfeb8355ebf9b60e1245bc03fb2dcbc46d972bff7afdbb66eee","383bdf11a8cf14cfcb9a52ad19b1e11ab27679336523e3c42425bd1fbe91057f","c926e11367c5053358d19d17d31d2dc241b8c91e490de9c0d0fd8f23f162f798","93b44b54c3bd2bf1efca912cef124e2e07950c189796301751de623f3ad26bf3","50ee91d2425b86ec42d70e3c081fb198eb67bc84e9fa537e9d69b6877fe15294","5016feb4b55c3fd778e28e0695a5eb0565f7075a98b6993d51792e465f167fca","836f02253991cb6c6d965714bd063779bcb50298b5e39844dd2b9c620579b915","0167f6a61f4a1a4e085c7eb5ddee5b213efd924f5e4e9aa96a69b0aaa4ea6a80","faff4125222d08b4b368e5571757e7faec418b3fe2b2e83dd0d19c89b46e91b0"],"v2Name":"d1703a4c075dc20a32dbcfb442ac70387a8c0b41948b08f2c88063becc45c890"}}
+2021-08-16T09:56:47.8948043Z ##[debug]accessToken: ***
+2021-08-16T09:56:47.8948701Z ##[debug]Sending request for pushing image to Image meta data store
+2021-08-16T09:56:47.8949619Z ##[debug][POST]https://abbrobotics.visualstudio.com/DigitalFactory/_apis/deployment/imagedetails?api-version=5.0-preview.1
+2021-08-16T09:56:47.9256445Z ##[debug]ImageDetailsApiResponse: {"statusCode":204,"statusMessage":"No Content","headers":{"cache-control":"no-cache, no-store, must-revalidate","pragma":"no-cache","expires":"-1","p3p":"CP=\"CAO DSP COR ADMa DEV CONo TELo CUR PSA PSD TAI IVDo OUR SAMi BUS DEM NAV STA UNI COM INT PHY ONL FIN PUR LOC CNT\"","set-cookie":["VstsSession=%257B%2522PersistentSessionId%2522%253A%252249935ebe-4e22-4fbf-b8d9-5f495e9d3853%2522%252C%2522PendingAuthenticationSessionId%2522%253A%252200000000-0000-0000-0000-000000000000%2522%252C%2522CurrentAuthenticationSessionId%2522%253A%252200000000-0000-0000-0000-000000000000%2522%252C%2522SignInState%2522%253A%257B%257D%257D;SameSite=None; domain=.visualstudio.com; expires=Tue, 16-Aug-2022 09:56:47 GMT; path=/; secure; HttpOnly"],"x-tfs-processid":"2065895c-67d9-488c-98bf-76c2d8001eb6","strict-transport-security":"max-age=31536000; includeSubDomains","activityid":"3984474b-50bf-4764-836a-647c01502388","x-tfs-session":"3984474b-50bf-4764-836a-647c01502388","x-vss-e2eid":"3984474b-50bf-4764-836a-647c01502388","x-vss-senderdeploymentid":"fa85298d-d7df-eba2-6cd2-9d3c9247a546","x-vss-userdata":"cafb760e-ec79-4cd3-ad3d-f2f6679405ef:f642d5db-33b5-4397-b7cf-53cd841ba4c3","x-frame-options":"SAMEORIGIN","request-context":"appId=cid-v1:a32646d4-6542-4ff0-b4b1-416ef6b2d466","access-control-expose-headers":"Request-Context","x-content-type-options":"nosniff","x-cache":"CONFIG_NOCACHE","x-msedge-ref":"Ref A: 5E006CD7EED7425E9D687F24AEDBC305 Ref B: PRAEDGE0915 Ref C: 2021-08-16T09:56:47Z","date":"Mon, 16 Aug 2021 09:56:47 GMT","connection":"close"}}
+2021-08-16T09:56:47.9299431Z ##[section]Finishing: Push Docker Image

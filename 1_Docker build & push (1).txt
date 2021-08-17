@@ -1,0 +1,48 @@
+2021-08-16T09:52:58.6946584Z ##[section]Starting: Prepare job Job1
+2021-08-16T09:52:58.7096517Z Variables:
+2021-08-16T09:52:58.7096517Z   NPM_NAME:
+2021-08-16T09:52:58.7096517Z     Parsing expression: <stageDependencies.PREBUILD.Vars.outputs['Npm.NPM_NAME']>
+2021-08-16T09:52:58.7096517Z     Evaluating: stageDependencies['PREBUILD']['Vars']['outputs']['Npm.NPM_NAME']
+2021-08-16T09:52:58.7096517Z     Result: 'FactoryManagerFrontend'
+2021-08-16T09:52:58.7096517Z   NPM_VERSION:
+2021-08-16T09:52:58.7096517Z     Parsing expression: <stageDependencies.PREBUILD.Vars.outputs['Npm.NPM_VERSION']>
+2021-08-16T09:52:58.7096517Z     Evaluating: stageDependencies['PREBUILD']['Vars']['outputs']['Npm.NPM_VERSION']
+2021-08-16T09:52:58.7096517Z     Result: '0.20.5'
+2021-08-16T09:52:58.7096517Z   IMAGE_ENV:
+2021-08-16T09:52:58.7096517Z     Parsing expression: <stageDependencies.PREBUILD.Vars.outputs['Git.IMAGE_ENV']>
+2021-08-16T09:52:58.7096517Z     Evaluating: stageDependencies['PREBUILD']['Vars']['outputs']['Git.IMAGE_ENV']
+2021-08-16T09:52:58.7096517Z     Result: '-dev'
+2021-08-16T09:52:58.7096517Z   COMPONENT_ENV:
+2021-08-16T09:52:58.7096517Z     Parsing expression: <stageDependencies.PREBUILD.Vars.outputs['Git.COMPONENT_ENV']>
+2021-08-16T09:52:58.7096517Z     Evaluating: stageDependencies['PREBUILD']['Vars']['outputs']['Git.COMPONENT_ENV']
+2021-08-16T09:52:58.7096517Z     Result: 'dev'
+2021-08-16T09:52:58.7096517Z ContinueOnError: False
+2021-08-16T09:52:58.7096517Z TimeoutInMinutes: 60
+2021-08-16T09:52:58.7096517Z CancelTimeoutInMinutes: 5
+2021-08-16T09:52:58.7096517Z Expand:
+2021-08-16T09:52:58.7096517Z   MaxConcurrency: 0
+2021-08-16T09:52:58.7746384Z   ########## System Pipeline Decorator(s) ##########
+
+2021-08-16T09:52:58.7746384Z   Begin evaluating template 'system-pre-steps.yml'
+Evaluating: eq('true', variables['system.debugContext'])
+Expanded: eq('true', Null)
+Result: False
+Evaluating: resources['repositories']['self']
+Expanded: Object
+Result: True
+Evaluating: not(containsValue(job['steps']['*']['task']['id'], '6d15af64-176c-496d-b583-fd2ae21d4df4'))
+Expanded: not(containsValue(Object, '6d15af64-176c-496d-b583-fd2ae21d4df4'))
+Result: True
+Evaluating: resources['repositories']['self']['checkoutOptions']
+Result: Object
+Finished evaluating template 'system-pre-steps.yml'
+********************************************************************************
+Template and static variable resolution complete. Final runtime YAML document:
+steps:
+- task: 6d15af64-176c-496d-b583-fd2ae21d4df4@1
+  inputs:
+    repository: self
+
+
+2021-08-16T09:52:58.7746384Z   MaxConcurrency: 0
+2021-08-16T09:52:58.7796610Z ##[section]Finishing: Prepare job Job1
